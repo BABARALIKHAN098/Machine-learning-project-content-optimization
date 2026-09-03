@@ -1,0 +1,105 @@
+data:
+  csv_path: data/raw/dataset.csv
+  delimiter: ","
+  encoding: utf-8
+  target_column: trend_direction
+  task_type: classification
+  required_columns:
+    - content_id
+    - client_id
+    - search_volume
+    - competition
+    - competition_level
+    - cpc
+    - content_type
+    - main_intent
+    - word_count
+    - char_count
+    - provider_used
+    - model_used
+    - impressions_90d
+    - clicks_90d
+    - pageviews_90d
+    - sessions_90d
+    - users_90d
+    - engaged_sessions_90d
+    - ai_sessions_90d
+    - scroll_events_90d
+    - days_with_impressions
+    - days_with_sessions
+    - impressions_last_30d
+    - clicks_last_30d
+    - sessions_last_30d
+    - impressions_prev_30d
+    - clicks_prev_30d
+    - sessions_prev_30d
+    - content_age_days
+    - age_tier
+    - age_tier_order
+    - days_since_last_update
+    - freshness_tier
+    - word_count_tier
+    - char_count_tier
+    - ctr
+    - avg_position
+    - engagement_rate
+    - scroll_rate
+    - ai_traffic_pct
+    - impression_tier
+    - position_tier
+    - trend_direction
+    - trend_pct
+  id_columns:
+    - content_id
+    - client_id
+  drop_columns:
+    # Outcome-window values or derivatives that can reveal trend_direction.
+    - impressions_90d
+    - clicks_90d
+    - pageviews_90d
+    - sessions_90d
+    - users_90d
+    - engaged_sessions_90d
+    - ai_sessions_90d
+    - scroll_events_90d
+    - days_with_impressions
+    - days_with_sessions
+    - impressions_last_30d
+    - clicks_last_30d
+    - sessions_last_30d
+    - ctr
+    - avg_position
+    - engagement_rate
+    - scroll_rate
+    - ai_traffic_pct
+    - impression_tier
+    - position_tier
+    - trend_pct
+  sensitive_columns:
+    - client_id
+  numeric_columns:
+    - search_volume
+    - competition
+    - cpc
+    - word_count
+    - char_count
+    - impressions_prev_30d
+    - clicks_prev_30d
+    - sessions_prev_30d
+    - content_age_days
+    - age_tier_order
+    - days_since_last_update
+  categorical_columns:
+    - competition_level
+    - content_type
+    - main_intent
+    - provider_used
+    - model_used
+    - age_tier
+    - freshness_tier
+    - word_count_tier
+    - char_count_tier
+  missing_value_tokens: ["", "NA", "N/A", "null", "None", "?"]
+  maximum_missing_ratio: 0.60
+  high_cardinality_threshold: 100
+  random_seed: 42

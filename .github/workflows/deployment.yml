@@ -1,0 +1,10 @@
+name: deployment-placeholder
+
+on:
+  workflow_dispatch:
+
+jobs:
+  explain:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Define the deployment target under SPEC-10 before enabling deployment."

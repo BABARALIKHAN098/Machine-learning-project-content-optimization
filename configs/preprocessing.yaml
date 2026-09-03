@@ -1,0 +1,6 @@
+preprocessing:
+  numeric_imputation: median
+  categorical_imputation: __MISSING__
+  categorical_encoding: one_hot
+  scale_numeric: true
+  handle_unknown_categories: ignore

@@ -1,0 +1,6 @@
+training:
+  random_seed: 42
+  test_size: 0.20
+  validation_size: 0.20
+  primary_metric: TBD
+  baseline_model: TBD
