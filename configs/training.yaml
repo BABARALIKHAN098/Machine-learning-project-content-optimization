@@ -1,6 +1,36 @@
 training:
+  split_contract_version: "1.0"
+  split_algorithm_version: group-shuffle-search-v2
   random_seed: 42
   test_size: 0.20
   validation_size: 0.20
-  primary_metric: TBD
-  baseline_model: TBD
+  primary_metric: macro_f1
+  minimum_macro_f1: 0.45
+  down_recall_guardrail: 0.50
+  group_column: client_id
+  row_key: content_id
+  search_attempts: 128
+  row_ratio_tolerance: 0.05
+  class_ratio_tolerance: 0.05
+  split_objective_weights:
+    size: 1.0
+    class: 1.0
+  split_alias_context: content-trend-split-v1
+  baselines: [most_frequent, stratified]
+  candidates:
+    logistic_regression:
+      C: 1.0
+      max_iter: 1000
+      class_weight: balanced
+    random_forest:
+      n_estimators: 200
+      min_samples_leaf: 2
+      max_features: sqrt
+      class_weight: balanced_subsample
+      n_jobs: -1
+  artifact_path: artifacts/models/content_trend_pipeline.joblib
+  metadata_path: artifacts/metadata/model_metadata.json
+  metrics_path: reports/metrics/model_metrics.json
+  split_manifest_path: artifacts/metadata/split_manifest.json
+  split_assignments_path: artifacts/metadata/split_assignments.csv
+  batch_runtime_limit_seconds: 30

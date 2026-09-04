@@ -1,0 +1,20 @@
+rule_id,severity,checked_rows,violation_count,violation_percentage,guidance
+ANOM-DUPLICATE-ROWS,warning,30000,0,0.0,Review duplicate records; do not delete automatically.
+ANOM-NONNEGATIVE-SEARCH_VOLUME,error,27532,0,0.0,Correct or quarantine values below zero.
+ANOM-NONNEGATIVE-COMPETITION,error,27532,0,0.0,Correct or quarantine values below zero.
+ANOM-NONNEGATIVE-CPC,error,27532,0,0.0,Correct or quarantine values below zero.
+ANOM-NONNEGATIVE-WORD_COUNT,error,22301,0,0.0,Correct or quarantine values below zero.
+ANOM-NONNEGATIVE-CHAR_COUNT,error,22301,0,0.0,Correct or quarantine values below zero.
+ANOM-NONNEGATIVE-IMPRESSIONS_PREV_30D,error,30000,0,0.0,Correct or quarantine values below zero.
+ANOM-NONNEGATIVE-CLICKS_PREV_30D,error,30000,0,0.0,Correct or quarantine values below zero.
+ANOM-NONNEGATIVE-SESSIONS_PREV_30D,error,30000,0,0.0,Correct or quarantine values below zero.
+ANOM-NONNEGATIVE-CONTENT_AGE_DAYS,error,30000,0,0.0,Correct or quarantine values below zero.
+ANOM-NONNEGATIVE-AGE_TIER_ORDER,error,30000,0,0.0,Correct or quarantine values below zero.
+ANOM-NONNEGATIVE-DAYS_SINCE_LAST_UPDATE,error,30000,0,0.0,Correct or quarantine values below zero.
+ANOM-RANGE-CTR,warning,30000,1689,5.63,"Confirm that ctr uses the documented [0.0, 1.0] scale."
+ANOM-RANGE-ENGAGEMENT_RATE,warning,30000,7852,26.1733,"Confirm that engagement_rate uses the documented [0.0, 1.0] scale."
+ANOM-RANGE-SCROLL_RATE,warning,29875,18481,61.8611,"Confirm that scroll_rate uses the documented [0.0, 1.0] scale."
+ANOM-RANGE-AI_TRAFFIC_PCT,warning,30000,23,0.0767,"Confirm that ai_traffic_pct uses the documented [0.0, 100.0] scale."
+ANOM-CLICKS-GT-IMPRESSIONS-PREV_30D,error,30000,0,0.0,Verify matched-window click and impression aggregation.
+ANOM-CLICKS-GT-IMPRESSIONS-LAST_30D,error,30000,0,0.0,Verify matched-window click and impression aggregation.
+ANOM-CLICKS-GT-IMPRESSIONS-90D,error,30000,0,0.0,Verify matched-window click and impression aggregation.

@@ -1,7 +1,9 @@
 # SPEC-01 — CSV Ingestion, Review, and Preprocessing
 
-**Status:** Draft  
+**Status:** Implemented — pending stakeholder approval of open policy decisions
 **Owner:** Babar Ali Khan
+
+**Implementation plan:** `plan/SPEC-01-data-ingestion-preprocessing/implementation-plan.md`
 
 ## Purpose
 
@@ -35,9 +37,28 @@ assign every column a role, and construct an unfitted preprocessing pipeline.
 
 ## Acceptance Criteria
 
-- [ ] The original raw CSV remains unchanged.
-- [ ] Dataset fingerprint and profile are reproducible.
-- [ ] Every column has an approved role.
-- [ ] No row or column is silently removed.
-- [ ] Target leakage and preprocessing leakage are prevented.
-- [ ] All mandatory tests pass.
+- [x] The original raw CSV remains unchanged.
+- [x] Dataset fingerprint and profile are reproducible.
+- [x] Every configured column has an explicit role.
+- [x] No row or column is silently removed.
+- [x] Target leakage and preprocessing leakage are prevented.
+- [x] All mandatory automated tests pass.
+
+## Implementation Notes
+
+- Profiles include schema/feature-contract versions, column roles, model eligibility,
+  warnings, and a source SHA-256 that is rechecked after review.
+- Unknown source columns fail role validation by default.
+- Target, identifiers, and dropped fields are separated from features through one central
+  preparation contract.
+- Numeric and categorical transformations are configuration-driven. Learned preprocessing
+  state is fitted on the training partition only; validation, test, and inference use
+  `transform`.
+- Ingestion and preparation never rewrite the raw CSV or silently remove rows.
+
+## Open Policy Decisions
+
+- Confirm missing targets remain a hard failure rather than entering a quarantine flow.
+- Confirm duplicate full rows remain report-only while duplicate `content_id` is fatal.
+- Confirm expected row and column counts remain hard constraints for this dataset version.
+- Confirm `provider_used` remains excluded because its current missingness exceeds 60%.

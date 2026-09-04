@@ -1,7 +1,8 @@
 # SPEC-00 — Problem Definition
 
-**Status:** Proposed  
+**Status:** Approved for implementation
 **Owner:** Babar Ali Khan
+**Approved:** 2026-09-03 (approval inferred from instruction to implement the plan)
 
 ## Problem
 
@@ -43,5 +44,5 @@
 - [x] Prediction timing is defined.
 - [x] Success is measurable.
 - [x] Intended users, decision, risks, and limitations are documented.
-- [ ] Stakeholder approves the proposed target, prediction timing, and minimum metric.
+- [x] Stakeholder approves the proposed target, prediction timing, and minimum metric.
 - [ ] A leakage-safe, client-grouped baseline confirms feasibility.

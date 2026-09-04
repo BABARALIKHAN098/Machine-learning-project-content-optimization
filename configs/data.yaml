@@ -1,9 +1,15 @@
 data:
+  schema_version: "1.0"
   csv_path: data/raw/dataset.csv
   delimiter: ","
   encoding: utf-8
   target_column: trend_direction
   task_type: classification
+  group_column: client_id
+  allowed_target_values: [down, stable, up, new, flat]
+  expected_row_count: 30000
+  expected_column_count: 44
+  unique_columns: [content_id]
   required_columns:
     - content_id
     - client_id
@@ -75,6 +81,7 @@ data:
     - impression_tier
     - position_tier
     - trend_pct
+    - provider_used
   sensitive_columns:
     - client_id
   numeric_columns:
@@ -93,7 +100,6 @@ data:
     - competition_level
     - content_type
     - main_intent
-    - provider_used
     - model_used
     - age_tier
     - freshness_tier
@@ -103,3 +109,16 @@ data:
   maximum_missing_ratio: 0.60
   high_cardinality_threshold: 100
   random_seed: 42
+  allow_extra_columns: false
+  non_negative_columns:
+    - search_volume
+    - competition
+    - cpc
+    - word_count
+    - char_count
+    - impressions_prev_30d
+    - clicks_prev_30d
+    - sessions_prev_30d
+    - content_age_days
+    - age_tier_order
+    - days_since_last_update

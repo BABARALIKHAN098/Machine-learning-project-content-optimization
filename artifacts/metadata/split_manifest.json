@@ -1,0 +1,174 @@
+{
+  "algorithm_version": "group-shuffle-search-v2",
+  "invariants": {
+    "class_coverage": true,
+    "group_complete": true,
+    "group_disjoint": true,
+    "row_complete": true,
+    "row_disjoint": true
+  },
+  "limitations": [
+    "Client-grouped snapshot validation does not measure future-period performance."
+  ],
+  "manifest_schema_version": "1.0",
+  "parameters": {
+    "class_ratio_tolerance": 0.05,
+    "group_column": "client_id",
+    "objective_weights": {
+      "class": 1.0,
+      "size": 1.0
+    },
+    "random_seed": 42,
+    "row_key": "content_id",
+    "row_ratio_tolerance": 0.05,
+    "search_attempts": 128,
+    "target_column": "trend_direction",
+    "test_size": 0.2,
+    "validation_size": 0.2
+  },
+  "partitions": {
+    "test": {
+      "actual_row_ratio": 0.21576667,
+      "assignment_fingerprint": "b1f23de95a73fc722c442f25585c7a2b55d4e87089672ecd20db0ab0647039e0",
+      "class_distribution": {
+        "down": 3480,
+        "flat": 233,
+        "new": 446,
+        "stable": 1352,
+        "up": 962
+      },
+      "class_proportions": {
+        "down": 0.5376178,
+        "flat": 0.03599567,
+        "new": 0.06890159,
+        "stable": 0.2088676,
+        "up": 0.14861733
+      },
+      "class_ratio_deviations": {
+        "down": 0.00444887,
+        "flat": 0.00240433,
+        "new": 0.00563174,
+        "stable": 0.01013427,
+        "up": 0.00235066
+      },
+      "group_aliases": [
+        "1568b3d35c3585ad",
+        "3f2915ca4dde97af",
+        "4667b55bf8a53e87",
+        "474bfa3229300c6b",
+        "90f801a08ddd631d",
+        "bc389c2007f09dc0",
+        "d7c3902519d72826"
+      ],
+      "group_count": 7,
+      "intended_row_ratio": 0.2,
+      "row_count": 6473,
+      "row_ratio_deviation": 0.01576667
+    },
+    "train": {
+      "actual_row_ratio": 0.589,
+      "assignment_fingerprint": "ffe3b5b8dcd8ad879832c3dc60d84e040716ece63798cbf36a64dda90cd8cbbf",
+      "class_distribution": {
+        "down": 9738,
+        "flat": 650,
+        "new": 1380,
+        "stable": 3345,
+        "up": 2557
+      },
+      "class_proportions": {
+        "down": 0.55110357,
+        "flat": 0.03678551,
+        "new": 0.07809847,
+        "stable": 0.1893039,
+        "up": 0.14470855
+      },
+      "class_ratio_deviations": {
+        "down": 0.0090369,
+        "flat": 0.00161449,
+        "new": 0.00356514,
+        "stable": 0.00942943,
+        "up": 0.00155812
+      },
+      "group_aliases": [
+        "085e85ee5bb604b3",
+        "0d54a6b12466fc10",
+        "219b56b648b107cc",
+        "2432589557cc7f07",
+        "38c88fc3c0298da2",
+        "688c5eb72b6d4589",
+        "6f990622c59e7816",
+        "70f4ae00a9bd4285",
+        "741d946e9068f698",
+        "75088aa41573e523",
+        "8c7714ee16d60eec",
+        "9ed2137859ad231e",
+        "a675422e0fbc360c",
+        "ae8431eae65628af",
+        "b3156699a59927bd",
+        "bd11549473548298",
+        "c94dc9c4a2f9ce24",
+        "e23f984aba784f7d"
+      ],
+      "group_count": 18,
+      "intended_row_ratio": 0.6000000000000001,
+      "row_count": 17670,
+      "row_ratio_deviation": 0.011
+    },
+    "validation": {
+      "actual_row_ratio": 0.19523333,
+      "assignment_fingerprint": "67fd10b8572781a28e0edf503b0c2fff05e934f9d871a56b3958995ef29046da",
+      "class_distribution": {
+        "down": 3044,
+        "flat": 269,
+        "new": 410,
+        "stable": 1265,
+        "up": 869
+      },
+      "class_proportions": {
+        "down": 0.51971999,
+        "flat": 0.04592795,
+        "new": 0.07000171,
+        "stable": 0.21598088,
+        "up": 0.14836947
+      },
+      "class_ratio_deviations": {
+        "down": 0.02234668,
+        "flat": 0.00752795,
+        "new": 0.00453162,
+        "stable": 0.01724755,
+        "up": 0.0021028
+      },
+      "group_aliases": [
+        "5a86e802f81b16e8",
+        "6aef4185770adbde",
+        "94e7bf069bb5d575",
+        "9ecd375f99f44a5d",
+        "aaac3567ad8f7ffd",
+        "ef46afc2db406154",
+        "f764afec82aa2c94"
+      ],
+      "group_count": 7,
+      "intended_row_ratio": 0.2,
+      "row_count": 5857,
+      "row_ratio_deviation": 0.00476667
+    }
+  },
+  "search_scores": {
+    "test": 0.04760652,
+    "validation": 0.08001266
+  },
+  "source": {
+    "data_schema_version": "1.0",
+    "group_count": 32,
+    "row_count": 30000,
+    "source_sha256": "c43bdac4eccfa17fcd8a33974fe36f2c998c03a3ae3af8d80cf712abab5d6396",
+    "target_labels": [
+      "down",
+      "stable",
+      "up",
+      "new",
+      "flat"
+    ]
+  },
+  "split_contract_version": "1.0"
+}

@@ -1,0 +1,45 @@
+column,role,available_at_cutoff,leakage_category,model_eligible,rationale,approval_status
+content_id,identifier,yes,identifier,False,Join/group use only.,review
+client_id,identifier,yes,identifier,False,Join/group use only.,review
+search_volume,feature,yes,candidate_feature,True,Approved cutoff-safe candidate in the current contract.,approved
+competition,feature,yes,candidate_feature,True,Approved cutoff-safe candidate in the current contract.,approved
+competition_level,feature,yes,candidate_feature,True,Approved cutoff-safe candidate in the current contract.,approved
+cpc,feature,yes,candidate_feature,True,Approved cutoff-safe candidate in the current contract.,approved
+content_type,feature,yes,candidate_feature,True,Approved cutoff-safe candidate in the current contract.,approved
+main_intent,feature,yes,candidate_feature,True,Approved cutoff-safe candidate in the current contract.,approved
+word_count,feature,yes,candidate_feature,True,Approved cutoff-safe candidate in the current contract.,approved
+char_count,feature,yes,candidate_feature,True,Approved cutoff-safe candidate in the current contract.,approved
+provider_used,dropped,unknown,excluded,False,Excluded by the approved data contract.,approved
+model_used,feature,yes,candidate_feature,True,Approved cutoff-safe candidate in the current contract.,approved
+impressions_90d,dropped,no,outcome_window,False,Outcome or potentially overlapping aggregation window.,approved
+clicks_90d,dropped,no,outcome_window,False,Outcome or potentially overlapping aggregation window.,approved
+pageviews_90d,dropped,no,outcome_window,False,Outcome or potentially overlapping aggregation window.,approved
+sessions_90d,dropped,no,outcome_window,False,Outcome or potentially overlapping aggregation window.,approved
+users_90d,dropped,no,outcome_window,False,Outcome or potentially overlapping aggregation window.,approved
+engaged_sessions_90d,dropped,no,outcome_window,False,Outcome or potentially overlapping aggregation window.,approved
+ai_sessions_90d,dropped,no,outcome_window,False,Outcome or potentially overlapping aggregation window.,approved
+scroll_events_90d,dropped,no,outcome_window,False,Outcome or potentially overlapping aggregation window.,approved
+days_with_impressions,dropped,unknown,excluded,False,Excluded by the approved data contract.,approved
+days_with_sessions,dropped,unknown,excluded,False,Excluded by the approved data contract.,approved
+impressions_last_30d,dropped,no,outcome_window,False,Outcome or potentially overlapping aggregation window.,approved
+clicks_last_30d,dropped,no,outcome_window,False,Outcome or potentially overlapping aggregation window.,approved
+sessions_last_30d,dropped,no,outcome_window,False,Outcome or potentially overlapping aggregation window.,approved
+impressions_prev_30d,feature,yes,candidate_feature,True,Approved cutoff-safe candidate in the current contract.,approved
+clicks_prev_30d,feature,yes,candidate_feature,True,Approved cutoff-safe candidate in the current contract.,approved
+sessions_prev_30d,feature,yes,candidate_feature,True,Approved cutoff-safe candidate in the current contract.,approved
+content_age_days,feature,yes,candidate_feature,True,Approved cutoff-safe candidate in the current contract.,approved
+age_tier,feature,yes,candidate_feature,True,Approved cutoff-safe candidate in the current contract.,approved
+age_tier_order,feature,yes,candidate_feature,True,Approved cutoff-safe candidate in the current contract.,approved
+days_since_last_update,feature,yes,candidate_feature,True,Approved cutoff-safe candidate in the current contract.,approved
+freshness_tier,feature,yes,candidate_feature,True,Approved cutoff-safe candidate in the current contract.,approved
+word_count_tier,feature,yes,candidate_feature,True,Approved cutoff-safe candidate in the current contract.,approved
+char_count_tier,feature,yes,candidate_feature,True,Approved cutoff-safe candidate in the current contract.,approved
+ctr,dropped,no,target_derived,False,Derived from or overlaps the outcome period.,approved
+avg_position,dropped,no,target_derived,False,Derived from or overlaps the outcome period.,approved
+engagement_rate,dropped,no,target_derived,False,Derived from or overlaps the outcome period.,approved
+scroll_rate,dropped,no,target_derived,False,Derived from or overlaps the outcome period.,approved
+ai_traffic_pct,dropped,no,target_derived,False,Derived from or overlaps the outcome period.,approved
+impression_tier,dropped,no,target_derived,False,Derived from or overlaps the outcome period.,approved
+position_tier,dropped,no,target_derived,False,Derived from or overlaps the outcome period.,approved
+trend_direction,target,no,target,False,Prediction label.,review
+trend_pct,dropped,no,target_derived,False,Derived from or overlaps the outcome period.,approved

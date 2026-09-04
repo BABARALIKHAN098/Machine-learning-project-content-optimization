@@ -1,0 +1,553 @@
+{
+  "column_count": 44,
+  "column_disposition_counts": {
+    "dropped": 22,
+    "feature": 19,
+    "identifier": 2,
+    "target": 1,
+    "unassigned": 0
+  },
+  "columns": {
+    "age_tier": {
+      "dtype": "str",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": true,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "feature",
+      "unique_count": 4,
+      "warnings": []
+    },
+    "age_tier_order": {
+      "dtype": "int64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": true,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "feature",
+      "unique_count": 4,
+      "warnings": []
+    },
+    "ai_sessions_90d": {
+      "dtype": "int64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "dropped",
+      "unique_count": 35,
+      "warnings": []
+    },
+    "ai_traffic_pct": {
+      "dtype": "float64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "dropped",
+      "unique_count": 518,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "avg_position": {
+      "dtype": "float64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "dropped",
+      "unique_count": 869,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "char_count": {
+      "dtype": "float64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": true,
+      "null_count": 7699,
+      "null_percentage": 25.6633,
+      "role": "feature",
+      "unique_count": 14839,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "char_count_tier": {
+      "dtype": "str",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": true,
+      "null_count": 7699,
+      "null_percentage": 25.6633,
+      "role": "feature",
+      "unique_count": 4,
+      "warnings": []
+    },
+    "clicks_90d": {
+      "dtype": "int64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "dropped",
+      "unique_count": 477,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "clicks_last_30d": {
+      "dtype": "int64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "dropped",
+      "unique_count": 239,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "clicks_prev_30d": {
+      "dtype": "int64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": true,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "feature",
+      "unique_count": 258,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "client_id": {
+      "dtype": "str",
+      "is_constant": false,
+      "is_sensitive": true,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "identifier",
+      "unique_count": 32,
+      "warnings": []
+    },
+    "competition": {
+      "dtype": "float64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": true,
+      "null_count": 2468,
+      "null_percentage": 8.2267,
+      "role": "feature",
+      "unique_count": 101,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "competition_level": {
+      "dtype": "str",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": true,
+      "null_count": 2610,
+      "null_percentage": 8.7,
+      "role": "feature",
+      "unique_count": 3,
+      "warnings": []
+    },
+    "content_age_days": {
+      "dtype": "int64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": true,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "feature",
+      "unique_count": 225,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "content_id": {
+      "dtype": "str",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "identifier",
+      "unique_count": 30000,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "content_type": {
+      "dtype": "str",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": true,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "feature",
+      "unique_count": 3,
+      "warnings": []
+    },
+    "cpc": {
+      "dtype": "float64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": true,
+      "null_count": 2468,
+      "null_percentage": 8.2267,
+      "role": "feature",
+      "unique_count": 915,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "ctr": {
+      "dtype": "float64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "dropped",
+      "unique_count": 401,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "days_since_last_update": {
+      "dtype": "int64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": true,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "feature",
+      "unique_count": 57,
+      "warnings": []
+    },
+    "days_with_impressions": {
+      "dtype": "int64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "dropped",
+      "unique_count": 88,
+      "warnings": []
+    },
+    "days_with_sessions": {
+      "dtype": "int64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "dropped",
+      "unique_count": 90,
+      "warnings": []
+    },
+    "engaged_sessions_90d": {
+      "dtype": "int64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "dropped",
+      "unique_count": 68,
+      "warnings": []
+    },
+    "engagement_rate": {
+      "dtype": "float64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "dropped",
+      "unique_count": 915,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "freshness_tier": {
+      "dtype": "str",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": true,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "feature",
+      "unique_count": 4,
+      "warnings": []
+    },
+    "impression_tier": {
+      "dtype": "str",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "dropped",
+      "unique_count": 4,
+      "warnings": []
+    },
+    "impressions_90d": {
+      "dtype": "int64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "dropped",
+      "unique_count": 9438,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "impressions_last_30d": {
+      "dtype": "int64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "dropped",
+      "unique_count": 5182,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "impressions_prev_30d": {
+      "dtype": "int64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": true,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "feature",
+      "unique_count": 5931,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "main_intent": {
+      "dtype": "str",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": true,
+      "null_count": 2374,
+      "null_percentage": 7.9133,
+      "role": "feature",
+      "unique_count": 4,
+      "warnings": []
+    },
+    "model_used": {
+      "dtype": "str",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": true,
+      "null_count": 5733,
+      "null_percentage": 19.11,
+      "role": "feature",
+      "unique_count": 5,
+      "warnings": []
+    },
+    "pageviews_90d": {
+      "dtype": "int64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "dropped",
+      "unique_count": 856,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "position_tier": {
+      "dtype": "str",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "dropped",
+      "unique_count": 5,
+      "warnings": []
+    },
+    "provider_used": {
+      "dtype": "str",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 21438,
+      "null_percentage": 71.46,
+      "role": "dropped",
+      "unique_count": 2,
+      "warnings": [
+        "high_missingness"
+      ]
+    },
+    "scroll_events_90d": {
+      "dtype": "int64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "dropped",
+      "unique_count": 155,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "scroll_rate": {
+      "dtype": "float64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 125,
+      "null_percentage": 0.4167,
+      "role": "dropped",
+      "unique_count": 1773,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "search_volume": {
+      "dtype": "float64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": true,
+      "null_count": 2468,
+      "null_percentage": 8.2267,
+      "role": "feature",
+      "unique_count": 41,
+      "warnings": []
+    },
+    "sessions_90d": {
+      "dtype": "int64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "dropped",
+      "unique_count": 666,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "sessions_last_30d": {
+      "dtype": "int64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "dropped",
+      "unique_count": 359,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "sessions_prev_30d": {
+      "dtype": "int64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": true,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "feature",
+      "unique_count": 311,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "trend_direction": {
+      "dtype": "str",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "target",
+      "unique_count": 5,
+      "warnings": []
+    },
+    "trend_pct": {
+      "dtype": "float64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 3388,
+      "null_percentage": 11.2933,
+      "role": "dropped",
+      "unique_count": 2712,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "users_90d": {
+      "dtype": "int64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": false,
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "role": "dropped",
+      "unique_count": 644,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "word_count": {
+      "dtype": "float64",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": true,
+      "null_count": 7699,
+      "null_percentage": 25.6633,
+      "role": "feature",
+      "unique_count": 5476,
+      "warnings": [
+        "high_cardinality"
+      ]
+    },
+    "word_count_tier": {
+      "dtype": "str",
+      "is_constant": false,
+      "is_sensitive": false,
+      "model_eligible": true,
+      "null_count": 7699,
+      "null_percentage": 25.6633,
+      "role": "feature",
+      "unique_count": 4,
+      "warnings": []
+    }
+  },
+  "data_schema_version": "1.0",
+  "duplicate_row_count": 0,
+  "feature_contract_version": "1.0",
+  "memory_bytes": 30622723,
+  "profile_schema_version": "1.0",
+  "row_count": 30000,
+  "source_sha256": "c43bdac4eccfa17fcd8a33974fe36f2c998c03a3ae3af8d80cf712abab5d6396"
+}

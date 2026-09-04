@@ -1,0 +1,36 @@
+eda:
+  artifact_schema_version: "1.0"
+  random_seed: 42
+  quantiles: [0.01, 0.05, 0.25, 0.50, 0.75, 0.95, 0.99]
+  iqr_multiplier: 1.5
+  rare_category_min_count: 30
+  high_correlation_threshold: 0.90
+  minimum_group_support: 30
+  maximum_categories_displayed: 12
+  plot_dpi: 120
+  target_cohorts: [client_id, content_type, main_intent, age_tier, freshness_tier]
+  priority_numeric_columns:
+    - search_volume
+    - word_count
+    - impressions_prev_30d
+    - clicks_prev_30d
+    - sessions_prev_30d
+    - content_age_days
+    - days_since_last_update
+  output_directory: reports/eda
+  figures_directory: reports/figures/eda
+  leakage_name_patterns: ["_last_30d", "_90d"]
+  target_derived_columns:
+    - trend_pct
+    - impression_tier
+    - position_tier
+    - ctr
+    - avg_position
+    - engagement_rate
+    - scroll_rate
+    - ai_traffic_pct
+  rate_domains:
+    ctr: [0.0, 1.0]
+    engagement_rate: [0.0, 1.0]
+    scroll_rate: [0.0, 1.0]
+    ai_traffic_pct: [0.0, 100.0]

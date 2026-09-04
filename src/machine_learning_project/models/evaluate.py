@@ -1,1 +1,79 @@
-"""Evaluation belongs to SPEC-07."""
+from __future__ import annotations
+
+from collections.abc import Sequence
+from typing import Any
+
+import pandas as pd
+from sklearn.metrics import (
+    accuracy_score,
+    balanced_accuracy_score,
+    confusion_matrix,
+    f1_score,
+    precision_recall_fscore_support,
+)
+
+
+def evaluate_predictions(
+    truth: Sequence[str], predictions: Sequence[str], labels: Sequence[str]
+) -> dict[str, Any]:
+    precision, recall, f1, support = precision_recall_fscore_support(
+        truth, predictions, labels=list(labels), zero_division=0
+    )
+    per_class = {
+        label: {
+            "precision": float(precision[index]),
+            "recall": float(recall[index]),
+            "f1": float(f1[index]),
+            "support": int(support[index]),
+        }
+        for index, label in enumerate(labels)
+    }
+    matrix = confusion_matrix(truth, predictions, labels=list(labels))
+    return {
+        "accuracy": float(accuracy_score(truth, predictions)),
+        "balanced_accuracy": float(balanced_accuracy_score(truth, predictions)),
+        "macro_f1": float(f1_score(truth, predictions, average="macro", zero_division=0)),
+        "weighted_f1": float(f1_score(truth, predictions, average="weighted", zero_division=0)),
+        "per_class": per_class,
+        "down_false_negatives": int(
+            sum(actual == "down" and predicted != "down" for actual, predicted in zip(truth, predictions))
+        ),
+        "confusion_matrix": {
+            "labels": list(labels),
+            "values": matrix.astype(int).tolist(),
+        },
+    }
+
+
+def subgroup_metrics(
+    dataframe: pd.DataFrame,
+    truth: Sequence[str],
+    predictions: Sequence[str],
+    columns: Sequence[str],
+    *,
+    minimum_rows: int = 25,
+) -> dict[str, Any]:
+    scored = dataframe.copy()
+    scored["__truth"] = list(truth)
+    scored["__prediction"] = list(predictions)
+    output: dict[str, Any] = {}
+    for column in columns:
+        if column not in scored:
+            continue
+        groups: dict[str, Any] = {}
+        for value, group in scored.groupby(column, dropna=False):
+            if len(group) < minimum_rows:
+                continue
+            groups[str(value)] = {
+                "row_count": len(group),
+                "macro_f1": float(
+                    f1_score(group["__truth"], group["__prediction"], average="macro", zero_division=0)
+                ),
+                "down_recall": float(
+                    precision_recall_fscore_support(
+                        group["__truth"], group["__prediction"], labels=["down"], zero_division=0
+                    )[1][0]
+                ),
+            }
+        output[column] = groups
+    return output
