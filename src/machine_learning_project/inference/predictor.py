@@ -6,7 +6,9 @@ from typing import Any
 import joblib
 import pandas as pd
 
+from ..features.registry import fingerprint, resolve_registry
 from ..features.selection import select_features
+from ..utils.exceptions import DataValidationError
 from .schemas import PredictionRecord
 from .validation import validate_inference_frame
 
@@ -20,6 +22,19 @@ class Predictor:
     @classmethod
     def load(cls, artifact_path: str | Path) -> Predictor:
         artifact = joblib.load(artifact_path)
+        version = artifact["metadata"].get("bundle_schema_version", "1.0")
+        if version not in {"1.0", "2.0"}:
+            raise DataValidationError("Unsupported model bundle schema")
+        if version == "2.0":
+            config = artifact.get("feature_config")
+            if not config or "engineering" not in artifact["pipeline"].named_steps:
+                raise DataValidationError("Incomplete feature pipeline bundle")
+            resolve_registry(artifact["data_config"], config)
+            if fingerprint(config) != artifact["metadata"].get("feature_config_sha256"):
+                raise DataValidationError("Feature configuration fingerprint mismatch")
+            fitted_config = artifact["pipeline"].named_steps["engineering"].feature_config
+            if fingerprint(fitted_config) != fingerprint(config):
+                raise DataValidationError("Saved pipeline feature configuration mismatch")
         return cls(artifact["pipeline"], artifact["metadata"], artifact["data_config"])
 
     def predict(self, dataframe: pd.DataFrame) -> pd.DataFrame:

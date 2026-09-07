@@ -1,0 +1,63 @@
+{
+  "logistic_regression": {
+    "down_recall_guardrail": 0.5,
+    "engineering_version": "1.0",
+    "excluded_inputs": [],
+    "families": [
+      "ratios",
+      "logs"
+    ],
+    "feature_contract_version": "2.0",
+    "folds": 3,
+    "log_sources": [
+      "search_volume",
+      "cpc",
+      "word_count",
+      "char_count",
+      "impressions_prev_30d",
+      "clicks_prev_30d",
+      "sessions_prev_30d"
+    ],
+    "random_seed": 42,
+    "registry_schema_version": "1.0",
+    "tie_tolerance": 0.005,
+    "variants": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ]
+  },
+  "random_forest": {
+    "down_recall_guardrail": 0.5,
+    "engineering_version": "1.0",
+    "excluded_inputs": [
+      "model_used"
+    ],
+    "families": [
+      "ratios"
+    ],
+    "feature_contract_version": "2.0",
+    "folds": 3,
+    "log_sources": [
+      "search_volume",
+      "cpc",
+      "word_count",
+      "char_count",
+      "impressions_prev_30d",
+      "clicks_prev_30d",
+      "sessions_prev_30d"
+    ],
+    "random_seed": 42,
+    "registry_schema_version": "1.0",
+    "tie_tolerance": 0.005,
+    "variants": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ]
+  }
+}

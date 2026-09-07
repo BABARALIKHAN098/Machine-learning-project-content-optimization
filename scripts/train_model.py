@@ -11,15 +11,19 @@ from pipelines.training_pipeline import run_training
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Train and evaluate content trend classifiers.")
+    parser = argparse.ArgumentParser(description="Train classifiers using development data only.")
     parser.add_argument("--data-config", default="configs/data.yaml")
     parser.add_argument("--preprocessing-config", default="configs/preprocessing.yaml")
     parser.add_argument("--training-config", default="configs/training.yaml")
+    parser.add_argument("--features-config", default="configs/features.yaml")
+    parser.add_argument("--feature-manifest", help="Reuse estimator-specific frozen study choices")
     args = parser.parse_args()
     result = run_training(
         load_yaml(args.data_config)["data"],
         load_yaml(args.preprocessing_config)["preprocessing"],
         load_yaml(args.training_config)["training"],
+        load_yaml(args.features_config)["features"],
+        feature_manifest=args.feature_manifest,
     )
     print(f"Selected model: {result.selected_model}")
     print(f"Artifact: {result.artifact_path}")

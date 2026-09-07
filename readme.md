@@ -95,6 +95,37 @@ optional scaling on the training partition only. Validation and test partitions 
 transformed. The raw CSV and source dataframe are not modified, and transformed datasets
 are not persisted by this phase.
 
+## Feature engineering and selection
+
+The v2 feature contract is in `configs/features.yaml`. Ratios use previous-period inputs;
+undefined ratios remain missing with explicit indicators. Optional log transforms and
+feature-family ablations are implemented inside serializable model pipelines. The raw CSV
+schema stays unchanged. Historical availability of mutable metadata remains unverified.
+
+Run the fixed study on the recorded split (run `scripts/split_data.py` first if its artifacts
+do not exist):
+
+```powershell
+.\.venv\Scripts\python.exe scripts\engineer_features.py --output-dir reports/features
+.\.venv\Scripts\python.exe scripts\train_model.py --feature-manifest reports/features/feature_manifest.json
+```
+
+The study writes a feature catalog, training-only diagnostics, grouped-fold metrics,
+validation confirmations, frozen per-estimator configurations, and a source/split/config/code
+manifest under `reports/features/`. Later training verifies and reuses that manifest.
+Feature transforms are saved with the estimator, so inference needs only raw inputs.
+
+Training now fits on train and reports validation metrics. It does not refit on development,
+evaluate test, or benchmark all source rows. `evaluate_model.py` displays the applicable
+stored validation report; it can still display historical test reports. Final test evaluation
+and repeated-access auditing remain a separate SPEC-03 deliverable. The existing holdout
+was previously evaluated and is not a fresh untouched test set.
+
+The frozen study compares five variants and two fixed estimators over three client-grouped
+folds, with one validation confirmation. It does not tune models or change thresholds in
+response to results. See `reports/features/selection_report.md` and
+`plan/SPEC-04-feature-engineering-and-selection/implementation-plan.md` for the protocol.
+
 ## Inference
 
 ```python

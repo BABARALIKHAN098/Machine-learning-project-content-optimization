@@ -18,7 +18,7 @@ def build_preprocessor(
     scale_numeric: bool = True,
 ) -> ColumnTransformer:
     numeric_steps: list[tuple[str, object]] = [
-        ("imputer", SimpleImputer(strategy="median"))
+        ("imputer", SimpleImputer(strategy="median", keep_empty_features=True))
     ]
     if scale_numeric:
         numeric_steps.append(("scaler", StandardScaler()))
@@ -28,7 +28,9 @@ def build_preprocessor(
         [
             (
                 "imputer",
-                SimpleImputer(strategy="constant", fill_value="__MISSING__"),
+                SimpleImputer(
+                    strategy="constant", fill_value="__MISSING__", keep_empty_features=True
+                ),
             ),
             (
                 "encoder",
@@ -57,7 +59,7 @@ def build_preprocessor_from_config(
     if not numeric_columns and not categorical_columns:
         raise DataValidationError("At least one approved feature is required.")
     numeric_steps: list[tuple[str, object]] = [
-        ("imputer", SimpleImputer(strategy=config["numeric_imputation"]))
+        ("imputer", SimpleImputer(strategy=config["numeric_imputation"], keep_empty_features=True))
     ]
     should_scale = config["scale_numeric"] if scale_numeric is None else scale_numeric
     if should_scale:
@@ -71,7 +73,9 @@ def build_preprocessor_from_config(
                 (
                     "imputer",
                     SimpleImputer(
-                        strategy="constant", fill_value=config["categorical_imputation"]
+                        strategy="constant",
+                        fill_value=config["categorical_imputation"],
+                        keep_empty_features=True,
                     ),
                 ),
                 (

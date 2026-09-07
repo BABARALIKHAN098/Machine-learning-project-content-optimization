@@ -1,0 +1,12 @@
+features:
+  feature_contract_version: "2.0"
+  registry_schema_version: "1.0"
+  engineering_version: "1.0"
+  families: [ratios]
+  excluded_inputs: []
+  log_sources: [search_volume, cpc, word_count, char_count, impressions_prev_30d, clicks_prev_30d, sessions_prev_30d]
+  folds: 3
+  random_seed: 42
+  tie_tolerance: 0.005
+  down_recall_guardrail: 0.50
+  variants: [A, B, C, D, E]

@@ -1,0 +1,10 @@
+baselines:
+  baseline_contract_version: "1.0"
+  metric_contract_version: "1.0"
+  strategies: [most_frequent, stratified]
+  reference_seed: 42
+  repeat_seeds: [42, 43, 44, 45, 46]
+  minimum_macro_f1_improvement: 0.01
+  evaluation_partition: validation
+  ordering: row_key
+  output_directory: reports/baselines

@@ -1,0 +1,26 @@
+{
+  "interpretation": "Classifier randomness on fixed data; not a confidence interval",
+  "reference_seed": 42,
+  "repeat_seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "std_ddof": 0,
+  "stratified": {
+    "down_recall": {
+      "maximum": 0.5693166885676741,
+      "mean": 0.550131406044678,
+      "minimum": 0.5246386333771353,
+      "std": 0.016004587330044763
+    },
+    "macro_f1": {
+      "maximum": 0.2080240801839559,
+      "mean": 0.19704260046032254,
+      "minimum": 0.1927529795437942,
+      "std": 0.005585574484128002
+    }
+  }
+}

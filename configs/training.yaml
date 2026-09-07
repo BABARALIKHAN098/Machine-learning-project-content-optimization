@@ -16,7 +16,6 @@ training:
     size: 1.0
     class: 1.0
   split_alias_context: content-trend-split-v1
-  baselines: [most_frequent, stratified]
   candidates:
     logistic_regression:
       C: 1.0

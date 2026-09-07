@@ -1,0 +1,2432 @@
+{
+  "artifact_hashes": {
+    "ablation_results.csv": "d572881abe2b9102b5ee35e8603dc7e16dd0e78889b037f92febb90c7f7fc418",
+    "feature_catalog.csv": "ef4613ba153c780e4af98ed9594839398cf5be7d5a670fd8c5449061252e54f1",
+    "selected_features.json": "16de2dc2bf00c9c2e65853cb463023f0cdc18613687b62302c89e2d2935a5cf5",
+    "selection_report.md": "1a8996eee9c664f0b23d9229cb456f8c99d711de79ce3273118b7a4189d6bb24",
+    "training_diagnostics.json": "c6d60c5ff98372e12ba43c00e06df0409f1769339087a07ff89bdbf118675e0a"
+  },
+  "code": {
+    "dirty": true,
+    "revision": "96f08015b63c20285a3d57ae570b52e218610809",
+    "source_tree_sha256": "8eee6d5fdb3bf6df80349cd0053c5806957fb7fc64de13747252f2de9dd73d40"
+  },
+  "config_sha256": "c3123c6925673efaa15566d7d49acae339f3b2546e5947099cb98d60cad84881",
+  "decisions": {
+    "logistic_regression": {
+      "confirmation": {
+        "A": {
+          "accuracy": 0.3390814410107564,
+          "balanced_accuracy": 0.2756057754385238,
+          "confusion_matrix": {
+            "labels": [
+              "down",
+              "stable",
+              "up",
+              "new",
+              "flat"
+            ],
+            "values": [
+              [
+                1229,
+                666,
+                296,
+                23,
+                830
+              ],
+              [
+                469,
+                419,
+                172,
+                11,
+                194
+              ],
+              [
+                272,
+                199,
+                239,
+                14,
+                145
+              ],
+              [
+                242,
+                0,
+                11,
+                0,
+                157
+              ],
+              [
+                163,
+                0,
+                4,
+                3,
+                99
+              ]
+            ]
+          },
+          "down_false_negatives": 1815,
+          "macro_f1": 0.23993373797892578,
+          "per_class": {
+            "down": {
+              "f1": 0.4535892231038937,
+              "precision": 0.5174736842105263,
+              "recall": 0.40374507227332457,
+              "support": 3044
+            },
+            "flat": {
+              "f1": 0.11688311688311688,
+              "precision": 0.06947368421052631,
+              "recall": 0.3680297397769517,
+              "support": 269
+            },
+            "new": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 410
+            },
+            "stable": {
+              "f1": 0.3287563750490388,
+              "precision": 0.3263239875389408,
+              "recall": 0.3312252964426877,
+              "support": 1265
+            },
+            "up": {
+              "f1": 0.3004399748585795,
+              "precision": 0.33102493074792244,
+              "recall": 0.27502876869965476,
+              "support": 869
+            }
+          },
+          "weighted_f1": 0.3566888007783764
+        },
+        "C": {
+          "accuracy": 0.5596721871265152,
+          "balanced_accuracy": 0.46605447121392996,
+          "confusion_matrix": {
+            "labels": [
+              "down",
+              "stable",
+              "up",
+              "new",
+              "flat"
+            ],
+            "values": [
+              [
+                2443,
+                294,
+                307,
+                0,
+                0
+              ],
+              [
+                789,
+                304,
+                172,
+                0,
+                0
+              ],
+              [
+                417,
+                186,
+                266,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                3,
+                407
+              ],
+              [
+                0,
+                0,
+                0,
+                7,
+                262
+              ]
+            ]
+          },
+          "down_false_negatives": 601,
+          "macro_f1": 0.385856703457537,
+          "per_class": {
+            "down": {
+              "f1": 0.7300164350814283,
+              "precision": 0.6694984927377363,
+              "recall": 0.8025624178712221,
+              "support": 3044
+            },
+            "flat": {
+              "f1": 0.55863539445629,
+              "precision": 0.39162929745889385,
+              "recall": 0.9739776951672863,
+              "support": 269
+            },
+            "new": {
+              "f1": 0.014285714285714285,
+              "precision": 0.3,
+              "recall": 0.007317073170731708,
+              "support": 410
+            },
+            "stable": {
+              "f1": 0.296730112249878,
+              "precision": 0.3877551020408163,
+              "recall": 0.24031620553359684,
+              "support": 1265
+            },
+            "up": {
+              "f1": 0.32961586121437425,
+              "precision": 0.35704697986577183,
+              "recall": 0.30609896432681244,
+              "support": 869
+            }
+          },
+          "weighted_f1": 0.5190541006906504
+        }
+      },
+      "cv_guardrail_met": true,
+      "cv_macro_f1_std": {
+        "A": 0.10142772747107191,
+        "B": 0.1390544156962884,
+        "C": 0.1258458274847245,
+        "D": 0.14236019234004338,
+        "E": 0.11525622408481624
+      },
+      "cv_summary": [
+        {
+          "down_recall": 0.3611390361839204,
+          "macro_f1": 0.2167301143677888,
+          "variant": "A",
+          "width": 45.333333333333336
+        },
+        {
+          "down_recall": 0.5402955503462498,
+          "macro_f1": 0.379101817580725,
+          "variant": "B",
+          "width": 49.333333333333336
+        },
+        {
+          "down_recall": 0.6144037150276288,
+          "macro_f1": 0.4015975694985375,
+          "variant": "C",
+          "width": 56.333333333333336
+        },
+        {
+          "down_recall": 0.4976784656159216,
+          "macro_f1": 0.36114077026728125,
+          "variant": "D",
+          "width": 30.333333333333332
+        },
+        {
+          "down_recall": 0.41020307039982623,
+          "macro_f1": 0.38844098923797904,
+          "variant": "E",
+          "width": 44.666666666666664
+        }
+      ],
+      "fold_choice": "C",
+      "promotion_passed": true,
+      "selected_variant": "C",
+      "worst_fold_down_recall": {
+        "A": 0.1373346897253306,
+        "B": 0.36826042726347913,
+        "C": 0.5517124448965751,
+        "D": 0.35518329691672734,
+        "E": 0.0808448652585579
+      }
+    },
+    "random_forest": {
+      "confirmation": {
+        "A": {
+          "accuracy": 0.5719651698821923,
+          "balanced_accuracy": 0.4218100375025838,
+          "confusion_matrix": {
+            "labels": [
+              "down",
+              "stable",
+              "up",
+              "new",
+              "flat"
+            ],
+            "values": [
+              [
+                2843,
+                112,
+                89,
+                0,
+                0
+              ],
+              [
+                1133,
+                70,
+                62,
+                0,
+                0
+              ],
+              [
+                665,
+                94,
+                110,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                174,
+                236
+              ],
+              [
+                0,
+                0,
+                0,
+                116,
+                153
+              ]
+            ]
+          },
+          "down_false_negatives": 201,
+          "macro_f1": 0.39752234028368943,
+          "per_class": {
+            "down": {
+              "f1": 0.7398828887443071,
+              "precision": 0.6125834949364362,
+              "recall": 0.9339684625492772,
+              "support": 3044
+            },
+            "flat": {
+              "f1": 0.46504559270516715,
+              "precision": 0.39331619537275064,
+              "recall": 0.5687732342007435,
+              "support": 269
+            },
+            "new": {
+              "f1": 0.49714285714285716,
+              "precision": 0.6,
+              "recall": 0.424390243902439,
+              "support": 410
+            },
+            "stable": {
+              "f1": 0.09085009733939,
+              "precision": 0.2536231884057971,
+              "recall": 0.05533596837944664,
+              "support": 1265
+            },
+            "up": {
+              "f1": 0.19469026548672566,
+              "precision": 0.421455938697318,
+              "recall": 0.12658227848101267,
+              "support": 869
+            }
+          },
+          "weighted_f1": 0.4891993448943529
+        },
+        "E": {
+          "accuracy": 0.5711114905241591,
+          "balanced_accuracy": 0.42382783719025524,
+          "confusion_matrix": {
+            "labels": [
+              "down",
+              "stable",
+              "up",
+              "new",
+              "flat"
+            ],
+            "values": [
+              [
+                2813,
+                119,
+                112,
+                0,
+                0
+              ],
+              [
+                1113,
+                80,
+                72,
+                0,
+                0
+              ],
+              [
+                616,
+                117,
+                136,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                156,
+                254
+              ],
+              [
+                0,
+                0,
+                0,
+                109,
+                160
+              ]
+            ]
+          },
+          "down_false_negatives": 231,
+          "macro_f1": 0.4004676414463306,
+          "per_class": {
+            "down": {
+              "f1": 0.7416293171631954,
+              "precision": 0.6193306913254073,
+              "recall": 0.9241130091984231,
+              "support": 3044
+            },
+            "flat": {
+              "f1": 0.4685212298682284,
+              "precision": 0.3864734299516908,
+              "recall": 0.5947955390334573,
+              "support": 269
+            },
+            "new": {
+              "f1": 0.4622222222222222,
+              "precision": 0.5886792452830188,
+              "recall": 0.3804878048780488,
+              "support": 410
+            },
+            "stable": {
+              "f1": 0.10120177103099304,
+              "precision": 0.25316455696202533,
+              "recall": 0.06324110671936758,
+              "support": 1265
+            },
+            "up": {
+              "f1": 0.2287636669470143,
+              "precision": 0.425,
+              "recall": 0.1565017261219793,
+              "support": 869
+            }
+          },
+          "weighted_f1": 0.4951133396485561
+        }
+      },
+      "cv_guardrail_met": true,
+      "cv_macro_f1_std": {
+        "A": 0.10091765683404275,
+        "B": 0.10341334167753635,
+        "C": 0.10725362151477741,
+        "D": 0.11546665490797979,
+        "E": 0.09590417102170601
+      },
+      "cv_summary": [
+        {
+          "down_recall": 0.7569011208480599,
+          "macro_f1": 0.4103716612391886,
+          "variant": "A",
+          "width": 45.333333333333336
+        },
+        {
+          "down_recall": 0.8024656333893464,
+          "macro_f1": 0.4103085592438886,
+          "variant": "B",
+          "width": 49.333333333333336
+        },
+        {
+          "down_recall": 0.8116936778312818,
+          "macro_f1": 0.40783227305015113,
+          "variant": "C",
+          "width": 56.333333333333336
+        },
+        {
+          "down_recall": 0.8269221965651194,
+          "macro_f1": 0.3934989032732865,
+          "variant": "D",
+          "width": 30.333333333333332
+        },
+        {
+          "down_recall": 0.8114498293964499,
+          "macro_f1": 0.41326483651185253,
+          "variant": "E",
+          "width": 44.666666666666664
+        }
+      ],
+      "fold_choice": "E",
+      "promotion_passed": true,
+      "selected_variant": "E",
+      "worst_fold_down_recall": {
+        "A": 0.6375042387249915,
+        "B": 0.6876907426246185,
+        "C": 0.6927772126144456,
+        "D": 0.7097321125805358,
+        "E": 0.7694133604611733
+      }
+    }
+  },
+  "encoded_names": {
+    "logistic_regression": [
+      "numeric__search_volume",
+      "numeric__competition",
+      "numeric__cpc",
+      "numeric__word_count",
+      "numeric__char_count",
+      "numeric__impressions_prev_30d",
+      "numeric__clicks_prev_30d",
+      "numeric__sessions_prev_30d",
+      "numeric__content_age_days",
+      "numeric__age_tier_order",
+      "numeric__days_since_last_update",
+      "numeric__previous_ctr",
+      "numeric__previous_ctr_unavailable",
+      "numeric__previous_sessions_per_click",
+      "numeric__previous_sessions_per_click_unavailable",
+      "numeric__log1p_search_volume",
+      "numeric__log1p_cpc",
+      "numeric__log1p_word_count",
+      "numeric__log1p_char_count",
+      "numeric__log1p_impressions_prev_30d",
+      "numeric__log1p_clicks_prev_30d",
+      "numeric__log1p_sessions_prev_30d",
+      "categorical__competition_level_HIGH",
+      "categorical__competition_level_LOW",
+      "categorical__competition_level_MEDIUM",
+      "categorical__competition_level___MISSING__",
+      "categorical__content_type_comparison article",
+      "categorical__content_type_feedly article",
+      "categorical__content_type_keyword article",
+      "categorical__main_intent___MISSING__",
+      "categorical__main_intent_commercial",
+      "categorical__main_intent_informational",
+      "categorical__main_intent_navigational",
+      "categorical__main_intent_transactional",
+      "categorical__model_used___MISSING__",
+      "categorical__model_used_gemini-2.5-flash",
+      "categorical__model_used_gemini-3-flash-preview",
+      "categorical__model_used_gpt-4o-mini",
+      "categorical__model_used_gpt-5-mini",
+      "categorical__age_tier_181-365",
+      "categorical__age_tier_31-90",
+      "categorical__age_tier_365+",
+      "categorical__age_tier_91-180",
+      "categorical__freshness_tier_0-30",
+      "categorical__freshness_tier_181+",
+      "categorical__freshness_tier_31-90",
+      "categorical__freshness_tier_91-180",
+      "categorical__word_count_tier_1000-2000",
+      "categorical__word_count_tier_2000-3500",
+      "categorical__word_count_tier_3500+",
+      "categorical__word_count_tier_<1000",
+      "categorical__word_count_tier___MISSING__",
+      "categorical__char_count_tier_15000-25000",
+      "categorical__char_count_tier_25000+",
+      "categorical__char_count_tier_8000-15000",
+      "categorical__char_count_tier_<8000",
+      "categorical__char_count_tier___MISSING__"
+    ],
+    "random_forest": [
+      "numeric__search_volume",
+      "numeric__competition",
+      "numeric__cpc",
+      "numeric__word_count",
+      "numeric__char_count",
+      "numeric__impressions_prev_30d",
+      "numeric__clicks_prev_30d",
+      "numeric__sessions_prev_30d",
+      "numeric__content_age_days",
+      "numeric__age_tier_order",
+      "numeric__days_since_last_update",
+      "numeric__previous_ctr",
+      "numeric__previous_ctr_unavailable",
+      "numeric__previous_sessions_per_click",
+      "numeric__previous_sessions_per_click_unavailable",
+      "categorical__competition_level_HIGH",
+      "categorical__competition_level_LOW",
+      "categorical__competition_level_MEDIUM",
+      "categorical__competition_level___MISSING__",
+      "categorical__content_type_comparison article",
+      "categorical__content_type_feedly article",
+      "categorical__content_type_keyword article",
+      "categorical__main_intent___MISSING__",
+      "categorical__main_intent_commercial",
+      "categorical__main_intent_informational",
+      "categorical__main_intent_navigational",
+      "categorical__main_intent_transactional",
+      "categorical__age_tier_181-365",
+      "categorical__age_tier_31-90",
+      "categorical__age_tier_365+",
+      "categorical__age_tier_91-180",
+      "categorical__freshness_tier_0-30",
+      "categorical__freshness_tier_181+",
+      "categorical__freshness_tier_31-90",
+      "categorical__freshness_tier_91-180",
+      "categorical__word_count_tier_1000-2000",
+      "categorical__word_count_tier_2000-3500",
+      "categorical__word_count_tier_3500+",
+      "categorical__word_count_tier_<1000",
+      "categorical__word_count_tier___MISSING__",
+      "categorical__char_count_tier_15000-25000",
+      "categorical__char_count_tier_25000+",
+      "categorical__char_count_tier_8000-15000",
+      "categorical__char_count_tier_<8000",
+      "categorical__char_count_tier___MISSING__"
+    ]
+  },
+  "environment": {
+    "pandas": "3.0.5",
+    "python": "3.12.0",
+    "sklearn": "1.9.0"
+  },
+  "excluded_source_columns": [
+    "impressions_90d",
+    "clicks_90d",
+    "pageviews_90d",
+    "sessions_90d",
+    "users_90d",
+    "engaged_sessions_90d",
+    "ai_sessions_90d",
+    "scroll_events_90d",
+    "days_with_impressions",
+    "days_with_sessions",
+    "impressions_last_30d",
+    "clicks_last_30d",
+    "sessions_last_30d",
+    "ctr",
+    "avg_position",
+    "engagement_rate",
+    "scroll_rate",
+    "ai_traffic_pct",
+    "impression_tier",
+    "position_tier",
+    "trend_pct",
+    "provider_used",
+    "content_id",
+    "client_id"
+  ],
+  "feature_contract_version": "2.0",
+  "fitting_population": "train; fold selection within train; validation confirmation",
+  "historical_test_exposure": true,
+  "input_contract_sha256": "af88eb1068895f5c8026e2940579c605c04af810445f2c6cf1f02d9e76c151d0",
+  "protocol": {
+    "features": {
+      "down_recall_guardrail": 0.5,
+      "engineering_version": "1.0",
+      "excluded_inputs": [],
+      "families": [
+        "ratios"
+      ],
+      "feature_contract_version": "2.0",
+      "folds": 3,
+      "log_sources": [
+        "search_volume",
+        "cpc",
+        "word_count",
+        "char_count",
+        "impressions_prev_30d",
+        "clicks_prev_30d",
+        "sessions_prev_30d"
+      ],
+      "random_seed": 42,
+      "registry_schema_version": "1.0",
+      "tie_tolerance": 0.005,
+      "variants": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    "model_seed": 42,
+    "training_candidates": {
+      "logistic_regression": {
+        "C": 1.0,
+        "class_weight": "balanced",
+        "max_iter": 1000
+      },
+      "random_forest": {
+        "class_weight": "balanced_subsample",
+        "max_features": "sqrt",
+        "min_samples_leaf": 2,
+        "n_estimators": 200,
+        "n_jobs": -1
+      }
+    }
+  },
+  "provenance": {
+    "source_sha256": "c43bdac4eccfa17fcd8a33974fe36f2c998c03a3ae3af8d80cf712abab5d6396",
+    "split_assignments_sha256": "16bcb64d829c94664e3b0c492277cc4c036776d68b5e0d6478504bad21952a0f",
+    "split_manifest_sha256": "a656a6442dc9857f64b62f33cae1cc7fa953a1c0a6f3217b3f297e113fba32cf"
+  },
+  "registry": {
+    "A": [
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "search_volume"
+        ],
+        "family": "raw",
+        "formula": "search_volume",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "search_volume",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "competition"
+        ],
+        "family": "raw",
+        "formula": "competition",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "competition",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "cpc"
+        ],
+        "family": "raw",
+        "formula": "cpc",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "cpc",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "word_count"
+        ],
+        "family": "raw",
+        "formula": "word_count",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "word_count",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "char_count"
+        ],
+        "family": "raw",
+        "formula": "char_count",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "char_count",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "impressions_prev_30d"
+        ],
+        "family": "raw",
+        "formula": "impressions_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "impressions_prev_30d",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "clicks_prev_30d"
+        ],
+        "family": "raw",
+        "formula": "clicks_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "clicks_prev_30d",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "sessions_prev_30d"
+        ],
+        "family": "raw",
+        "formula": "sessions_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "sessions_prev_30d",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "content_age_days"
+        ],
+        "family": "raw",
+        "formula": "content_age_days",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "content_age_days",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "age_tier_order"
+        ],
+        "family": "raw",
+        "formula": "age_tier_order",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "age_tier_order",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "days_since_last_update"
+        ],
+        "family": "raw",
+        "formula": "days_since_last_update",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "days_since_last_update",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "competition_level"
+        ],
+        "family": "raw",
+        "formula": "competition_level",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "competition_level",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "content_type"
+        ],
+        "family": "raw",
+        "formula": "content_type",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "content_type",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "main_intent"
+        ],
+        "family": "raw",
+        "formula": "main_intent",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "main_intent",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "model_used"
+        ],
+        "family": "raw",
+        "formula": "model_used",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "model_used",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "age_tier"
+        ],
+        "family": "raw",
+        "formula": "age_tier",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "age_tier",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "freshness_tier"
+        ],
+        "family": "raw",
+        "formula": "freshness_tier",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "freshness_tier",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "word_count_tier"
+        ],
+        "family": "raw",
+        "formula": "word_count_tier",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "word_count_tier",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "char_count_tier"
+        ],
+        "family": "raw",
+        "formula": "char_count_tier",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "char_count_tier",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      }
+    ],
+    "B": [
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "search_volume"
+        ],
+        "family": "raw",
+        "formula": "search_volume",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "search_volume",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "competition"
+        ],
+        "family": "raw",
+        "formula": "competition",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "competition",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "cpc"
+        ],
+        "family": "raw",
+        "formula": "cpc",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "cpc",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "word_count"
+        ],
+        "family": "raw",
+        "formula": "word_count",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "word_count",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "char_count"
+        ],
+        "family": "raw",
+        "formula": "char_count",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "char_count",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "impressions_prev_30d"
+        ],
+        "family": "raw",
+        "formula": "impressions_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "impressions_prev_30d",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "clicks_prev_30d"
+        ],
+        "family": "raw",
+        "formula": "clicks_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "clicks_prev_30d",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "sessions_prev_30d"
+        ],
+        "family": "raw",
+        "formula": "sessions_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "sessions_prev_30d",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "content_age_days"
+        ],
+        "family": "raw",
+        "formula": "content_age_days",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "content_age_days",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "age_tier_order"
+        ],
+        "family": "raw",
+        "formula": "age_tier_order",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "age_tier_order",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "days_since_last_update"
+        ],
+        "family": "raw",
+        "formula": "days_since_last_update",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "days_since_last_update",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "competition_level"
+        ],
+        "family": "raw",
+        "formula": "competition_level",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "competition_level",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "content_type"
+        ],
+        "family": "raw",
+        "formula": "content_type",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "content_type",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "main_intent"
+        ],
+        "family": "raw",
+        "formula": "main_intent",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "main_intent",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "model_used"
+        ],
+        "family": "raw",
+        "formula": "model_used",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "model_used",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "age_tier"
+        ],
+        "family": "raw",
+        "formula": "age_tier",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "age_tier",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "freshness_tier"
+        ],
+        "family": "raw",
+        "formula": "freshness_tier",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "freshness_tier",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "word_count_tier"
+        ],
+        "family": "raw",
+        "formula": "word_count_tier",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "word_count_tier",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "char_count_tier"
+        ],
+        "family": "raw",
+        "formula": "char_count_tier",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "char_count_tier",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Previous observation period",
+        "dependencies": [
+          "clicks_prev_30d",
+          "impressions_prev_30d"
+        ],
+        "family": "ratios",
+        "formula": "clicks_prev_30d / impressions_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Historical efficiency and unavailable-history signal",
+        "missing_policy": "Undefined ratio remains missing with unavailable indicator; train median; empty fallback zero",
+        "name": "previous_ctr",
+        "operation": "ratio",
+        "role": "numeric",
+        "unit": "numerator units per denominator unit"
+      },
+      {
+        "availability": "Previous observation period",
+        "dependencies": [
+          "clicks_prev_30d",
+          "impressions_prev_30d"
+        ],
+        "family": "ratios",
+        "formula": "1 if source missing or denominator zero; else 0",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Historical efficiency and unavailable-history signal",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "previous_ctr_unavailable",
+        "operation": "unavailable",
+        "role": "numeric",
+        "unit": "binary"
+      },
+      {
+        "availability": "Previous observation period",
+        "dependencies": [
+          "sessions_prev_30d",
+          "clicks_prev_30d"
+        ],
+        "family": "ratios",
+        "formula": "sessions_prev_30d / clicks_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Historical efficiency and unavailable-history signal",
+        "missing_policy": "Undefined ratio remains missing with unavailable indicator; train median; empty fallback zero",
+        "name": "previous_sessions_per_click",
+        "operation": "ratio",
+        "role": "numeric",
+        "unit": "numerator units per denominator unit"
+      },
+      {
+        "availability": "Previous observation period",
+        "dependencies": [
+          "sessions_prev_30d",
+          "clicks_prev_30d"
+        ],
+        "family": "ratios",
+        "formula": "1 if source missing or denominator zero; else 0",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Historical efficiency and unavailable-history signal",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "previous_sessions_per_click_unavailable",
+        "operation": "unavailable",
+        "role": "numeric",
+        "unit": "binary"
+      }
+    ],
+    "C": [
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "search_volume"
+        ],
+        "family": "raw",
+        "formula": "search_volume",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "search_volume",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "competition"
+        ],
+        "family": "raw",
+        "formula": "competition",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "competition",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "cpc"
+        ],
+        "family": "raw",
+        "formula": "cpc",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "cpc",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "word_count"
+        ],
+        "family": "raw",
+        "formula": "word_count",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "word_count",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "char_count"
+        ],
+        "family": "raw",
+        "formula": "char_count",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "char_count",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "impressions_prev_30d"
+        ],
+        "family": "raw",
+        "formula": "impressions_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "impressions_prev_30d",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "clicks_prev_30d"
+        ],
+        "family": "raw",
+        "formula": "clicks_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "clicks_prev_30d",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "sessions_prev_30d"
+        ],
+        "family": "raw",
+        "formula": "sessions_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "sessions_prev_30d",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "content_age_days"
+        ],
+        "family": "raw",
+        "formula": "content_age_days",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "content_age_days",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "age_tier_order"
+        ],
+        "family": "raw",
+        "formula": "age_tier_order",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "age_tier_order",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "days_since_last_update"
+        ],
+        "family": "raw",
+        "formula": "days_since_last_update",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "days_since_last_update",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "competition_level"
+        ],
+        "family": "raw",
+        "formula": "competition_level",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "competition_level",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "content_type"
+        ],
+        "family": "raw",
+        "formula": "content_type",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "content_type",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "main_intent"
+        ],
+        "family": "raw",
+        "formula": "main_intent",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "main_intent",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "model_used"
+        ],
+        "family": "raw",
+        "formula": "model_used",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "model_used",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "age_tier"
+        ],
+        "family": "raw",
+        "formula": "age_tier",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "age_tier",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "freshness_tier"
+        ],
+        "family": "raw",
+        "formula": "freshness_tier",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "freshness_tier",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "word_count_tier"
+        ],
+        "family": "raw",
+        "formula": "word_count_tier",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "word_count_tier",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "char_count_tier"
+        ],
+        "family": "raw",
+        "formula": "char_count_tier",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "char_count_tier",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Previous observation period",
+        "dependencies": [
+          "clicks_prev_30d",
+          "impressions_prev_30d"
+        ],
+        "family": "ratios",
+        "formula": "clicks_prev_30d / impressions_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Historical efficiency and unavailable-history signal",
+        "missing_policy": "Undefined ratio remains missing with unavailable indicator; train median; empty fallback zero",
+        "name": "previous_ctr",
+        "operation": "ratio",
+        "role": "numeric",
+        "unit": "numerator units per denominator unit"
+      },
+      {
+        "availability": "Previous observation period",
+        "dependencies": [
+          "clicks_prev_30d",
+          "impressions_prev_30d"
+        ],
+        "family": "ratios",
+        "formula": "1 if source missing or denominator zero; else 0",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Historical efficiency and unavailable-history signal",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "previous_ctr_unavailable",
+        "operation": "unavailable",
+        "role": "numeric",
+        "unit": "binary"
+      },
+      {
+        "availability": "Previous observation period",
+        "dependencies": [
+          "sessions_prev_30d",
+          "clicks_prev_30d"
+        ],
+        "family": "ratios",
+        "formula": "sessions_prev_30d / clicks_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Historical efficiency and unavailable-history signal",
+        "missing_policy": "Undefined ratio remains missing with unavailable indicator; train median; empty fallback zero",
+        "name": "previous_sessions_per_click",
+        "operation": "ratio",
+        "role": "numeric",
+        "unit": "numerator units per denominator unit"
+      },
+      {
+        "availability": "Previous observation period",
+        "dependencies": [
+          "sessions_prev_30d",
+          "clicks_prev_30d"
+        ],
+        "family": "ratios",
+        "formula": "1 if source missing or denominator zero; else 0",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Historical efficiency and unavailable-history signal",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "previous_sessions_per_click_unavailable",
+        "operation": "unavailable",
+        "role": "numeric",
+        "unit": "binary"
+      },
+      {
+        "availability": "Inherits source availability",
+        "dependencies": [
+          "search_volume"
+        ],
+        "family": "logs",
+        "formula": "log1p(search_volume)",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Test skew compression without deleting source counts",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "log1p_search_volume",
+        "operation": "log1p",
+        "role": "numeric",
+        "unit": "log-transformed source units"
+      },
+      {
+        "availability": "Inherits source availability",
+        "dependencies": [
+          "cpc"
+        ],
+        "family": "logs",
+        "formula": "log1p(cpc)",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Test skew compression without deleting source counts",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "log1p_cpc",
+        "operation": "log1p",
+        "role": "numeric",
+        "unit": "log-transformed source units"
+      },
+      {
+        "availability": "Inherits source availability",
+        "dependencies": [
+          "word_count"
+        ],
+        "family": "logs",
+        "formula": "log1p(word_count)",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Test skew compression without deleting source counts",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "log1p_word_count",
+        "operation": "log1p",
+        "role": "numeric",
+        "unit": "log-transformed source units"
+      },
+      {
+        "availability": "Inherits source availability",
+        "dependencies": [
+          "char_count"
+        ],
+        "family": "logs",
+        "formula": "log1p(char_count)",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Test skew compression without deleting source counts",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "log1p_char_count",
+        "operation": "log1p",
+        "role": "numeric",
+        "unit": "log-transformed source units"
+      },
+      {
+        "availability": "Inherits source availability",
+        "dependencies": [
+          "impressions_prev_30d"
+        ],
+        "family": "logs",
+        "formula": "log1p(impressions_prev_30d)",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Test skew compression without deleting source counts",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "log1p_impressions_prev_30d",
+        "operation": "log1p",
+        "role": "numeric",
+        "unit": "log-transformed source units"
+      },
+      {
+        "availability": "Inherits source availability",
+        "dependencies": [
+          "clicks_prev_30d"
+        ],
+        "family": "logs",
+        "formula": "log1p(clicks_prev_30d)",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Test skew compression without deleting source counts",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "log1p_clicks_prev_30d",
+        "operation": "log1p",
+        "role": "numeric",
+        "unit": "log-transformed source units"
+      },
+      {
+        "availability": "Inherits source availability",
+        "dependencies": [
+          "sessions_prev_30d"
+        ],
+        "family": "logs",
+        "formula": "log1p(sessions_prev_30d)",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Test skew compression without deleting source counts",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "log1p_sessions_prev_30d",
+        "operation": "log1p",
+        "role": "numeric",
+        "unit": "log-transformed source units"
+      }
+    ],
+    "D": [
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "search_volume"
+        ],
+        "family": "raw",
+        "formula": "search_volume",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "search_volume",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "competition"
+        ],
+        "family": "raw",
+        "formula": "competition",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "competition",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "cpc"
+        ],
+        "family": "raw",
+        "formula": "cpc",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "cpc",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "word_count"
+        ],
+        "family": "raw",
+        "formula": "word_count",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "word_count",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "char_count"
+        ],
+        "family": "raw",
+        "formula": "char_count",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "char_count",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "impressions_prev_30d"
+        ],
+        "family": "raw",
+        "formula": "impressions_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "impressions_prev_30d",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "clicks_prev_30d"
+        ],
+        "family": "raw",
+        "formula": "clicks_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "clicks_prev_30d",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "sessions_prev_30d"
+        ],
+        "family": "raw",
+        "formula": "sessions_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "sessions_prev_30d",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "content_age_days"
+        ],
+        "family": "raw",
+        "formula": "content_age_days",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "content_age_days",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "days_since_last_update"
+        ],
+        "family": "raw",
+        "formula": "days_since_last_update",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "days_since_last_update",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "competition_level"
+        ],
+        "family": "raw",
+        "formula": "competition_level",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "competition_level",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "content_type"
+        ],
+        "family": "raw",
+        "formula": "content_type",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "content_type",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "main_intent"
+        ],
+        "family": "raw",
+        "formula": "main_intent",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "main_intent",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "model_used"
+        ],
+        "family": "raw",
+        "formula": "model_used",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "model_used",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Previous observation period",
+        "dependencies": [
+          "clicks_prev_30d",
+          "impressions_prev_30d"
+        ],
+        "family": "ratios",
+        "formula": "clicks_prev_30d / impressions_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Historical efficiency and unavailable-history signal",
+        "missing_policy": "Undefined ratio remains missing with unavailable indicator; train median; empty fallback zero",
+        "name": "previous_ctr",
+        "operation": "ratio",
+        "role": "numeric",
+        "unit": "numerator units per denominator unit"
+      },
+      {
+        "availability": "Previous observation period",
+        "dependencies": [
+          "clicks_prev_30d",
+          "impressions_prev_30d"
+        ],
+        "family": "ratios",
+        "formula": "1 if source missing or denominator zero; else 0",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Historical efficiency and unavailable-history signal",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "previous_ctr_unavailable",
+        "operation": "unavailable",
+        "role": "numeric",
+        "unit": "binary"
+      },
+      {
+        "availability": "Previous observation period",
+        "dependencies": [
+          "sessions_prev_30d",
+          "clicks_prev_30d"
+        ],
+        "family": "ratios",
+        "formula": "sessions_prev_30d / clicks_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Historical efficiency and unavailable-history signal",
+        "missing_policy": "Undefined ratio remains missing with unavailable indicator; train median; empty fallback zero",
+        "name": "previous_sessions_per_click",
+        "operation": "ratio",
+        "role": "numeric",
+        "unit": "numerator units per denominator unit"
+      },
+      {
+        "availability": "Previous observation period",
+        "dependencies": [
+          "sessions_prev_30d",
+          "clicks_prev_30d"
+        ],
+        "family": "ratios",
+        "formula": "1 if source missing or denominator zero; else 0",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Historical efficiency and unavailable-history signal",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "previous_sessions_per_click_unavailable",
+        "operation": "unavailable",
+        "role": "numeric",
+        "unit": "binary"
+      }
+    ],
+    "E": [
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "search_volume"
+        ],
+        "family": "raw",
+        "formula": "search_volume",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "search_volume",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "competition"
+        ],
+        "family": "raw",
+        "formula": "competition",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "competition",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "cpc"
+        ],
+        "family": "raw",
+        "formula": "cpc",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "cpc",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "word_count"
+        ],
+        "family": "raw",
+        "formula": "word_count",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "word_count",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "char_count"
+        ],
+        "family": "raw",
+        "formula": "char_count",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "char_count",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "impressions_prev_30d"
+        ],
+        "family": "raw",
+        "formula": "impressions_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "impressions_prev_30d",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "clicks_prev_30d"
+        ],
+        "family": "raw",
+        "formula": "clicks_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "clicks_prev_30d",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "sessions_prev_30d"
+        ],
+        "family": "raw",
+        "formula": "sessions_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "sessions_prev_30d",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "content_age_days"
+        ],
+        "family": "raw",
+        "formula": "content_age_days",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "content_age_days",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "age_tier_order"
+        ],
+        "family": "raw",
+        "formula": "age_tier_order",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "age_tier_order",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "days_since_last_update"
+        ],
+        "family": "raw",
+        "formula": "days_since_last_update",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "days_since_last_update",
+        "operation": "identity",
+        "role": "numeric",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "competition_level"
+        ],
+        "family": "raw",
+        "formula": "competition_level",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "competition_level",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "content_type"
+        ],
+        "family": "raw",
+        "formula": "content_type",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "content_type",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "main_intent"
+        ],
+        "family": "raw",
+        "formula": "main_intent",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "main_intent",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "age_tier"
+        ],
+        "family": "raw",
+        "formula": "age_tier",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "age_tier",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "freshness_tier"
+        ],
+        "family": "raw",
+        "formula": "freshness_tier",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "freshness_tier",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "word_count_tier"
+        ],
+        "family": "raw",
+        "formula": "word_count_tier",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "word_count_tier",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Configured cutoff input; historical availability unverified",
+        "dependencies": [
+          "char_count_tier"
+        ],
+        "family": "raw",
+        "formula": "char_count_tier",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Existing approved reference input",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "char_count_tier",
+        "operation": "identity",
+        "role": "categorical",
+        "unit": "source units"
+      },
+      {
+        "availability": "Previous observation period",
+        "dependencies": [
+          "clicks_prev_30d",
+          "impressions_prev_30d"
+        ],
+        "family": "ratios",
+        "formula": "clicks_prev_30d / impressions_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Historical efficiency and unavailable-history signal",
+        "missing_policy": "Undefined ratio remains missing with unavailable indicator; train median; empty fallback zero",
+        "name": "previous_ctr",
+        "operation": "ratio",
+        "role": "numeric",
+        "unit": "numerator units per denominator unit"
+      },
+      {
+        "availability": "Previous observation period",
+        "dependencies": [
+          "clicks_prev_30d",
+          "impressions_prev_30d"
+        ],
+        "family": "ratios",
+        "formula": "1 if source missing or denominator zero; else 0",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Historical efficiency and unavailable-history signal",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "previous_ctr_unavailable",
+        "operation": "unavailable",
+        "role": "numeric",
+        "unit": "binary"
+      },
+      {
+        "availability": "Previous observation period",
+        "dependencies": [
+          "sessions_prev_30d",
+          "clicks_prev_30d"
+        ],
+        "family": "ratios",
+        "formula": "sessions_prev_30d / clicks_prev_30d",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Historical efficiency and unavailable-history signal",
+        "missing_policy": "Undefined ratio remains missing with unavailable indicator; train median; empty fallback zero",
+        "name": "previous_sessions_per_click",
+        "operation": "ratio",
+        "role": "numeric",
+        "unit": "numerator units per denominator unit"
+      },
+      {
+        "availability": "Previous observation period",
+        "dependencies": [
+          "sessions_prev_30d",
+          "clicks_prev_30d"
+        ],
+        "family": "ratios",
+        "formula": "1 if source missing or denominator zero; else 0",
+        "invalid_policy": "Reject negative/non-finite numeric sources and ratio overflow",
+        "justification": "Historical efficiency and unavailable-history signal",
+        "missing_policy": "Train median; entirely missing numeric fallback zero; categorical missing token",
+        "name": "previous_sessions_per_click_unavailable",
+        "operation": "unavailable",
+        "role": "numeric",
+        "unit": "binary"
+      }
+    ]
+  },
+  "schema_version": "1.0",
+  "selected_configs": {
+    "logistic_regression": {
+      "down_recall_guardrail": 0.5,
+      "engineering_version": "1.0",
+      "excluded_inputs": [],
+      "families": [
+        "ratios",
+        "logs"
+      ],
+      "feature_contract_version": "2.0",
+      "folds": 3,
+      "log_sources": [
+        "search_volume",
+        "cpc",
+        "word_count",
+        "char_count",
+        "impressions_prev_30d",
+        "clicks_prev_30d",
+        "sessions_prev_30d"
+      ],
+      "random_seed": 42,
+      "registry_schema_version": "1.0",
+      "tie_tolerance": 0.005,
+      "variants": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    "random_forest": {
+      "down_recall_guardrail": 0.5,
+      "engineering_version": "1.0",
+      "excluded_inputs": [
+        "model_used"
+      ],
+      "families": [
+        "ratios"
+      ],
+      "feature_contract_version": "2.0",
+      "folds": 3,
+      "log_sources": [
+        "search_volume",
+        "cpc",
+        "word_count",
+        "char_count",
+        "impressions_prev_30d",
+        "clicks_prev_30d",
+        "sessions_prev_30d"
+      ],
+      "random_seed": 42,
+      "registry_schema_version": "1.0",
+      "tie_tolerance": 0.005,
+      "variants": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    }
+  },
+  "test_accessed": false
+}

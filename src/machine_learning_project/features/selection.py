@@ -14,7 +14,13 @@ def configured_feature_columns(config: dict[str, Any]) -> list[str]:
     overlap = set(numeric) & set(categorical)
     if overlap:
         raise DataValidationError(f"Feature roles overlap: {sorted(overlap)}")
-    forbidden = set(config.get("id_columns", [])) | set(config.get("drop_columns", []))
+    if len(numeric + categorical) != len(set(numeric + categorical)):
+        raise DataValidationError("Duplicate feature names")
+    forbidden = (
+        set(config.get("id_columns", []))
+        | set(config.get("drop_columns", []))
+        | set(config.get("sensitive_columns", []))
+    )
     target = config.get("target_column")
     if target:
         forbidden.add(target)

@@ -1,0 +1,66 @@
+{
+  "artifact_hashes": {
+    "baseline_metrics.json": "ef1d263799e2bd1622d23684de179f657591af38f2734f86ae8fb2422d53b120",
+    "baseline_repeats.csv": "322462037cbbb92072a97af1247898c85f6a0dc27bac98106e46d20c79f0dfd7",
+    "baseline_report.md": "631accc7fa597ac935522efd661471ffb4c5b4e0098782faf3f0cfd64cccf764",
+    "baseline_summary.json": "8f5f68feca04fc1a98827e19021d165cc1e5783e08070d5275012bedef23ee77"
+  },
+  "baseline_contract_version": "1.0",
+  "code": {
+    "dirty": true,
+    "revision": "96f08015b63c20285a3d57ae570b52e218610809",
+    "source_tree_sha256": "215b3fe7191ced03e97565c684b3196a6b2c00be0ef604d381a4d515480c9625"
+  },
+  "config": {
+    "baseline_contract_version": "1.0",
+    "evaluation_partition": "validation",
+    "metric_contract_version": "1.0",
+    "minimum_macro_f1_improvement": 0.01,
+    "ordering": "row_key",
+    "output_directory": "reports/baselines",
+    "reference_seed": 42,
+    "repeat_seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "strategies": [
+      "most_frequent",
+      "stratified"
+    ]
+  },
+  "config_sha256": "ec35f348fd47bd6ee59235bb3322d906a3d3adc2bb4c71de3d0756c0ecf28b59",
+  "environment": {
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.0",
+    "sklearn": "1.9.0"
+  },
+  "evaluation_identity": {
+    "labels": [
+      "down",
+      "stable",
+      "up",
+      "new",
+      "flat"
+    ],
+    "metric_contract_version": "1.0",
+    "ordered_train_sha256": "31b62fbdfdcd8bfd2c53e1085b80f79a57b809f09dee453612f505c13939d997",
+    "ordered_validation_sha256": "fedf48368dd070e1505781f32206dd0bd6bb37cfe0a85c4f2abc37a7c57a5dd8",
+    "partition": "validation",
+    "provenance": {
+      "source_sha256": "c43bdac4eccfa17fcd8a33974fe36f2c998c03a3ae3af8d80cf712abab5d6396",
+      "split_assignments_sha256": "16bcb64d829c94664e3b0c492277cc4c036776d68b5e0d6478504bad21952a0f",
+      "split_manifest_sha256": "a656a6442dc9857f64b62f33cae1cc7fa953a1c0a6f3217b3f297e113fba32cf"
+    },
+    "target": "trend_direction",
+    "train_groups": 18,
+    "train_rows": 17670,
+    "validation_groups": 7,
+    "validation_rows": 5857
+  },
+  "manifest_schema_version": "1.0"
+}

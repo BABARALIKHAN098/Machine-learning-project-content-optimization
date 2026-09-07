@@ -1,0 +1,29 @@
+{
+  "real_data_handoff": "passed",
+  "prediction_rows": 32,
+  "selected_model": "random_forest",
+  "test_accessed": false,
+  "model_artifact_kept": false,
+  "source_unchanged": true,
+  "real_data_reproduction": "passed",
+  "semantic_manifest_sha256": "84dcf071f910f6ab573246cb9d40907a0f911e005496b72630e60b2cf3176c8a",
+  "fold_result_rows": 30,
+  "runtime_fields_excluded_from_comparison": [
+    "fit_seconds",
+    "prediction_seconds",
+    "artifact_hashes"
+  ],
+  "source_code_fingerprint_matched": true,
+  "pytest": {
+    "command": ".venv/Scripts/python.exe -m pytest",
+    "passed": 62,
+    "duration_seconds": 14.4
+  },
+  "ruff": "passed",
+  "git_diff_check": "passed",
+  "limitations": [
+    "Historical metadata cutoff availability remains unverified.",
+    "Existing holdout was previously evaluated; final-test auditing remains SPEC-03 work.",
+    "Selected random-forest validation macro F1 remains below the 0.45 project target."
+  ]
+}

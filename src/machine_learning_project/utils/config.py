@@ -1,11 +1,59 @@
 from __future__ import annotations
 
+import math
 from pathlib import Path
 from typing import Any
 
 import yaml
 
 from .exceptions import DataValidationError
+
+
+def validate_baseline_config(config: dict[str, Any]) -> None:
+    if not isinstance(config, dict):
+        raise DataValidationError("Baseline configuration must be a mapping")
+    supported = {
+        "baseline_contract_version": "1.0",
+        "metric_contract_version": "1.0",
+        "evaluation_partition": "validation",
+        "ordering": "row_key",
+    }
+    errors = [
+        f"Unsupported baselines.{key}"
+        for key, value in supported.items()
+        if config.get(key) != value
+    ]
+    if config.get("strategies") != ["most_frequent", "stratified"]:
+        errors.append("Baseline strategies must be [most_frequent, stratified]")
+    seeds = config.get("repeat_seeds")
+    valid_seed = lambda seed: type(seed) is int and 0 <= seed < 2**32
+    if not valid_seed(config.get("reference_seed")):
+        errors.append("reference_seed must be a uint32 integer")
+    if (
+        not isinstance(seeds, list)
+        or not seeds
+        or not all(valid_seed(x) for x in seeds)
+        or len(set(seeds)) != len(seeds)
+    ):
+        errors.append("repeat_seeds must be a nonempty list of unique uint32 integers")
+    elif config.get("reference_seed") not in seeds:
+        errors.append("repeat_seeds must include reference_seed")
+    margin = config.get("minimum_macro_f1_improvement")
+    if type(margin) not in (int, float) or not math.isfinite(margin) or not 0 < margin <= 1:
+        errors.append("minimum_macro_f1_improvement must be finite and in (0, 1]")
+    if not isinstance(config.get("output_directory"), str) or not config["output_directory"]:
+        errors.append("output_directory must be a nonempty string")
+    allowed = set(supported) | {
+        "strategies",
+        "reference_seed",
+        "repeat_seeds",
+        "minimum_macro_f1_improvement",
+        "output_directory",
+    }
+    if set(config) - allowed:
+        errors.append("Unknown baseline configuration fields")
+    if errors:
+        raise DataValidationError("; ".join(errors))
 
 
 def validate_data_config(config: dict[str, Any]) -> None:

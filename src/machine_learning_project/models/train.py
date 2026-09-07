@@ -6,22 +6,35 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 
+from ..features.engineering import CutoffSafeFeatureEngineer
 from ..features.preprocessing import build_preprocessor_from_config
+from ..features.registry import resolve_registry
+from ..utils.exceptions import DataValidationError
 
 
 def build_candidates(
     data_config: dict[str, Any],
     preprocessing_config: dict[str, Any],
     training_config: dict[str, Any],
+    feature_config: dict[str, Any] | None = None,
 ) -> dict[str, Pipeline]:
     numeric = data_config.get("numeric_columns", [])
     categorical = data_config.get("categorical_columns", [])
+    if feature_config is not None:
+        if (
+            preprocessing_config["feature_contract_version"]
+            != feature_config["feature_contract_version"]
+        ):
+            raise DataValidationError("Preprocessing and feature contract versions disagree")
+        registry = resolve_registry(data_config, feature_config)
+        numeric = [entry["name"] for entry in registry if entry["role"] == "numeric"]
+        categorical = [entry["name"] for entry in registry if entry["role"] == "categorical"]
     scale = bool(preprocessing_config.get("scale_numeric", True))
     seed = int(training_config.get("random_seed", 42))
     settings = training_config.get("candidates", {})
     logistic = settings.get("logistic_regression", {})
     forest = settings.get("random_forest", {})
-    return {
+    candidates = {
         "logistic_regression": Pipeline(
             [
                 (
@@ -63,3 +76,9 @@ def build_candidates(
             ]
         ),
     }
+    if feature_config is not None:
+        for pipeline in candidates.values():
+            pipeline.steps.insert(
+                0, ("engineering", CutoffSafeFeatureEngineer(data_config, feature_config))
+            )
+    return candidates

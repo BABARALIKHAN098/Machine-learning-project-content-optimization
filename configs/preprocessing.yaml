@@ -1,5 +1,5 @@
 preprocessing:
-  feature_contract_version: "1.0"
+  feature_contract_version: "2.0"
   numeric_imputation: median
   categorical_imputation: __MISSING__
   categorical_encoding: one_hot

@@ -11,13 +11,18 @@ import joblib
 import pandas as pd
 import sklearn
 
-from machine_learning_project.data.ingestion import load_csv
+from machine_learning_project.data.development import load_development
 from machine_learning_project.data.preparation import prepare_supervised_data
-from machine_learning_project.data.splitting import split_by_group, write_split_artifacts
-from machine_learning_project.data.validation import require_valid_schema
+from machine_learning_project.features.artifacts import load_frozen_configs
+from machine_learning_project.features.registry import fingerprint
 from machine_learning_project.features.selection import configured_feature_columns
-from machine_learning_project.models.baseline import build_baselines
-from machine_learning_project.models.evaluate import evaluate_predictions, subgroup_metrics
+from machine_learning_project.models.baseline import evaluate_baselines, resolve_baseline_config
+from machine_learning_project.models.benchmark import (
+    compare_candidate,
+    load_benchmark,
+    prepare_benchmark_partitions,
+)
+from machine_learning_project.models.evaluate import evaluate_predictions
 from machine_learning_project.models.train import build_candidates
 from machine_learning_project.models.tune import select_candidate
 from machine_learning_project.utils.config import (
@@ -47,69 +52,57 @@ def run_training(
     data_config: dict[str, Any],
     preprocessing_config: dict[str, Any],
     training_config: dict[str, Any],
+    feature_config: dict[str, Any] | None = None,
+    feature_manifest: str | Path | None = None,
+    baseline_config: dict[str, Any] | None = None,
+    baseline_manifest: str | Path | None = None,
 ) -> TrainingResult:
+    baseline_config = resolve_baseline_config(baseline_config, training_config)
     validate_data_config(data_config)
     validate_preprocessing_config(preprocessing_config)
     validate_split_config(training_config)
-    loaded = load_csv(data_config)
-    dataframe = loaded.dataframe
-    require_valid_schema(dataframe, data_config)
+    train, validation, provenance = load_development(data_config, training_config)
+    train, validation, evaluation_identity = prepare_benchmark_partitions(
+        train, validation, data_config, training_config, provenance
+    )
+    frozen_configs, manifest_sha256 = None, None
+    if feature_manifest is not None:
+        frozen_configs, manifest_sha256 = load_frozen_configs(
+            feature_manifest, data_config, preprocessing_config, training_config, provenance
+        )
     target = data_config["target_column"]
-    group = training_config.get("group_column", data_config.get("group_column", "client_id"))
     labels = list(data_config["allowed_target_values"])
-    splits = split_by_group(
-        dataframe,
-        target_column=target,
-        group_column=group,
-        row_key=training_config["row_key"],
-        allowed_labels=labels,
-        test_size=float(training_config.get("test_size", 0.2)),
-        validation_size=float(training_config.get("validation_size", 0.2)),
-        random_seed=int(training_config.get("random_seed", 42)),
-        search_attempts=int(training_config["search_attempts"]),
-        row_ratio_tolerance=float(training_config["row_ratio_tolerance"]),
-        class_ratio_tolerance=float(training_config["class_ratio_tolerance"]),
-        size_weight=float(training_config["split_objective_weights"]["size"]),
-        class_weight=float(training_config["split_objective_weights"]["class"]),
-        source_sha256=loaded.sha256,
-        data_schema_version=data_config.get("schema_version", "unversioned"),
-        split_contract_version=training_config["split_contract_version"],
-        algorithm_version=training_config["split_algorithm_version"],
-        alias_context=training_config.get("split_alias_context", "content-trend-split-v1"),
-    )
-    write_split_artifacts(
-        splits,
-        training_config["split_manifest_path"],
-        training_config["split_assignments_path"],
-    )
-
-    contract_version = preprocessing_config.get("feature_contract_version", "1.0")
+    contract_version = (feature_config or preprocessing_config)["feature_contract_version"]
     train_prepared = prepare_supervised_data(
-        splits.train, data_config, feature_contract_version=contract_version
+        train, data_config, feature_contract_version=contract_version
     )
     validation_prepared = prepare_supervised_data(
-        splits.validation, data_config, feature_contract_version=contract_version
+        validation, data_config, feature_contract_version=contract_version
     )
-    test_prepared = prepare_supervised_data(
-        splits.test, data_config, feature_contract_version=contract_version
+    train_x, validation_x = train_prepared.features, validation_prepared.features
+    train_y, validation_y = (
+        train_prepared.target.astype(str),
+        validation_prepared.target.astype(str),
     )
-    train_x = train_prepared.features
-    validation_x = validation_prepared.features
-    test_x = test_prepared.features
-    train_y = train_prepared.target.astype(str)
-    validation_y = validation_prepared.target.astype(str)
-    test_y = test_prepared.target.astype(str)
 
-    baseline_results: dict[str, Any] = {}
-    for name, baseline in build_baselines(int(training_config.get("random_seed", 42))).items():
-        started = time.perf_counter()
-        baseline.fit(train_x, train_y)
-        predictions = baseline.predict(validation_x)
-        metrics = evaluate_predictions(validation_y, predictions, labels)
-        metrics["elapsed_seconds"] = time.perf_counter() - started
-        baseline_results[name] = metrics
+    baseline_manifest_sha256 = None
+    if baseline_manifest is not None:
+        benchmark, baseline_manifest_sha256 = load_benchmark(
+            baseline_manifest, evaluation_identity, baseline_config
+        )
+    else:
+        benchmark = evaluate_baselines(train_y, validation_y, baseline_config, labels)
+        benchmark["evaluation_identity"] = evaluation_identity
+    baseline_results = benchmark["canonical"]
 
-    candidates = build_candidates(data_config, preprocessing_config, training_config)
+    candidates = build_candidates(
+        data_config, preprocessing_config, training_config, feature_config
+    )
+    if frozen_configs is not None:
+        candidates = {
+            name: build_candidates(data_config, preprocessing_config, training_config, config)[name]
+            for name, config in frozen_configs.items()
+        }
     validation_results: dict[str, Any] = {}
     for name, pipeline in candidates.items():
         started = time.perf_counter()
@@ -123,65 +116,56 @@ def run_training(
         validation_results, float(training_config.get("down_recall_guardrail", 0.0))
     )
     selected = candidates[selected_name]
-    development = pd.concat([splits.train, splits.validation], axis=0)
-    development_prepared = prepare_supervised_data(
-        development, data_config, feature_contract_version=contract_version
-    )
-    development_x = development_prepared.features
-    development_y = development_prepared.target.astype(str)
-    fit_started = time.perf_counter()
-    selected.fit(development_x, development_y)
-    final_fit_seconds = time.perf_counter() - fit_started
-
-    prediction_started = time.perf_counter()
-    test_predictions = selected.predict(test_x)
-    test_prediction_seconds = time.perf_counter() - prediction_started
-    test_metrics = evaluate_predictions(test_y, test_predictions, labels)
-    test_metrics["prediction_seconds"] = test_prediction_seconds
-    test_metrics["subgroups"] = subgroup_metrics(
-        splits.test,
-        test_y,
-        test_predictions,
-        [group, "content_type", "main_intent", "age_tier", "freshness_tier"],
-    )
-
-    benchmark_x = prepare_supervised_data(
-        dataframe, data_config, feature_contract_version=contract_version
-    ).features
-    benchmark_started = time.perf_counter()
-    selected.predict(benchmark_x)
-    benchmark_seconds = time.perf_counter() - benchmark_started
+    if frozen_configs is not None:
+        feature_config = frozen_configs[selected_name]
+        contract_version = feature_config["feature_contract_version"]
+    # Retain the train-fitted candidate. Final refit/test evaluation is a separate phase.
     threshold = float(training_config.get("minimum_macro_f1", 0.45))
-    runtime_limit = float(training_config.get("batch_runtime_limit_seconds", 30))
     metrics_payload = {
         "selected_model": selected_name,
         "primary_metric": training_config.get("primary_metric", "macro_f1"),
         "minimum_macro_f1": threshold,
-        "threshold_met": test_metrics["macro_f1"] >= threshold,
+        "threshold_met": validation_results[selected_name]["macro_f1"] >= threshold,
         "baselines_validation": baseline_results,
         "candidates_validation": validation_results,
-        "test": test_metrics,
-        "benchmark": {
-            "row_count": len(dataframe),
-            "prediction_seconds": benchmark_seconds,
-            "limit_seconds": runtime_limit,
-            "limit_met": benchmark_seconds <= runtime_limit,
-        },
+        "evaluation_partition": "validation",
+        "test_accessed": False,
     }
+    metrics_payload["evaluation_identity"] = evaluation_identity
+    metrics_payload["baseline_benchmark"] = benchmark
+    metrics_payload["baseline_manifest_sha256"] = baseline_manifest_sha256
+    metrics_payload["baseline_comparisons"] = {
+        name: compare_candidate(
+            metrics, evaluation_identity, benchmark, baseline_config, training_config
+        )
+        for name, metrics in validation_results.items()
+    }
+    metrics_payload["selection_status"] = "selected_for_development"
+    metrics_payload["recall_fallback_used"] = not any(
+        metrics["per_class"]["down"]["recall"] >= training_config.get("down_recall_guardrail", 0.5)
+        for metrics in validation_results.values()
+    )
     metrics_path = _write_json(training_config["metrics_path"], metrics_payload)
 
     preprocessor = selected.named_steps["preprocessor"]
     metadata = {
-        "model_version": "1.0.0",
+        "model_version": "2.0.0" if feature_config else "1.0.0",
         "selected_model": selected_name,
         "created_at_utc": pd.Timestamp.now(tz="UTC").isoformat(),
-        "source_sha256": loaded.sha256,
-        "feature_contract_version": preprocessing_config.get("feature_contract_version", "1.0"),
+        "source_sha256": provenance["source_sha256"],
+        "split_provenance": provenance,
+        "fitting_population": "train",
+        "bundle_schema_version": "2.0" if feature_config else "1.0",
+        "feature_config_sha256": fingerprint(feature_config) if feature_config else None,
+        "feature_manifest_sha256": manifest_sha256,
+        "baseline_manifest_sha256": baseline_manifest_sha256,
+        "metric_contract_version": evaluation_identity["metric_contract_version"],
+        "evaluation_identity": evaluation_identity,
+        "feature_contract_version": contract_version,
         "feature_columns": configured_feature_columns(data_config),
         "transformed_feature_names": list(map(str, preprocessor.get_feature_names_out())),
         "target_column": target,
         "class_order": list(map(str, selected.named_steps["model"].classes_)),
-        "final_fit_seconds": final_fit_seconds,
         "python_version": platform.python_version(),
         "pandas_version": pd.__version__,
         "scikit_learn_version": sklearn.__version__,
@@ -191,5 +175,16 @@ def run_training(
     metadata_path = _write_json(training_config["metadata_path"], metadata)
     artifact_path = Path(training_config["artifact_path"])
     artifact_path.parent.mkdir(parents=True, exist_ok=True)
-    joblib.dump({"pipeline": selected, "metadata": metadata, "data_config": data_config}, artifact_path)
-    return TrainingResult(selected_name, artifact_path, metadata_path, metrics_path, metrics_payload)
+    joblib.dump(
+        {
+            "pipeline": selected,
+            "metadata": metadata,
+            "data_config": data_config,
+            "feature_config": feature_config,
+            "preprocessing_config": preprocessing_config,
+        },
+        artifact_path,
+    )
+    return TrainingResult(
+        selected_name, artifact_path, metadata_path, metrics_path, metrics_payload
+    )
