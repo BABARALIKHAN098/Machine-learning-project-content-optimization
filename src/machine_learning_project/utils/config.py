@@ -38,6 +38,8 @@ def validate_baseline_config(config: dict[str, Any]) -> None:
         errors.append("repeat_seeds must be a nonempty list of unique uint32 integers")
     elif config.get("reference_seed") not in seeds:
         errors.append("repeat_seeds must include reference_seed")
+    if config.get("reference_seed") != 42 or seeds != [42, 43, 44, 45, 46]:
+        errors.append("Contract 1.0 requires reference seed 42 and repeats [42, 43, 44, 45, 46]")
     margin = config.get("minimum_macro_f1_improvement")
     if type(margin) not in (int, float) or not math.isfinite(margin) or not 0 < margin <= 1:
         errors.append("minimum_macro_f1_improvement must be finite and in (0, 1]")
@@ -178,3 +180,94 @@ def validate_split_config(config: dict[str, Any]) -> None:
         errors.append("training.split_objective_weights must contain non-negative size/class")
     if errors:
         raise DataValidationError("; ".join(errors))
+
+
+def validate_tuning_config(config: dict[str, Any], training: dict[str, Any]) -> None:
+    """Contract 1.0 is a predetermined search, not an adaptive parameter search."""
+    import json
+
+    fixed = {
+        "tuning_contract_version": "1.0",
+        "artifact_schema_version": "1.0",
+        "families": ["logistic_regression", "random_forest"],
+        "search_method": "fixed_grid",
+        "folds": 3,
+        "shuffle": True,
+        "random_seed": 42,
+        "primary_metric": "macro_f1",
+        "selection_tolerance": 0.001,
+        "search_n_jobs": 1,
+        "estimator_n_jobs": 1,
+        "max_configurations": 15,
+        "max_estimator_fits": 47,
+        "convergence_policy": "exclude",
+        "evaluation_partition": "validation",
+        "require_feature_manifest": True,
+        "require_baseline_manifest": True,
+        "resume": False,
+        "grids": {
+            "logistic_regression": {"model__C": [0.1, 1.0, 10.0]},
+            "random_forest": {
+                "model__min_samples_leaf": [1, 2, 5],
+                "model__max_features": ["sqrt", 0.5],
+                "model__max_depth": [None, 20],
+            },
+        },
+    }
+    if not isinstance(config, dict) or set(config) != set(fixed) | {
+        "output_root",
+        "model_output_root",
+    }:
+        raise DataValidationError("Tuning config must contain exactly the contract 1.0 fields")
+    try:
+        for key, expected in fixed.items():
+            if json.dumps(config[key], sort_keys=True, allow_nan=False) != json.dumps(
+                expected, sort_keys=True, allow_nan=False
+            ):
+                raise DataValidationError(f"Unsupported tuning.{key} for fixed protocol 1.0")
+    except (TypeError, ValueError) as error:
+        raise DataValidationError("Invalid fixed tuning protocol values") from error
+    for key in ("output_root", "model_output_root"):
+        if not isinstance(config[key], str) or not config[key].strip():
+            raise DataValidationError(f"tuning.{key} must be a nonempty local path")
+    if training.get("primary_metric") != "macro_f1" or type(training.get("random_seed")) is not int:
+        raise DataValidationError("Training metric/seed is incompatible with tuning")
+    if training["random_seed"] != 42:
+        raise DataValidationError("Tuning requires the original training seed 42")
+    for key in ("minimum_macro_f1", "down_recall_guardrail"):
+        value = training.get(key)
+        if type(value) not in (int, float) or not math.isfinite(value) or not 0 <= value <= 1:
+            raise DataValidationError(f"Invalid training.{key}")
+    candidates = training.get("candidates")
+    allowed = {
+        "logistic_regression": {"C", "max_iter", "class_weight"},
+        "random_forest": {
+            "n_estimators",
+            "min_samples_leaf",
+            "max_features",
+            "class_weight",
+            "n_jobs",
+        },
+    }
+    if not isinstance(candidates, dict) or set(candidates) != set(allowed):
+        raise DataValidationError("Both original candidate families are required")
+    for family, fields in allowed.items():
+        if not isinstance(candidates[family], dict) or set(candidates[family]) != fields:
+            raise DataValidationError("Unknown or missing original candidate parameters")
+    logistic, forest = candidates["logistic_regression"], candidates["random_forest"]
+    for value in (logistic["C"],):
+        if type(value) not in (int, float) or not math.isfinite(value) or value <= 0:
+            raise DataValidationError("Original logistic C must be positive and finite")
+    for value in (logistic["max_iter"], forest["n_estimators"], forest["min_samples_leaf"]):
+        if type(value) is not int or value <= 0:
+            raise DataValidationError("Original estimator counts must be positive integers")
+    if (
+        logistic["class_weight"] != "balanced"
+        or forest["class_weight"] != "balanced_subsample"
+        or type(forest["n_jobs"]) is not int
+        or forest["n_jobs"] == 0
+    ):
+        raise DataValidationError("Unsupported original weighting/resource settings")
+    value = forest["max_features"]
+    if not (value == "sqrt" or type(value) in (int, float) and 0 < value <= 1):
+        raise DataValidationError("Unsupported original max_features")

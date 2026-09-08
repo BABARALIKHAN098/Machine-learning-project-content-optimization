@@ -144,3 +144,47 @@ Predictions support human review only. They must not trigger automatic content c
 ## Current result
 
 The selected random forest achieved test macro F1 of 0.4215 and `down` recall of 0.6603 on a client-grouped holdout. Because macro F1 is below the provisional 0.45 threshold, the current model remains experimental.
+
+
+## Development baseline benchmark (SPEC-05)
+
+Run `.\.venv\Scripts\python.exe scripts/run_baselines.py` to publish the verified,
+training-label-only majority and stratified benchmark under `reports/baselines`.
+Existing source and split artifacts are required; the command never regenerates splits.
+Configuration is owned by `configs/baselines.yaml`: canonical seed 42, fixed repeats 42-46,
+and a 0.01 absolute macro-F1 improvement margin. Fit and prediction timings are separate.
+
+Run `.\.venv\Scripts\python.exe scripts/verify_baselines.py` for tests, lint and two-run
+real-data verification. See `reports/baselines/verification.json` for actual outcomes.
+For SPEC-06, `scripts/train_model.py --baseline-manifest reports/baselines/baseline_manifest.json`
+reuses verified frozen evidence. Source, split, ordered rows and metric contracts must match;
+legacy reports without this provenance cannot be compared. Candidate reports retain
+`baselines_validation` and add independent improvement, recall and project-target flags.
+Selection for development does not imply that these flags passed or authorize promotion.
+
+Validation was previously used for feature confirmation and historical test results exist.
+This benchmark is developmental. Random-seed dispersion is not a generalization confidence
+interval, and dummy-model timing does not establish full-pipeline performance.
+
+
+## Grouped model tuning (SPEC-06)
+
+Run `python scripts/train_model.py --tuning-config configs/tuning.yaml --feature-manifest
+reports/features/feature_manifest.json --baseline-manifest reports/baselines/baseline_manifest.json
+--run-id spec06-reference` in the project environment. Add `--dry-run` for read-only preflight.
+The fixed protocol performs 15 configurations across three client-grouped training folds,
+then two train-only finalist refits: 47 fits. Frozen feature/baseline manifests are mandatory.
+
+Outputs use `reports/training/<run_id>` and `artifacts/models/training/<run_id>`; existing run
+IDs are rejected. Both finalist bundles remain development-only. Choices use training CV,
+then validation reports independent baseline-improvement/recall/target flags without retuning.
+Legacy training without `--tuning-config` remains available.
+
+`python scripts/verify_training.py` runs tests/lint and two isolated real searches (94 fits),
+checking semantic reproducibility, bundle reloads and protected prerequisite/model/report bytes.
+Do not also run the same two searches manually before invoking this verifier. Use a new
+`--run-prefix` for later verification runs. SPEC-07 can consume both finalists with
+`load_training_run(report_dir, model_dir)` after hash checks. No test evaluation or promotion runs.
+
+These scores reuse development evidence and frozen feature selection; they are not a new
+independent or nested generalization estimate. Historical cutoff uncertainty remains unresolved.

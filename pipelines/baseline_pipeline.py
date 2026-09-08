@@ -97,7 +97,7 @@ def run_baselines(data_config, training_config, baseline_config=None, output_dir
             ),
             "",
             (
-                f"Proposed/adopted material improvement: +{config['minimum_macro_f1_improvement']:.3f} "
+                f"Adopted material improvement: +{config['minimum_macro_f1_improvement']:.3f} "
                 "absolute macro F1 over majority, canonical stratified and stratified mean. "
                 "Recall and project-target checks are separate from this comparison."
             ),

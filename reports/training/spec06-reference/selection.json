@@ -1,0 +1,90 @@
+{
+  "finalists": {
+    "logistic_regression": {
+      "cv_summary": {
+        "down_recall": {
+          "maximum": 0.7063670411985019,
+          "mean": 0.5961197855961137,
+          "minimum": 0.5326535566885167,
+          "std": 0.07825361341652451
+        },
+        "macro_f1": {
+          "maximum": 0.5531190303774149,
+          "mean": 0.4118543331851918,
+          "minimum": 0.32966895158622433,
+          "std": 0.10033363868006565
+        }
+      },
+      "family": "logistic_regression",
+      "parameters": {
+        "model__C": 0.1
+      },
+      "reason": "CV macro F1 within tolerance, declared complexity, stable ID",
+      "recall_fallback_used": false,
+      "tied_trial_ids": [
+        "logistic_regression-f3a7dbb2a2085859"
+      ],
+      "trial_id": "logistic_regression-f3a7dbb2a2085859"
+    },
+    "random_forest": {
+      "cv_summary": {
+        "down_recall": {
+          "maximum": 0.7940074906367042,
+          "mean": 0.6953134966697126,
+          "minimum": 0.6174974567650051,
+          "std": 0.07355662099687656
+        },
+        "macro_f1": {
+          "maximum": 0.5367267647024998,
+          "mean": 0.44342551142564196,
+          "minimum": 0.3621089745687299,
+          "std": 0.07178935960410018
+        }
+      },
+      "family": "random_forest",
+      "parameters": {
+        "model__max_depth": null,
+        "model__max_features": 0.5,
+        "model__min_samples_leaf": 5
+      },
+      "reason": "CV macro F1 within tolerance, declared complexity, stable ID",
+      "recall_fallback_used": false,
+      "tied_trial_ids": [
+        "random_forest-cbfc62e4b42c1c6d"
+      ],
+      "trial_id": "random_forest-cbfc62e4b42c1c6d"
+    }
+  },
+  "preferred_for_development": {
+    "cv_summary": {
+      "down_recall": {
+        "maximum": 0.7940074906367042,
+        "mean": 0.6953134966697126,
+        "minimum": 0.6174974567650051,
+        "std": 0.07355662099687656
+      },
+      "macro_f1": {
+        "maximum": 0.5367267647024998,
+        "mean": 0.44342551142564196,
+        "minimum": 0.3621089745687299,
+        "std": 0.07178935960410018
+      }
+    },
+    "family": "random_forest",
+    "parameters": {
+      "model__max_depth": null,
+      "model__max_features": 0.5,
+      "model__min_samples_leaf": 5
+    },
+    "reason": "CV macro F1 within tolerance, declared complexity, stable ID",
+    "recall_fallback_used": false,
+    "tied_trial_ids": [
+      "random_forest-cbfc62e4b42c1c6d"
+    ],
+    "trial_id": "random_forest-cbfc62e4b42c1c6d"
+  },
+  "selection_population": "training_grouped_folds",
+  "selection_tolerance": 0.001,
+  "trial_metrics_sha256": "311f687b00d5e69159eac911d640ec28870e58bfaa41a5d7996451268f0bf1b3",
+  "validation_used_for_selection": false
+}

@@ -1,0 +1,74 @@
+{
+  "commands": [
+    {
+      "command": "\"E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Scripts\\python.exe\" -m pytest tests/unit/test_baselines.py tests/unit/test_evaluation.py tests/integration/test_baseline_pipeline.py tests/contract/test_baseline_contract.py tests/integration/test_training_pipeline.py",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "............................................                             [100%]\n============================== warnings summary ===============================\ntests/unit/test_baselines.py::test_invalid_partitions[bad3]\ntests/unit/test_baselines.py::test_invalid_partitions[bad3]\ntests/unit/test_evaluation.py::test_missing_truth_class_preserves_fixed_label_macro\n  E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Lib\\site-packages\\sklearn\\metrics\\_classification.py:614: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.\n    warnings.warn(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n44 passed, 3 warnings in 20.74s\n"
+    },
+    {
+      "command": "\"E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Scripts\\python.exe\" -m pytest",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "........................................................................ [ 68%]\n.................................                                        [100%]\n============================== warnings summary ===============================\ntests/unit/test_baselines.py::test_invalid_partitions[bad3]\ntests/unit/test_baselines.py::test_invalid_partitions[bad3]\ntests/unit/test_evaluation.py::test_missing_truth_class_preserves_fixed_label_macro\n  E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Lib\\site-packages\\sklearn\\metrics\\_classification.py:614: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.\n    warnings.warn(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n105 passed, 3 warnings in 38.38s\n"
+    },
+    {
+      "command": "\"E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Scripts\\python.exe\" -m ruff check src pipelines scripts tests",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "All checks passed!\n"
+    },
+    {
+      "command": "\"E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Scripts\\python.exe\" scripts/run_baselines.py --output-dir \"E:\\Portfolio_maker\\mL learning project content optimization\\reports\\baselines\"",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "most_frequent: validation macro F1 0.136794\nstratified: validation macro F1 0.208024\nBenchmark: E:\\Portfolio_maker\\mL learning project content optimization\\reports\\baselines\n"
+    },
+    {
+      "command": "\"E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Scripts\\python.exe\" scripts/run_baselines.py --output-dir C:\\Users\\babar\\AppData\\Local\\Temp\\baseline-verification-br2z5_ih",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "most_frequent: validation macro F1 0.136794\nstratified: validation macro F1 0.208024\nBenchmark: C:\\Users\\babar\\AppData\\Local\\Temp\\baseline-verification-br2z5_ih\n"
+    }
+  ],
+  "execution_scope": {
+    "integrity_access": "Full-source validation upstream; runner accepts train/validation only",
+    "privacy": "Aggregate outputs and scoped identity hashes; no row-level predictions",
+    "real_candidate_training": false,
+    "test_evaluation": false,
+    "tests": "Neutral-input fit/predict instrumentation and synthetic training reuse passed"
+  },
+  "protected_artifact_sha256": {
+    "artifacts\\metadata\\.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "artifacts\\metadata\\model_metadata.json": "2783f00e3cff39124c1f1a36b96e34d169926060dd1b6826ddf4c398172271ac",
+    "artifacts\\metadata\\split_assignments.csv": "16bcb64d829c94664e3b0c492277cc4c036776d68b5e0d6478504bad21952a0f",
+    "artifacts\\metadata\\split_manifest.json": "a656a6442dc9857f64b62f33cae1cc7fa953a1c0a6f3217b3f297e113fba32cf",
+    "artifacts\\models\\.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "artifacts\\models\\content_trend_pipeline.joblib": "1ff144656ad8ccdb8004f0dc2404864c8c24d260b924bcea3f1f79c7a6c53a24",
+    "artifacts\\preprocessors\\.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "data\\raw\\dataset.csv": "c43bdac4eccfa17fcd8a33974fe36f2c998c03a3ae3af8d80cf712abab5d6396",
+    "reports\\features\\ablation_results.csv": "d572881abe2b9102b5ee35e8603dc7e16dd0e78889b037f92febb90c7f7fc418",
+    "reports\\features\\feature_catalog.csv": "ef4613ba153c780e4af98ed9594839398cf5be7d5a670fd8c5449061252e54f1",
+    "reports\\features\\feature_manifest.json": "29969cb10f3e8300c7d1132841bb2e9f8c30e881d45af8ce556df469cead9b4f",
+    "reports\\features\\selected_features.json": "16de2dc2bf00c9c2e65853cb463023f0cdc18613687b62302c89e2d2935a5cf5",
+    "reports\\features\\selection_report.md": "1a8996eee9c664f0b23d9229cb456f8c99d711de79ce3273118b7a4189d6bb24",
+    "reports\\features\\training_diagnostics.json": "c6d60c5ff98372e12ba43c00e06df0409f1769339087a07ff89bdbf118675e0a",
+    "reports\\features\\verification.json": "8a804055f35f90ef18ef0d8a31ce3301dd3eebccce19a4a4c4b0cdc6a8740b06",
+    "reports\\metrics\\model_metrics.json": "a1be48182c4bd76b5f6010fb6523a080a4228443c52ed7a6d951bad96a84acfd"
+  },
+  "protected_artifacts_unchanged": true,
+  "reproducibility": {
+    "benchmark_manifest_sha256": "386b7e5446edc35651e6cc38192fd9767ece80979266c80141fb1e2ffae0f9ea",
+    "each_run_payload_hashes_verified": true,
+    "excluded": [
+      "fit_seconds",
+      "prediction_seconds",
+      "timing-bearing payload hashes"
+    ],
+    "normalized_provenance_equal": true,
+    "per_seed_prediction_fingerprints_equal": true,
+    "semantic_artifacts_equal": true
+  },
+  "status": "passed",
+  "verified_at_utc": "2026-09-08T03:57:55.182257+00:00"
+}

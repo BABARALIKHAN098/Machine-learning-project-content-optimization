@@ -282,6 +282,11 @@
         },
         "weighted_f1": 0.3554718928684868
       },
+      "parameters": {
+        "constant": null,
+        "random_state": null,
+        "strategy": "most_frequent"
+      },
       "prediction_sha256": "39a8016ee3e917f64e19647e6a1e9ccfe5d19ae92f1f9318d22c1e4e3bde1615",
       "seed": null,
       "strategy": "most_frequent"
@@ -371,6 +376,11 @@
           }
         },
         "weighted_f1": 0.3627057055072333
+      },
+      "parameters": {
+        "constant": null,
+        "random_state": 42,
+        "strategy": "stratified"
       },
       "prediction_sha256": "1da56e85e3425389181e8d300e7f4f6e6573c3df94fa602407f6e03ee59deff9",
       "seed": 42,
@@ -462,6 +472,11 @@
         },
         "weighted_f1": 0.34248162326499404
       },
+      "parameters": {
+        "constant": null,
+        "random_state": 43,
+        "strategy": "stratified"
+      },
       "prediction_sha256": "2d7a2217be15f93cda886b0fcf69ae778a16c13c001bdcd092e5c07f2aca7abd",
       "seed": 43,
       "strategy": "stratified"
@@ -551,6 +566,11 @@
           }
         },
         "weighted_f1": 0.3496445721493836
+      },
+      "parameters": {
+        "constant": null,
+        "random_state": 44,
+        "strategy": "stratified"
       },
       "prediction_sha256": "46e190c66d2b7dc55f4d4909b4897eb49ab58c159d13b9938b38614b38128651",
       "seed": 44,
@@ -642,6 +662,11 @@
         },
         "weighted_f1": 0.3547837967911921
       },
+      "parameters": {
+        "constant": null,
+        "random_state": 45,
+        "strategy": "stratified"
+      },
       "prediction_sha256": "07fe436c8233b9353604d39893c511b10c0222a23d72550f1475d02f21581191",
       "seed": 45,
       "strategy": "stratified"
@@ -731,6 +756,11 @@
           }
         },
         "weighted_f1": 0.34086056443422774
+      },
+      "parameters": {
+        "constant": null,
+        "random_state": 46,
+        "strategy": "stratified"
       },
       "prediction_sha256": "4898a860ae06c35fdb9e34a22ff35a6b384f92921dcab672a74220d571dcd213",
       "seed": 46,

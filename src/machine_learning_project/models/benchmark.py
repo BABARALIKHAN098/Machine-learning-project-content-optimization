@@ -76,6 +76,28 @@ def require_matching_identity(candidate, reference):
         raise DataValidationError("Missing or legacy benchmark evaluation identity")
     if candidate != reference or reference["metric_contract_version"] != METRIC_CONTRACT_VERSION:
         raise DataValidationError("Candidate/benchmark evaluation identity mismatch")
+    provenance = reference["provenance"]
+    if not isinstance(provenance, dict) or set(provenance) != {
+        "source_sha256",
+        "split_manifest_sha256",
+        "split_assignments_sha256",
+    }:
+        raise DataValidationError("Missing source/split benchmark provenance")
+    hashes = [
+        *provenance.values(),
+        reference["ordered_train_sha256"],
+        reference["ordered_validation_sha256"],
+    ]
+    if any(
+        not isinstance(value, str)
+        or len(value) != 64
+        or any(char not in "0123456789abcdef" for char in value)
+        for value in hashes
+    ):
+        raise DataValidationError("Invalid benchmark identity fingerprint")
+    for key in ("train_rows", "validation_rows", "train_groups", "validation_groups"):
+        if type(reference[key]) is not int or reference[key] <= 0:
+            raise DataValidationError("Invalid benchmark population count")
     if reference["partition"] != "validation":
         raise DataValidationError("Only development validation comparisons are supported")
 
@@ -83,7 +105,9 @@ def require_matching_identity(candidate, reference):
 def compare_candidate(metrics, candidate_identity, benchmark, baseline_config, training_config):
     """A development ranking is separate from the independent benchmark/recall/target flags."""
     config = resolve_baseline_config(baseline_config, training_config)
-    require_matching_identity(candidate_identity, benchmark["evaluation_identity"])
+    if benchmark.get("baseline_contract_version") != config["baseline_contract_version"]:
+        raise DataValidationError("Missing or unsupported baseline contract version")
+    require_matching_identity(candidate_identity, benchmark.get("evaluation_identity"))
     scores = benchmark["canonical"]
     candidate = metrics["macro_f1"]
     recall = metrics["per_class"]["down"]["recall"]
@@ -124,14 +148,22 @@ def load_benchmark(path, expected_identity, baseline_config):
     if manifest.get("baseline_contract_version") != config["baseline_contract_version"]:
         raise DataValidationError("Baseline contract version mismatch")
     require_matching_identity(expected_identity, manifest.get("evaluation_identity"))
+    stored_config = resolve_baseline_config(manifest.get("config", {}))
     expected_config = {key: value for key, value in config.items() if key != "output_directory"}
+    if {
+        key: value for key, value in stored_config.items() if key != "output_directory"
+    } != expected_config:
+        raise DataValidationError("Stored baseline configuration mismatch")
     if manifest.get("config_sha256") != fingerprint(expected_config):
         raise DataValidationError("Baseline configuration mismatch")
     hashes = manifest.get("artifact_hashes", {})
     if set(hashes) != PAYLOAD_NAMES:
         raise DataValidationError("Incomplete baseline artifact manifest")
     for name, expected in hashes.items():
-        if not (path.parent / name).is_file() or sha256_file(path.parent / name) != expected:
+        payload = path.parent / name
+        if payload.resolve().parent != path.parent.resolve():
+            raise DataValidationError("Baseline artifact must remain inside its output directory")
+        if not payload.is_file() or sha256_file(payload) != expected:
             raise DataValidationError(f"Baseline artifact missing or fingerprint mismatch: {name}")
     result = json.loads((path.parent / "baseline_metrics.json").read_text(encoding="utf-8"))
     require_matching_identity(expected_identity, result.get("evaluation_identity"))

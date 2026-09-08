@@ -16,7 +16,7 @@ Training majority: down (ties: lexicographically first). Class priors use traini
 A majority-down model has down recall 1 despite failing to discriminate other classes.
 Per-class metrics and ordered confusion matrices are in baseline_metrics.json. Unpredicted classes retain zero precision/recall/F1; main partitions contain every class.
 
-Proposed/adopted material improvement: +0.010 absolute macro F1 over majority, canonical stratified and stratified mean. Recall and project-target checks are separate from this comparison.
+Adopted material improvement: +0.010 absolute macro F1 over majority, canonical stratified and stratified mean. Recall and project-target checks are separate from this comparison.
 
 Fit/prediction timings are diagnostic and exclude metrics computation; dummy timing does not establish the full model's 30,000-row runtime.
 The validation set was previously used for feature confirmation and the test holdout was previously evaluated. These results are a development benchmark, not an independent future-period estimate. Historical metadata cutoff evidence remains unverified.

@@ -1,0 +1,89 @@
+{
+  "algorithm": "StratifiedGroupKFold",
+  "fitting_population": "train",
+  "folds": [
+    {
+      "fit": {
+        "class_counts": {
+          "down": 5619,
+          "flat": 410,
+          "new": 1165,
+          "stable": 1096,
+          "up": 1045
+        },
+        "groups": 13,
+        "ordered_sha256": "e62c105d8b6ea4771a43eb929d72d5664cf97e0a8a00d5b62f8f1bfb6380737c",
+        "rows": 9335
+      },
+      "fold": 0,
+      "score": {
+        "class_counts": {
+          "down": 4119,
+          "flat": 240,
+          "new": 215,
+          "stable": 2249,
+          "up": 1512
+        },
+        "groups": 5,
+        "ordered_sha256": "cfb9c73533e3c218c0a2effc10015a5a37fa3aa84896390bd983b78ef9b50d7d",
+        "rows": 8335
+      }
+    },
+    {
+      "fit": {
+        "class_counts": {
+          "down": 7068,
+          "flat": 455,
+          "new": 809,
+          "stable": 2830,
+          "up": 2062
+        },
+        "groups": 9,
+        "ordered_sha256": "332a5fda99b4bdbbf5504671b4dceba1d3a86b81a02a7d56801af64f59abdd75",
+        "rows": 13224
+      },
+      "fold": 1,
+      "score": {
+        "class_counts": {
+          "down": 2670,
+          "flat": 195,
+          "new": 571,
+          "stable": 515,
+          "up": 495
+        },
+        "groups": 9,
+        "ordered_sha256": "715b005a265d5e1d74379bc66048ef3ee84fbe4d8c3e2967b687d4d35198cfc8",
+        "rows": 4446
+      }
+    },
+    {
+      "fit": {
+        "class_counts": {
+          "down": 6789,
+          "flat": 435,
+          "new": 786,
+          "stable": 2764,
+          "up": 2007
+        },
+        "groups": 14,
+        "ordered_sha256": "b5c6c2ad525c2434382b177e6938ea46953230bb3e1d79af09997417516ba55b",
+        "rows": 12781
+      },
+      "fold": 2,
+      "score": {
+        "class_counts": {
+          "down": 2949,
+          "flat": 215,
+          "new": 594,
+          "stable": 581,
+          "up": 550
+        },
+        "groups": 4,
+        "ordered_sha256": "5576878fca30c95686079fa56908d1bcabe12c47b548970248ab34f82cdb5067",
+        "rows": 4889
+      }
+    }
+  ],
+  "seed": 42,
+  "shuffle": true
+}

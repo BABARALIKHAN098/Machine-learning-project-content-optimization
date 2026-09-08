@@ -2,7 +2,7 @@
 
 **Source:** `specs/SPEC-05-baseline-modeling.md`
 
-**Status:** Proposed; no SPEC-05 implementation is authorized by this planning request
+**Status:** Implemented and verified on 2026-09-08 under the subsequent implementation request
 
 **Prepared:** 2026-09-07
 
@@ -340,20 +340,54 @@ Run the baseline CLI a second time with a separate output directory, compare the
 
 ## 13. Acceptance checklist and definition of done
 
-- [ ] SPEC-05 has agreed requirements, tests and defaults with no normative placeholders.
-- [ ] The prescribed strategies and effective seed schedule are validated and recorded.
-- [ ] Training labels alone determine majority class and sampling priors.
-- [ ] Every baseline evaluates the same canonical validation population.
-- [ ] Dummy execution invokes neither feature engineering, candidate training nor test evaluation.
-- [ ] Metrics have explicit label/zero-division/input-validation semantics and analytic tests.
-- [ ] Reference-seed and repeated stochastic metrics are reproducible and correctly summarized.
-- [ ] Candidate comparisons require compatible provenance and expose separate improvement/recall/target flags.
-- [ ] Standalone and integrated baseline behavior agrees without duplicated execution logic.
-- [ ] Versioned manifests bind aggregate results to source, split, configuration, code and environment.
-- [ ] Artifacts contain no raw sensitive identifiers or row-level predictions.
-- [ ] Source, split assignments, existing models and feature-study outputs remain unchanged.
-- [ ] Focused tests, full regression suite, lint and two-run real-data checks pass with recorded evidence.
-- [ ] SPEC-06 receives a frozen benchmark manifest and clear comparison instructions.
-- [ ] Prior holdout exposure, stochastic variability and performance/runtime limitations are documented.
+- [x] SPEC-05 has agreed requirements, tests and defaults with no normative placeholders.
+- [x] The prescribed strategies and effective seed schedule are validated and recorded.
+- [x] Training labels alone determine majority class and sampling priors.
+- [x] Every baseline evaluates the same canonical validation population.
+- [x] Dummy execution invokes neither feature engineering, candidate training nor test evaluation.
+- [x] Metrics have explicit label/zero-division/input-validation semantics and analytic tests.
+- [x] Reference-seed and repeated stochastic metrics are reproducible and correctly summarized.
+- [x] Candidate comparisons require compatible provenance and expose separate improvement/recall/target flags.
+- [x] Standalone and integrated baseline behavior agrees without duplicated execution logic.
+- [x] Versioned manifests bind aggregate results to source, split, configuration, code and environment.
+- [x] Artifacts contain no raw sensitive identifiers or row-level predictions.
+- [x] Source, split assignments, existing models and feature-study outputs remain unchanged.
+- [x] Focused tests, full regression suite, lint and two-run real-data checks pass with recorded evidence.
+- [x] SPEC-06 receives a frozen benchmark manifest and clear comparison instructions.
+- [x] Prior holdout exposure, stochastic variability and performance/runtime limitations are documented.
 
 The phase is complete when the benchmark can be generated and consumed reproducibly, all agreed checks pass, and its interpretation is documented. Candidate success against the benchmark, the 0.45 target, final-test readiness and deployment remain separate outcomes. This planning task itself generates no new baseline scores or test evidence.
+
+
+## 14. Implementation evidence (2026-09-08)
+
+The implementation request adopted the proposed protocol, including the two dummy strategies,
+canonical seed 42, fixed repeats 42-46, lexicographic tie handling and +0.01 material improvement.
+This completion record supersedes the planning-only authorization/status language above.
+[SPEC-05](../../specs/SPEC-05-baseline-modeling.md) now contains the concrete contract.
+
+Existing baseline execution was completed with fixed seed validation, effective estimator parameters,
+stronger source/split identity and local-artifact checks, explicit missing-split recovery instructions,
+and CLI options for configured/frozen training reuse. Dedicated analytic, stochastic, publication,
+comparison and synthetic training tests now exercise the shared implementation.
+
+Actual verification: **44 focused tests passed; 105 full-suite tests passed; Ruff passed**.
+Three library warnings came from intentional single-truth-class metric fixtures.
+`python scripts/verify_baselines.py` produced two real-data benchmarks with identical metrics,
+training priors, per-seed prediction fingerprints, summaries and normalized provenance. Each run's
+payload hashes were independently verified. Protected source, split, model, feature-study and
+historical metric artifacts retained identical bytes. No real-data candidates were fitted and
+no test evaluation was performed.
+
+Validation macro F1: most-frequent **0.136794**, canonical stratified **0.208024**.
+These are development benchmarks, not release criteria or independent holdout estimates.
+
+Evidence and SPEC-06 handoff:
+
+- [Benchmark report](../../reports/baselines/baseline_report.md)
+- [Frozen manifest](../../reports/baselines/baseline_manifest.json)
+- [Exact verification commands and results](../../reports/baselines/verification.json)
+
+Use `scripts/train_model.py --baseline-config configs/baselines.yaml --baseline-manifest
+reports/baselines/baseline_manifest.json` to reuse the frozen reference. Identity/config/hash
+mismatches fail before candidate fitting. Ranking remains separate from improvement/recall/target flags.

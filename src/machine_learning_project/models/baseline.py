@@ -69,6 +69,7 @@ def evaluate_baselines(train_y, validation_y, config, labels):
                 "strategy": strategy,
                 "seed": seed,
                 "metrics": metrics,
+                "parameters": estimator.get_params(),
                 "prediction_sha256": fingerprint(list(predictions)),
             }
         )
@@ -102,6 +103,7 @@ def evaluate_baselines(train_y, validation_y, config, labels):
         }
     return {
         "canonical": canonical,
+        "baseline_contract_version": config["baseline_contract_version"],
         "runs": runs,
         "timings": timings,
         "summary": {

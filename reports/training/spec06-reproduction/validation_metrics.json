@@ -1,0 +1,232 @@
+{
+  "evaluation_identity": {
+    "labels": [
+      "down",
+      "stable",
+      "up",
+      "new",
+      "flat"
+    ],
+    "metric_contract_version": "1.0",
+    "ordered_train_sha256": "31b62fbdfdcd8bfd2c53e1085b80f79a57b809f09dee453612f505c13939d997",
+    "ordered_validation_sha256": "fedf48368dd070e1505781f32206dd0bd6bb37cfe0a85c4f2abc37a7c57a5dd8",
+    "partition": "validation",
+    "provenance": {
+      "source_sha256": "c43bdac4eccfa17fcd8a33974fe36f2c998c03a3ae3af8d80cf712abab5d6396",
+      "split_assignments_sha256": "16bcb64d829c94664e3b0c492277cc4c036776d68b5e0d6478504bad21952a0f",
+      "split_manifest_sha256": "a656a6442dc9857f64b62f33cae1cc7fa953a1c0a6f3217b3f297e113fba32cf"
+    },
+    "target": "trend_direction",
+    "train_groups": 18,
+    "train_rows": 17670,
+    "validation_groups": 7,
+    "validation_rows": 5857
+  },
+  "finalists": {
+    "logistic_regression": {
+      "comparison": {
+        "beats_both_baselines": true,
+        "down_recall_guardrail_met": true,
+        "interpretation": "Development comparison flags; not model promotion",
+        "macro_f1_deltas": {
+          "most_frequent": 0.2531258841106749,
+          "stratified_mean": 0.19287690234488106,
+          "stratified_reference": 0.1818954226212477
+        },
+        "material_improvement_met": true,
+        "minimum_macro_f1_improvement": 0.01,
+        "project_macro_f1_target_met": false
+      },
+      "metrics": {
+        "accuracy": 0.5523305446474305,
+        "balanced_accuracy": 0.4701918385407854,
+        "confusion_matrix": {
+          "labels": [
+            "down",
+            "stable",
+            "up",
+            "new",
+            "flat"
+          ],
+          "values": [
+            [
+              2338,
+              389,
+              317,
+              0,
+              0
+            ],
+            [
+              722,
+              356,
+              187,
+              0,
+              0
+            ],
+            [
+              382,
+              212,
+              275,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              3,
+              407
+            ],
+            [
+              0,
+              0,
+              0,
+              6,
+              263
+            ]
+          ]
+        },
+        "down_false_negatives": 706,
+        "macro_f1": 0.3899195028052036,
+        "per_class": {
+          "down": {
+            "f1": 0.7209374036386063,
+            "precision": 0.6792562463683904,
+            "recall": 0.7680683311432326,
+            "support": 3044
+          },
+          "flat": {
+            "f1": 0.5601703940362087,
+            "precision": 0.3925373134328358,
+            "recall": 0.9776951672862454,
+            "support": 269
+          },
+          "new": {
+            "f1": 0.014319809069212411,
+            "precision": 0.3333333333333333,
+            "recall": 0.007317073170731708,
+            "support": 410
+          },
+          "stable": {
+            "f1": 0.32043204320432045,
+            "precision": 0.3719958202716823,
+            "recall": 0.28142292490118576,
+            "support": 1265
+          },
+          "up": {
+            "f1": 0.3337378640776699,
+            "precision": 0.35301668806161746,
+            "recall": 0.31645569620253167,
+            "support": 869
+          }
+        },
+        "weighted_f1": 0.5201391758454832
+      },
+      "prediction_sha256": "1884c73a4eefd19689170327832bfb93778cc12942eb4f8a6978888902e3ca28",
+      "warnings": []
+    },
+    "random_forest": {
+      "comparison": {
+        "beats_both_baselines": true,
+        "down_recall_guardrail_met": true,
+        "interpretation": "Development comparison flags; not model promotion",
+        "macro_f1_deltas": {
+          "most_frequent": 0.29343019232201245,
+          "stratified_mean": 0.23318121055621863,
+          "stratified_reference": 0.22219973083258526
+        },
+        "material_improvement_met": true,
+        "minimum_macro_f1_improvement": 0.01,
+        "project_macro_f1_target_met": false
+      },
+      "metrics": {
+        "accuracy": 0.5644527915315007,
+        "balanced_accuracy": 0.43668150524080424,
+        "confusion_matrix": {
+          "labels": [
+            "down",
+            "stable",
+            "up",
+            "new",
+            "flat"
+          ],
+          "values": [
+            [
+              2622,
+              261,
+              161,
+              0,
+              0
+            ],
+            [
+              986,
+              192,
+              87,
+              0,
+              0
+            ],
+            [
+              566,
+              139,
+              164,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              186,
+              224
+            ],
+            [
+              0,
+              0,
+              0,
+              127,
+              142
+            ]
+          ]
+        },
+        "down_false_negatives": 422,
+        "macro_f1": 0.43022381101654117,
+        "per_class": {
+          "down": {
+            "f1": 0.7265170407315046,
+            "precision": 0.6281744130330618,
+            "recall": 0.8613666228646518,
+            "support": 3044
+          },
+          "flat": {
+            "f1": 0.44724409448818897,
+            "precision": 0.3879781420765027,
+            "recall": 0.5278810408921933,
+            "support": 269
+          },
+          "new": {
+            "f1": 0.5145228215767634,
+            "precision": 0.5942492012779552,
+            "recall": 0.45365853658536587,
+            "support": 410
+          },
+          "stable": {
+            "f1": 0.20678513731825526,
+            "precision": 0.32432432432432434,
+            "recall": 0.15177865612648223,
+            "support": 1265
+          },
+          "up": {
+            "f1": 0.25604996096799376,
+            "precision": 0.39805825242718446,
+            "recall": 0.18872266973532797,
+            "support": 869
+          }
+        },
+        "weighted_f1": 0.5167955446541361
+      },
+      "prediction_sha256": "a70d4315c65360689c8b531b0c8a7dc1c504bda05335817bd8a1f78768f6a8d6",
+      "warnings": []
+    }
+  },
+  "test_accessed": false
+}

@@ -82,3 +82,26 @@ def build_candidates(
                 0, ("engineering", CutoffSafeFeatureEngineer(data_config, feature_config))
             )
     return candidates
+
+
+def build_trial(data_config, preprocessing_config, training_config, feature_config, trial):
+    """Keep original feature-study inputs intact; override only this fresh pipeline."""
+    family = trial["family"]
+    allowed = {
+        "logistic_regression": {"model__C"},
+        "random_forest": {"model__min_samples_leaf", "model__max_features", "model__max_depth"},
+    }
+    if family not in allowed or set(trial["parameters"]) != allowed[family]:
+        raise DataValidationError("Unsupported trial parameter names")
+    pipeline = build_candidates(data_config, preprocessing_config, training_config, feature_config)[
+        family
+    ]
+    fixed = {"model__random_state": 42}
+    if family == "logistic_regression":
+        fixed.update(model__solver="lbfgs", model__max_iter=1000, model__class_weight="balanced")
+    else:
+        fixed.update(
+            model__n_estimators=200, model__class_weight="balanced_subsample", model__n_jobs=1
+        )
+    pipeline.set_params(**fixed, **trial["parameters"])
+    return pipeline

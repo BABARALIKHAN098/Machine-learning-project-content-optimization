@@ -1,0 +1,28 @@
+tuning:
+  tuning_contract_version: "1.0"
+  artifact_schema_version: "1.0"
+  families: [logistic_regression, random_forest]
+  search_method: fixed_grid
+  folds: 3
+  shuffle: true
+  random_seed: 42
+  primary_metric: macro_f1
+  selection_tolerance: 0.001
+  search_n_jobs: 1
+  estimator_n_jobs: 1
+  max_configurations: 15
+  max_estimator_fits: 47
+  convergence_policy: exclude
+  evaluation_partition: validation
+  require_feature_manifest: true
+  require_baseline_manifest: true
+  resume: false
+  output_root: reports/training
+  model_output_root: artifacts/models/training
+  grids:
+    logistic_regression:
+      model__C: [0.1, 1.0, 10.0]
+    random_forest:
+      model__min_samples_leaf: [1, 2, 5]
+      model__max_features: [sqrt, 0.5]
+      model__max_depth: [null, 20]

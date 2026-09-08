@@ -220,3 +220,6 @@ __marimo__/
 
 # Generated model artifacts exceed normal Git hosting limits.
 artifacts/models/*.joblib
+
+# Isolated SPEC-06 finalist bundles are local generated artifacts.
+artifacts/models/training/*/*.joblib

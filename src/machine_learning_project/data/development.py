@@ -20,6 +20,10 @@ def load_development(data_config, training_config):
     require_valid_schema(loaded.dataframe, data_config)
     manifest_path = Path(training_config["split_manifest_path"])
     assignment_path = Path(training_config["split_assignments_path"])
+    if not manifest_path.is_file() or not assignment_path.is_file():
+        raise DataValidationError(
+            "Missing split artifacts; run scripts/split_data.py explicitly before benchmarking"
+        )
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     if manifest.get("manifest_schema_version") != "1.0":
         raise DataValidationError("Unsupported split manifest schema")

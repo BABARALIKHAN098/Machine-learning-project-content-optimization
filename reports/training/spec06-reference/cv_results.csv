@@ -1,0 +1,16 @@
+trial_id,family,status,mean_macro_f1,mean_down_recall,recall_eligible,selected,score_rank
+random_forest-cbfc62e4b42c1c6d,random_forest,valid,0.44342551142564196,0.6953134966697126,True,True,1
+random_forest-cb4b16295721ca9d,random_forest,valid,0.44214566891649043,0.6988142165940118,True,False,2
+random_forest-0ed4b474cb33f476,random_forest,valid,0.4354450001881445,0.8394668713374059,True,False,3
+random_forest-bd8dd72a493e3b89,random_forest,valid,0.4336975353862879,0.8182788562492022,True,False,4
+random_forest-e33be1c6fe706426,random_forest,valid,0.432401125449599,0.6307694069326111,True,False,5
+random_forest-acdfd83760ee5723,random_forest,valid,0.431315957395031,0.655441628503122,True,False,6
+random_forest-202a41842e78cef6,random_forest,valid,0.42140437593266594,0.7981523336815778,True,False,7
+random_forest-e9baf400d9e982d2,random_forest,valid,0.41957366713472277,0.79667863291115,True,False,8
+logistic_regression-f3a7dbb2a2085859,logistic_regression,valid,0.4118543331851918,0.5961197855961137,True,True,9
+random_forest-e8d6f19527698724,random_forest,valid,0.4104000397473135,0.9124405172380069,True,False,10
+random_forest-5cd83b992a56d39c,random_forest,valid,0.40789656410680347,0.89363228586137,True,False,11
+random_forest-963ea978f6e844fb,random_forest,valid,0.40721224484695906,0.9088480006027027,True,False,12
+logistic_regression-cce3522a3b9d4327,logistic_regression,valid,0.40161025557743973,0.6245548628471752,True,False,13
+logistic_regression-1ef767b553e9466d,logistic_regression,valid,0.3976825327322675,0.5978477755021486,True,False,14
+random_forest-05eea4074559c9ad,random_forest,valid,0.3971626167973656,0.9274942165791008,True,False,15

@@ -1,0 +1,293 @@
+{
+  "commands": [
+    {
+      "command": "\"E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Scripts\\python.exe\" -m pytest tests/unit/test_tuning_config.py tests/unit/test_tuning.py tests/integration/test_tuning_pipeline.py tests/contract/test_training_contract.py tests/integration/test_training_pipeline.py tests/integration/test_baseline_pipeline.py",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "...................................................                      [100%]\n51 passed in 78.18s (0:01:18)\n"
+    },
+    {
+      "command": "\"E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Scripts\\python.exe\" -m pytest",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "........................................................................ [ 48%]\n........................................................................ [ 96%]\n......                                                                   [100%]\n============================== warnings summary ===============================\ntests/unit/test_baselines.py::test_invalid_partitions[bad3]\ntests/unit/test_baselines.py::test_invalid_partitions[bad3]\ntests/unit/test_evaluation.py::test_missing_truth_class_preserves_fixed_label_macro\n  E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Lib\\site-packages\\sklearn\\metrics\\_classification.py:614: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.\n    warnings.warn(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n150 passed, 3 warnings in 115.39s (0:01:55)\n"
+    },
+    {
+      "command": "\"E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Scripts\\python.exe\" -m ruff check src pipelines scripts tests",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "All checks passed!\n"
+    },
+    {
+      "command": "\"E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Scripts\\python.exe\" scripts/train_model.py --tuning-config configs/tuning.yaml --feature-manifest reports/features/feature_manifest.json --baseline-manifest reports/baselines/baseline_manifest.json --run-id spec06-reference",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "logistic_regression-f3a7dbb2a2085859 fold 1/3\nlogistic_regression-f3a7dbb2a2085859 fold 2/3\nlogistic_regression-f3a7dbb2a2085859 fold 3/3\nlogistic_regression-cce3522a3b9d4327 fold 1/3\nlogistic_regression-cce3522a3b9d4327 fold 2/3\nlogistic_regression-cce3522a3b9d4327 fold 3/3\nlogistic_regression-1ef767b553e9466d fold 1/3\nlogistic_regression-1ef767b553e9466d fold 2/3\nlogistic_regression-1ef767b553e9466d fold 3/3\nrandom_forest-05eea4074559c9ad fold 1/3\nrandom_forest-05eea4074559c9ad fold 2/3\nrandom_forest-05eea4074559c9ad fold 3/3\nrandom_forest-202a41842e78cef6 fold 1/3\nrandom_forest-202a41842e78cef6 fold 2/3\nrandom_forest-202a41842e78cef6 fold 3/3\nrandom_forest-acdfd83760ee5723 fold 1/3\nrandom_forest-acdfd83760ee5723 fold 2/3\nrandom_forest-acdfd83760ee5723 fold 3/3\nrandom_forest-963ea978f6e844fb fold 1/3\nrandom_forest-963ea978f6e844fb fold 2/3\nrandom_forest-963ea978f6e844fb fold 3/3\nrandom_forest-0ed4b474cb33f476 fold 1/3\nrandom_forest-0ed4b474cb33f476 fold 2/3\nrandom_forest-0ed4b474cb33f476 fold 3/3\nrandom_forest-cbfc62e4b42c1c6d fold 1/3\nrandom_forest-cbfc62e4b42c1c6d fold 2/3\nrandom_forest-cbfc62e4b42c1c6d fold 3/3\nrandom_forest-e8d6f19527698724 fold 1/3\nrandom_forest-e8d6f19527698724 fold 2/3\nrandom_forest-e8d6f19527698724 fold 3/3\nrandom_forest-e9baf400d9e982d2 fold 1/3\nrandom_forest-e9baf400d9e982d2 fold 2/3\nrandom_forest-e9baf400d9e982d2 fold 3/3\nrandom_forest-e33be1c6fe706426 fold 1/3\nrandom_forest-e33be1c6fe706426 fold 2/3\nrandom_forest-e33be1c6fe706426 fold 3/3\nrandom_forest-5cd83b992a56d39c fold 1/3\nrandom_forest-5cd83b992a56d39c fold 2/3\nrandom_forest-5cd83b992a56d39c fold 3/3\nrandom_forest-bd8dd72a493e3b89 fold 1/3\nrandom_forest-bd8dd72a493e3b89 fold 2/3\nrandom_forest-bd8dd72a493e3b89 fold 3/3\nrandom_forest-cb4b16295721ca9d fold 1/3\nrandom_forest-cb4b16295721ca9d fold 2/3\nrandom_forest-cb4b16295721ca9d fold 3/3\n{\n  \"status\": \"complete\",\n  \"report_dir\": \"E:\\\\Portfolio_maker\\\\mL learning project content optimization\\\\reports\\\\training\\\\spec06-reference\",\n  \"model_dir\": \"E:\\\\Portfolio_maker\\\\mL learning project content optimization\\\\artifacts\\\\models\\\\training\\\\spec06-reference\",\n  \"selection\": {\n    \"finalists\": {\n      \"logistic_regression\": {\n        \"trial_id\": \"logistic_regression-f3a7dbb2a2085859\",\n        \"family\": \"logistic_regression\",\n        \"parameters\": {\n          \"model__C\": 0.1\n        },\n        \"cv_summary\": {\n          \"macro_f1\": {\n            \"mean\": 0.4118543331851918,\n            \"std\": 0.10033363868006565,\n            \"minimum\": 0.32966895158622433,\n            \"maximum\": 0.5531190303774149\n          },\n          \"down_recall\": {\n            \"mean\": 0.5961197855961137,\n            \"std\": 0.07825361341652451,\n            \"minimum\": 0.5326535566885167,\n            \"maximum\": 0.7063670411985019\n          }\n        },\n        \"recall_fallback_used\": false,\n        \"tied_trial_ids\": [\n          \"logistic_regression-f3a7dbb2a2085859\"\n        ],\n        \"reason\": \"CV macro F1 within tolerance, declared complexity, stable ID\"\n      },\n      \"random_forest\": {\n        \"trial_id\": \"random_forest-cbfc62e4b42c1c6d\",\n        \"family\": \"random_forest\",\n        \"parameters\": {\n          \"model__max_depth\": null,\n          \"model__max_features\": 0.5,\n          \"model__min_samples_leaf\": 5\n        },\n        \"cv_summary\": {\n          \"macro_f1\": {\n            \"mean\": 0.44342551142564196,\n            \"std\": 0.07178935960410018,\n            \"minimum\": 0.3621089745687299,\n            \"maximum\": 0.5367267647024998\n          },\n          \"down_recall\": {\n            \"mean\": 0.6953134966697126,\n            \"std\": 0.07355662099687656,\n            \"minimum\": 0.6174974567650051,\n            \"maximum\": 0.7940074906367042\n          }\n        },\n        \"recall_fallback_used\": false,\n        \"tied_trial_ids\": [\n          \"random_forest-cbfc62e4b42c1c6d\"\n        ],\n        \"reason\": \"CV macro F1 within tolerance, declared complexity, stable ID\"\n      }\n    },\n    \"preferred_for_development\": {\n      \"trial_id\": \"random_forest-cbfc62e4b42c1c6d\",\n      \"family\": \"random_forest\",\n      \"parameters\": {\n        \"model__max_depth\": null,\n        \"model__max_features\": 0.5,\n        \"model__min_samples_leaf\": 5\n      },\n      \"cv_summary\": {\n        \"macro_f1\": {\n          \"mean\": 0.44342551142564196,\n          \"std\": 0.07178935960410018,\n          \"minimum\": 0.3621089745687299,\n          \"maximum\": 0.5367267647024998\n        },\n        \"down_recall\": {\n          \"mean\": 0.6953134966697126,\n          \"std\": 0.07355662099687656,\n          \"minimum\": 0.6174974567650051,\n          \"maximum\": 0.7940074906367042\n        }\n      },\n      \"recall_fallback_used\": false,\n      \"tied_trial_ids\": [\n        \"random_forest-cbfc62e4b42c1c6d\"\n      ],\n      \"reason\": \"CV macro F1 within tolerance, declared complexity, stable ID\"\n    },\n    \"selection_population\": \"training_grouped_folds\",\n    \"validation_used_for_selection\": false,\n    \"trial_metrics_sha256\": \"311f687b00d5e69159eac911d640ec28870e58bfaa41a5d7996451268f0bf1b3\",\n    \"selection_tolerance\": 0.001\n  },\n  \"validation\": {\n    \"logistic_regression\": {\n      \"metrics\": {\n        \"accuracy\": 0.5523305446474305,\n        \"balanced_accuracy\": 0.4701918385407854,\n        \"macro_f1\": 0.3899195028052036,\n        \"weighted_f1\": 0.5201391758454832,\n        \"per_class\": {\n          \"down\": {\n            \"precision\": 0.6792562463683904,\n            \"recall\": 0.7680683311432326,\n            \"f1\": 0.7209374036386063,\n            \"support\": 3044\n          },\n          \"stable\": {\n            \"precision\": 0.3719958202716823,\n            \"recall\": 0.28142292490118576,\n            \"f1\": 0.32043204320432045,\n            \"support\": 1265\n          },\n          \"up\": {\n            \"precision\": 0.35301668806161746,\n            \"recall\": 0.31645569620253167,\n            \"f1\": 0.3337378640776699,\n            \"support\": 869\n          },\n          \"new\": {\n            \"precision\": 0.3333333333333333,\n            \"recall\": 0.007317073170731708,\n            \"f1\": 0.014319809069212411,\n            \"support\": 410\n          },\n          \"flat\": {\n            \"precision\": 0.3925373134328358,\n            \"recall\": 0.9776951672862454,\n            \"f1\": 0.5601703940362087,\n            \"support\": 269\n          }\n        },\n        \"down_false_negatives\": 706,\n        \"confusion_matrix\": {\n          \"labels\": [\n            \"down\",\n            \"stable\",\n            \"up\",\n            \"new\",\n            \"flat\"\n          ],\n          \"values\": [\n            [\n              2338,\n              389,\n              317,\n              0,\n              0\n            ],\n            [\n              722,\n              356,\n              187,\n              0,\n              0\n            ],\n            [\n              382,\n              212,\n              275,\n              0,\n              0\n            ],\n            [\n              0,\n              0,\n              0,\n              3,\n              407\n            ],\n            [\n              0,\n              0,\n              0,\n              6,\n              263\n            ]\n          ]\n        }\n      },\n      \"prediction_sha256\": \"1884c73a4eefd19689170327832bfb93778cc12942eb4f8a6978888902e3ca28\",\n      \"warnings\": [],\n      \"comparison\": {\n        \"macro_f1_deltas\": {\n          \"most_frequent\": 0.2531258841106749,\n          \"stratified_reference\": 0.1818954226212477,\n          \"stratified_mean\": 0.19287690234488106\n        },\n        \"beats_both_baselines\": true,\n        \"material_improvement_met\": true,\n        \"minimum_macro_f1_improvement\": 0.01,\n        \"down_recall_guardrail_met\": true,\n        \"project_macro_f1_target_met\": false,\n        \"interpretation\": \"Development comparison flags; not model promotion\"\n      }\n    },\n    \"random_forest\": {\n      \"metrics\": {\n        \"accuracy\": 0.5644527915315007,\n        \"balanced_accuracy\": 0.43668150524080424,\n        \"macro_f1\": 0.43022381101654117,\n        \"weighted_f1\": 0.5167955446541361,\n        \"per_class\": {\n          \"down\": {\n            \"precision\": 0.6281744130330618,\n            \"recall\": 0.8613666228646518,\n            \"f1\": 0.7265170407315046,\n            \"support\": 3044\n          },\n          \"stable\": {\n            \"precision\": 0.32432432432432434,\n            \"recall\": 0.15177865612648223,\n            \"f1\": 0.20678513731825526,\n            \"support\": 1265\n          },\n          \"up\": {\n            \"precision\": 0.39805825242718446,\n            \"recall\": 0.18872266973532797,\n            \"f1\": 0.25604996096799376,\n            \"support\": 869\n          },\n          \"new\": {\n            \"precision\": 0.5942492012779552,\n            \"recall\": 0.45365853658536587,\n            \"f1\": 0.5145228215767634,\n            \"support\": 410\n          },\n          \"flat\": {\n            \"precision\": 0.3879781420765027,\n            \"recall\": 0.5278810408921933,\n            \"f1\": 0.44724409448818897,\n            \"support\": 269\n          }\n        },\n        \"down_false_negatives\": 422,\n        \"confusion_matrix\": {\n          \"labels\": [\n            \"down\",\n            \"stable\",\n            \"up\",\n            \"new\",\n            \"flat\"\n          ],\n          \"values\": [\n            [\n              2622,\n              261,\n              161,\n              0,\n              0\n            ],\n            [\n              986,\n              192,\n              87,\n              0,\n              0\n            ],\n            [\n              566,\n              139,\n              164,\n              0,\n              0\n            ],\n            [\n              0,\n              0,\n              0,\n              186,\n              224\n            ],\n            [\n              0,\n              0,\n              0,\n              127,\n              142\n            ]\n          ]\n        }\n      },\n      \"prediction_sha256\": \"a70d4315c65360689c8b531b0c8a7dc1c504bda05335817bd8a1f78768f6a8d6\",\n      \"warnings\": [],\n      \"comparison\": {\n        \"macro_f1_deltas\": {\n          \"most_frequent\": 0.29343019232201245,\n          \"stratified_reference\": 0.22219973083258526,\n          \"stratified_mean\": 0.23318121055621863\n        },\n        \"beats_both_baselines\": true,\n        \"material_improvement_met\": true,\n        \"minimum_macro_f1_improvement\": 0.01,\n        \"down_recall_guardrail_met\": true,\n        \"project_macro_f1_target_met\": false,\n        \"interpretation\": \"Development comparison flags; not model promotion\"\n      }\n    }\n  }\n}\n"
+    },
+    {
+      "command": "\"E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Scripts\\python.exe\" scripts/train_model.py --tuning-config configs/tuning.yaml --feature-manifest reports/features/feature_manifest.json --baseline-manifest reports/baselines/baseline_manifest.json --run-id spec06-reproduction",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "logistic_regression-f3a7dbb2a2085859 fold 1/3\nlogistic_regression-f3a7dbb2a2085859 fold 2/3\nlogistic_regression-f3a7dbb2a2085859 fold 3/3\nlogistic_regression-cce3522a3b9d4327 fold 1/3\nlogistic_regression-cce3522a3b9d4327 fold 2/3\nlogistic_regression-cce3522a3b9d4327 fold 3/3\nlogistic_regression-1ef767b553e9466d fold 1/3\nlogistic_regression-1ef767b553e9466d fold 2/3\nlogistic_regression-1ef767b553e9466d fold 3/3\nrandom_forest-05eea4074559c9ad fold 1/3\nrandom_forest-05eea4074559c9ad fold 2/3\nrandom_forest-05eea4074559c9ad fold 3/3\nrandom_forest-202a41842e78cef6 fold 1/3\nrandom_forest-202a41842e78cef6 fold 2/3\nrandom_forest-202a41842e78cef6 fold 3/3\nrandom_forest-acdfd83760ee5723 fold 1/3\nrandom_forest-acdfd83760ee5723 fold 2/3\nrandom_forest-acdfd83760ee5723 fold 3/3\nrandom_forest-963ea978f6e844fb fold 1/3\nrandom_forest-963ea978f6e844fb fold 2/3\nrandom_forest-963ea978f6e844fb fold 3/3\nrandom_forest-0ed4b474cb33f476 fold 1/3\nrandom_forest-0ed4b474cb33f476 fold 2/3\nrandom_forest-0ed4b474cb33f476 fold 3/3\nrandom_forest-cbfc62e4b42c1c6d fold 1/3\nrandom_forest-cbfc62e4b42c1c6d fold 2/3\nrandom_forest-cbfc62e4b42c1c6d fold 3/3\nrandom_forest-e8d6f19527698724 fold 1/3\nrandom_forest-e8d6f19527698724 fold 2/3\nrandom_forest-e8d6f19527698724 fold 3/3\nrandom_forest-e9baf400d9e982d2 fold 1/3\nrandom_forest-e9baf400d9e982d2 fold 2/3\nrandom_forest-e9baf400d9e982d2 fold 3/3\nrandom_forest-e33be1c6fe706426 fold 1/3\nrandom_forest-e33be1c6fe706426 fold 2/3\nrandom_forest-e33be1c6fe706426 fold 3/3\nrandom_forest-5cd83b992a56d39c fold 1/3\nrandom_forest-5cd83b992a56d39c fold 2/3\nrandom_forest-5cd83b992a56d39c fold 3/3\nrandom_forest-bd8dd72a493e3b89 fold 1/3\nrandom_forest-bd8dd72a493e3b89 fold 2/3\nrandom_forest-bd8dd72a493e3b89 fold 3/3\nrandom_forest-cb4b16295721ca9d fold 1/3\nrandom_forest-cb4b16295721ca9d fold 2/3\nrandom_forest-cb4b16295721ca9d fold 3/3\n{\n  \"status\": \"complete\",\n  \"report_dir\": \"E:\\\\Portfolio_maker\\\\mL learning project content optimization\\\\reports\\\\training\\\\spec06-reproduction\",\n  \"model_dir\": \"E:\\\\Portfolio_maker\\\\mL learning project content optimization\\\\artifacts\\\\models\\\\training\\\\spec06-reproduction\",\n  \"selection\": {\n    \"finalists\": {\n      \"logistic_regression\": {\n        \"trial_id\": \"logistic_regression-f3a7dbb2a2085859\",\n        \"family\": \"logistic_regression\",\n        \"parameters\": {\n          \"model__C\": 0.1\n        },\n        \"cv_summary\": {\n          \"macro_f1\": {\n            \"mean\": 0.4118543331851918,\n            \"std\": 0.10033363868006565,\n            \"minimum\": 0.32966895158622433,\n            \"maximum\": 0.5531190303774149\n          },\n          \"down_recall\": {\n            \"mean\": 0.5961197855961137,\n            \"std\": 0.07825361341652451,\n            \"minimum\": 0.5326535566885167,\n            \"maximum\": 0.7063670411985019\n          }\n        },\n        \"recall_fallback_used\": false,\n        \"tied_trial_ids\": [\n          \"logistic_regression-f3a7dbb2a2085859\"\n        ],\n        \"reason\": \"CV macro F1 within tolerance, declared complexity, stable ID\"\n      },\n      \"random_forest\": {\n        \"trial_id\": \"random_forest-cbfc62e4b42c1c6d\",\n        \"family\": \"random_forest\",\n        \"parameters\": {\n          \"model__max_depth\": null,\n          \"model__max_features\": 0.5,\n          \"model__min_samples_leaf\": 5\n        },\n        \"cv_summary\": {\n          \"macro_f1\": {\n            \"mean\": 0.44342551142564196,\n            \"std\": 0.07178935960410018,\n            \"minimum\": 0.3621089745687299,\n            \"maximum\": 0.5367267647024998\n          },\n          \"down_recall\": {\n            \"mean\": 0.6953134966697126,\n            \"std\": 0.07355662099687656,\n            \"minimum\": 0.6174974567650051,\n            \"maximum\": 0.7940074906367042\n          }\n        },\n        \"recall_fallback_used\": false,\n        \"tied_trial_ids\": [\n          \"random_forest-cbfc62e4b42c1c6d\"\n        ],\n        \"reason\": \"CV macro F1 within tolerance, declared complexity, stable ID\"\n      }\n    },\n    \"preferred_for_development\": {\n      \"trial_id\": \"random_forest-cbfc62e4b42c1c6d\",\n      \"family\": \"random_forest\",\n      \"parameters\": {\n        \"model__max_depth\": null,\n        \"model__max_features\": 0.5,\n        \"model__min_samples_leaf\": 5\n      },\n      \"cv_summary\": {\n        \"macro_f1\": {\n          \"mean\": 0.44342551142564196,\n          \"std\": 0.07178935960410018,\n          \"minimum\": 0.3621089745687299,\n          \"maximum\": 0.5367267647024998\n        },\n        \"down_recall\": {\n          \"mean\": 0.6953134966697126,\n          \"std\": 0.07355662099687656,\n          \"minimum\": 0.6174974567650051,\n          \"maximum\": 0.7940074906367042\n        }\n      },\n      \"recall_fallback_used\": false,\n      \"tied_trial_ids\": [\n        \"random_forest-cbfc62e4b42c1c6d\"\n      ],\n      \"reason\": \"CV macro F1 within tolerance, declared complexity, stable ID\"\n    },\n    \"selection_population\": \"training_grouped_folds\",\n    \"validation_used_for_selection\": false,\n    \"trial_metrics_sha256\": \"311f687b00d5e69159eac911d640ec28870e58bfaa41a5d7996451268f0bf1b3\",\n    \"selection_tolerance\": 0.001\n  },\n  \"validation\": {\n    \"logistic_regression\": {\n      \"metrics\": {\n        \"accuracy\": 0.5523305446474305,\n        \"balanced_accuracy\": 0.4701918385407854,\n        \"macro_f1\": 0.3899195028052036,\n        \"weighted_f1\": 0.5201391758454832,\n        \"per_class\": {\n          \"down\": {\n            \"precision\": 0.6792562463683904,\n            \"recall\": 0.7680683311432326,\n            \"f1\": 0.7209374036386063,\n            \"support\": 3044\n          },\n          \"stable\": {\n            \"precision\": 0.3719958202716823,\n            \"recall\": 0.28142292490118576,\n            \"f1\": 0.32043204320432045,\n            \"support\": 1265\n          },\n          \"up\": {\n            \"precision\": 0.35301668806161746,\n            \"recall\": 0.31645569620253167,\n            \"f1\": 0.3337378640776699,\n            \"support\": 869\n          },\n          \"new\": {\n            \"precision\": 0.3333333333333333,\n            \"recall\": 0.007317073170731708,\n            \"f1\": 0.014319809069212411,\n            \"support\": 410\n          },\n          \"flat\": {\n            \"precision\": 0.3925373134328358,\n            \"recall\": 0.9776951672862454,\n            \"f1\": 0.5601703940362087,\n            \"support\": 269\n          }\n        },\n        \"down_false_negatives\": 706,\n        \"confusion_matrix\": {\n          \"labels\": [\n            \"down\",\n            \"stable\",\n            \"up\",\n            \"new\",\n            \"flat\"\n          ],\n          \"values\": [\n            [\n              2338,\n              389,\n              317,\n              0,\n              0\n            ],\n            [\n              722,\n              356,\n              187,\n              0,\n              0\n            ],\n            [\n              382,\n              212,\n              275,\n              0,\n              0\n            ],\n            [\n              0,\n              0,\n              0,\n              3,\n              407\n            ],\n            [\n              0,\n              0,\n              0,\n              6,\n              263\n            ]\n          ]\n        }\n      },\n      \"prediction_sha256\": \"1884c73a4eefd19689170327832bfb93778cc12942eb4f8a6978888902e3ca28\",\n      \"warnings\": [],\n      \"comparison\": {\n        \"macro_f1_deltas\": {\n          \"most_frequent\": 0.2531258841106749,\n          \"stratified_reference\": 0.1818954226212477,\n          \"stratified_mean\": 0.19287690234488106\n        },\n        \"beats_both_baselines\": true,\n        \"material_improvement_met\": true,\n        \"minimum_macro_f1_improvement\": 0.01,\n        \"down_recall_guardrail_met\": true,\n        \"project_macro_f1_target_met\": false,\n        \"interpretation\": \"Development comparison flags; not model promotion\"\n      }\n    },\n    \"random_forest\": {\n      \"metrics\": {\n        \"accuracy\": 0.5644527915315007,\n        \"balanced_accuracy\": 0.43668150524080424,\n        \"macro_f1\": 0.43022381101654117,\n        \"weighted_f1\": 0.5167955446541361,\n        \"per_class\": {\n          \"down\": {\n            \"precision\": 0.6281744130330618,\n            \"recall\": 0.8613666228646518,\n            \"f1\": 0.7265170407315046,\n            \"support\": 3044\n          },\n          \"stable\": {\n            \"precision\": 0.32432432432432434,\n            \"recall\": 0.15177865612648223,\n            \"f1\": 0.20678513731825526,\n            \"support\": 1265\n          },\n          \"up\": {\n            \"precision\": 0.39805825242718446,\n            \"recall\": 0.18872266973532797,\n            \"f1\": 0.25604996096799376,\n            \"support\": 869\n          },\n          \"new\": {\n            \"precision\": 0.5942492012779552,\n            \"recall\": 0.45365853658536587,\n            \"f1\": 0.5145228215767634,\n            \"support\": 410\n          },\n          \"flat\": {\n            \"precision\": 0.3879781420765027,\n            \"recall\": 0.5278810408921933,\n            \"f1\": 0.44724409448818897,\n            \"support\": 269\n          }\n        },\n        \"down_false_negatives\": 422,\n        \"confusion_matrix\": {\n          \"labels\": [\n            \"down\",\n            \"stable\",\n            \"up\",\n            \"new\",\n            \"flat\"\n          ],\n          \"values\": [\n            [\n              2622,\n              261,\n              161,\n              0,\n              0\n            ],\n            [\n              986,\n              192,\n              87,\n              0,\n              0\n            ],\n            [\n              566,\n              139,\n              164,\n              0,\n              0\n            ],\n            [\n              0,\n              0,\n              0,\n              186,\n              224\n            ],\n            [\n              0,\n              0,\n              0,\n              127,\n              142\n            ]\n          ]\n        }\n      },\n      \"prediction_sha256\": \"a70d4315c65360689c8b531b0c8a7dc1c504bda05335817bd8a1f78768f6a8d6\",\n      \"warnings\": [],\n      \"comparison\": {\n        \"macro_f1_deltas\": {\n          \"most_frequent\": 0.29343019232201245,\n          \"stratified_reference\": 0.22219973083258526,\n          \"stratified_mean\": 0.23318121055621863\n        },\n        \"beats_both_baselines\": true,\n        \"material_improvement_met\": true,\n        \"minimum_macro_f1_improvement\": 0.01,\n        \"down_recall_guardrail_met\": true,\n        \"project_macro_f1_target_met\": false,\n        \"interpretation\": \"Development comparison flags; not model promotion\"\n      }\n    }\n  }\n}\n"
+    }
+  ],
+  "created_at_utc": "2026-09-08T04:22:16.029058+00:00",
+  "execution_scope": {
+    "fit_isolation": "Verified with synthetic Pipeline fit/predict spies",
+    "public_artifacts": "Aggregates and scoped hashes; no row predictions",
+    "test_scoring": false,
+    "train_plus_validation_refit": false
+  },
+  "finalist_summary": {
+    "logistic_regression": {
+      "comparison": {
+        "beats_both_baselines": true,
+        "down_recall_guardrail_met": true,
+        "interpretation": "Development comparison flags; not model promotion",
+        "macro_f1_deltas": {
+          "most_frequent": 0.2531258841106749,
+          "stratified_mean": 0.19287690234488106,
+          "stratified_reference": 0.1818954226212477
+        },
+        "material_improvement_met": true,
+        "minimum_macro_f1_improvement": 0.01,
+        "project_macro_f1_target_met": false
+      },
+      "metrics": {
+        "accuracy": 0.5523305446474305,
+        "balanced_accuracy": 0.4701918385407854,
+        "confusion_matrix": {
+          "labels": [
+            "down",
+            "stable",
+            "up",
+            "new",
+            "flat"
+          ],
+          "values": [
+            [
+              2338,
+              389,
+              317,
+              0,
+              0
+            ],
+            [
+              722,
+              356,
+              187,
+              0,
+              0
+            ],
+            [
+              382,
+              212,
+              275,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              3,
+              407
+            ],
+            [
+              0,
+              0,
+              0,
+              6,
+              263
+            ]
+          ]
+        },
+        "down_false_negatives": 706,
+        "macro_f1": 0.3899195028052036,
+        "per_class": {
+          "down": {
+            "f1": 0.7209374036386063,
+            "precision": 0.6792562463683904,
+            "recall": 0.7680683311432326,
+            "support": 3044
+          },
+          "flat": {
+            "f1": 0.5601703940362087,
+            "precision": 0.3925373134328358,
+            "recall": 0.9776951672862454,
+            "support": 269
+          },
+          "new": {
+            "f1": 0.014319809069212411,
+            "precision": 0.3333333333333333,
+            "recall": 0.007317073170731708,
+            "support": 410
+          },
+          "stable": {
+            "f1": 0.32043204320432045,
+            "precision": 0.3719958202716823,
+            "recall": 0.28142292490118576,
+            "support": 1265
+          },
+          "up": {
+            "f1": 0.3337378640776699,
+            "precision": 0.35301668806161746,
+            "recall": 0.31645569620253167,
+            "support": 869
+          }
+        },
+        "weighted_f1": 0.5201391758454832
+      },
+      "prediction_sha256": "1884c73a4eefd19689170327832bfb93778cc12942eb4f8a6978888902e3ca28",
+      "warnings": []
+    },
+    "random_forest": {
+      "comparison": {
+        "beats_both_baselines": true,
+        "down_recall_guardrail_met": true,
+        "interpretation": "Development comparison flags; not model promotion",
+        "macro_f1_deltas": {
+          "most_frequent": 0.29343019232201245,
+          "stratified_mean": 0.23318121055621863,
+          "stratified_reference": 0.22219973083258526
+        },
+        "material_improvement_met": true,
+        "minimum_macro_f1_improvement": 0.01,
+        "project_macro_f1_target_met": false
+      },
+      "metrics": {
+        "accuracy": 0.5644527915315007,
+        "balanced_accuracy": 0.43668150524080424,
+        "confusion_matrix": {
+          "labels": [
+            "down",
+            "stable",
+            "up",
+            "new",
+            "flat"
+          ],
+          "values": [
+            [
+              2622,
+              261,
+              161,
+              0,
+              0
+            ],
+            [
+              986,
+              192,
+              87,
+              0,
+              0
+            ],
+            [
+              566,
+              139,
+              164,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              186,
+              224
+            ],
+            [
+              0,
+              0,
+              0,
+              127,
+              142
+            ]
+          ]
+        },
+        "down_false_negatives": 422,
+        "macro_f1": 0.43022381101654117,
+        "per_class": {
+          "down": {
+            "f1": 0.7265170407315046,
+            "precision": 0.6281744130330618,
+            "recall": 0.8613666228646518,
+            "support": 3044
+          },
+          "flat": {
+            "f1": 0.44724409448818897,
+            "precision": 0.3879781420765027,
+            "recall": 0.5278810408921933,
+            "support": 269
+          },
+          "new": {
+            "f1": 0.5145228215767634,
+            "precision": 0.5942492012779552,
+            "recall": 0.45365853658536587,
+            "support": 410
+          },
+          "stable": {
+            "f1": 0.20678513731825526,
+            "precision": 0.32432432432432434,
+            "recall": 0.15177865612648223,
+            "support": 1265
+          },
+          "up": {
+            "f1": 0.25604996096799376,
+            "precision": 0.39805825242718446,
+            "recall": 0.18872266973532797,
+            "support": 869
+          }
+        },
+        "weighted_f1": 0.5167955446541361
+      },
+      "prediction_sha256": "a70d4315c65360689c8b531b0c8a7dc1c504bda05335817bd8a1f78768f6a8d6",
+      "warnings": []
+    }
+  },
+  "protected_artifact_sha256": {
+    "artifacts/metadata/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "artifacts/metadata/model_metadata.json": "2783f00e3cff39124c1f1a36b96e34d169926060dd1b6826ddf4c398172271ac",
+    "artifacts/metadata/split_assignments.csv": "16bcb64d829c94664e3b0c492277cc4c036776d68b5e0d6478504bad21952a0f",
+    "artifacts/metadata/split_manifest.json": "a656a6442dc9857f64b62f33cae1cc7fa953a1c0a6f3217b3f297e113fba32cf",
+    "artifacts/models/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "artifacts/models/content_trend_pipeline.joblib": "1ff144656ad8ccdb8004f0dc2404864c8c24d260b924bcea3f1f79c7a6c53a24",
+    "content_refresh_anonymized.csv": "c43bdac4eccfa17fcd8a33974fe36f2c998c03a3ae3af8d80cf712abab5d6396",
+    "data/raw/dataset.csv": "c43bdac4eccfa17fcd8a33974fe36f2c998c03a3ae3af8d80cf712abab5d6396",
+    "reports/baselines/baseline_manifest.json": "386b7e5446edc35651e6cc38192fd9767ece80979266c80141fb1e2ffae0f9ea",
+    "reports/baselines/baseline_metrics.json": "aa329fa2d044da7baa9496e9c5393fa20acc6d08d75b3c7da7b22d260f402990",
+    "reports/baselines/baseline_repeats.csv": "4c41a69cbd93d3cbd3d4dcd90140389613c23efec1f0677744f084e4c8a48746",
+    "reports/baselines/baseline_report.md": "42294d56a29d5e00825e438540926338bc5d2d199d128100bc129afd2491effc",
+    "reports/baselines/baseline_summary.json": "8f5f68feca04fc1a98827e19021d165cc1e5783e08070d5275012bedef23ee77",
+    "reports/baselines/verification.json": "507dd50277237fe3241ed542d43148605c585f6e4d6ae69fbdf42f2da66788bf",
+    "reports/features/ablation_results.csv": "d572881abe2b9102b5ee35e8603dc7e16dd0e78889b037f92febb90c7f7fc418",
+    "reports/features/feature_catalog.csv": "ef4613ba153c780e4af98ed9594839398cf5be7d5a670fd8c5449061252e54f1",
+    "reports/features/feature_manifest.json": "29969cb10f3e8300c7d1132841bb2e9f8c30e881d45af8ce556df469cead9b4f",
+    "reports/features/selected_features.json": "16de2dc2bf00c9c2e65853cb463023f0cdc18613687b62302c89e2d2935a5cf5",
+    "reports/features/selection_report.md": "1a8996eee9c664f0b23d9229cb456f8c99d711de79ce3273118b7a4189d6bb24",
+    "reports/features/training_diagnostics.json": "c6d60c5ff98372e12ba43c00e06df0409f1769339087a07ff89bdbf118675e0a",
+    "reports/features/verification.json": "8a804055f35f90ef18ef0d8a31ce3301dd3eebccce19a4a4c4b0cdc6a8740b06",
+    "reports/metrics/model_metrics.json": "a1be48182c4bd76b5f6010fb6523a080a4228443c52ed7a6d951bad96a84acfd"
+  },
+  "protected_artifacts_unchanged": true,
+  "reproducibility": {
+    "each_run_hashes_verified": true,
+    "excluded": [
+      "run IDs",
+      "physical paths",
+      "timings",
+      "joblib bytes"
+    ],
+    "finalist_reload_checks_passed": true,
+    "fits_per_run": 47,
+    "normalized_provenance_equal": true,
+    "semantic_outputs_equal": true,
+    "total_real_fits": 94
+  },
+  "status": "passed",
+  "supplemental_privacy_check": {
+    "method": "Compare all public JSON keys/string values with verified development content/client identities",
+    "public_json_files_checked": 20,
+    "raw_identifiers_published": false,
+    "status": "passed"
+  }
+}

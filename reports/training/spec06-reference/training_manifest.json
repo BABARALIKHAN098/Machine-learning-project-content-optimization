@@ -1,0 +1,64 @@
+{
+  "artifact_schema_version": "1.0",
+  "code": {
+    "dirty": true,
+    "revision": "21d13cd0816c4e7de5ab0f523b46e07a3ac07505",
+    "source_tree_sha256": "59d0608d7d0218e67f15466aad4db6fe098ceeb02d2a2d90a033b0baf943f0af"
+  },
+  "environment": {
+    "estimator_n_jobs": 1,
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.0",
+    "search_n_jobs": 1,
+    "sklearn": "1.9.0",
+    "thread_limit": 1,
+    "threadpoolctl": "3.6.0"
+  },
+  "evaluation_identity": {
+    "labels": [
+      "down",
+      "stable",
+      "up",
+      "new",
+      "flat"
+    ],
+    "metric_contract_version": "1.0",
+    "ordered_train_sha256": "31b62fbdfdcd8bfd2c53e1085b80f79a57b809f09dee453612f505c13939d997",
+    "ordered_validation_sha256": "fedf48368dd070e1505781f32206dd0bd6bb37cfe0a85c4f2abc37a7c57a5dd8",
+    "partition": "validation",
+    "provenance": {
+      "source_sha256": "c43bdac4eccfa17fcd8a33974fe36f2c998c03a3ae3af8d80cf712abab5d6396",
+      "split_assignments_sha256": "16bcb64d829c94664e3b0c492277cc4c036776d68b5e0d6478504bad21952a0f",
+      "split_manifest_sha256": "a656a6442dc9857f64b62f33cae1cc7fa953a1c0a6f3217b3f297e113fba32cf"
+    },
+    "target": "trend_direction",
+    "train_groups": 18,
+    "train_rows": 17670,
+    "validation_groups": 7,
+    "validation_rows": 5857
+  },
+  "fold_manifest_sha256": "c4a04b7f1db8e1583dbe1e5d810f7c6bdde4c4a0585a7a18b07a0b5c9cf1f576",
+  "model_hashes": {
+    "logistic_regression.joblib": "3cd2bd5fe86612fdda9dfccad69805d8d781cc9bea3a610bbc5bf9002b6ccd7c",
+    "logistic_regression.json": "e6f733c80227fa5120e1af2a2870519a20fca004e4e9ee6660b4397cb7cf417d",
+    "random_forest.joblib": "d84a1b68d9d51c00610ab5bbbc49a4a7a38ae1a93a4fe6149922eddafe16f23b",
+    "random_forest.json": "4c7c7cabe368a32ec4efbf7381f8274e8da506c64e06b0b8fdbe94d1b983c2b3"
+  },
+  "report_hashes": {
+    "cv_results.csv": "36df1bd32da427b9dbb6e9e0dbf77b65f23585e90dda3968a96103aa061cd41e",
+    "fold_manifest.json": "e8f62cd62b9cc9780a1a641f43dd6ca63c72350e5888d32179cf47f2e5e6fe9c",
+    "resolved_config.json": "b106afaecf0aeb3eaa407c658905dd045992b2f1787c718aaaab3fa5b3d40bf3",
+    "selection.json": "2e97f3b685cdb392e79aafd93bec2a22a7628540473c9e8c3cd125214140b642",
+    "timings.json": "fabe46e1ab2df41182356bbf171f7b539bacfc4bc233bf33b72f2e196541ccd7",
+    "training_report.md": "ab403103a1c5238a5fc037162f4080230a17e6b04d401e2841e45fa100a4bed2",
+    "trial_metrics.json": "0ce5161b95ce17545eaf67d1eb19ba5e55531d15efb2686060122b819ff0e8e0",
+    "validation_metrics.json": "505f5d14de9ea581c9d6546161f78bc8376df00e24addee70deeb5d50c488094"
+  },
+  "resolved_config_sha256": "a889324b6e139b51eca6d003bcc33b278dd3454afe214092e46d94b5eed4cfd6",
+  "run_id": "spec06-reference",
+  "selection_sha256": "592952093e47f453dcd54481868c680e2efb57e697ca6797674c620803f4e53a",
+  "status": "complete",
+  "tuning_contract_version": "1.0"
+}

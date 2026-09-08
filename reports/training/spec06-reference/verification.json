@@ -1,0 +1,20 @@
+{
+  "evidence_file": "spec06-verification.json",
+  "manifest_sha256": "39e8320c086e3597aa4619c54021031466c69417772fb05ac0cd22332da7a3c8",
+  "protected_artifacts_unchanged": true,
+  "reproducibility": {
+    "each_run_hashes_verified": true,
+    "excluded": [
+      "run IDs",
+      "physical paths",
+      "timings",
+      "joblib bytes"
+    ],
+    "finalist_reload_checks_passed": true,
+    "fits_per_run": 47,
+    "normalized_provenance_equal": true,
+    "semantic_outputs_equal": true,
+    "total_real_fits": 94
+  },
+  "status": "passed"
+}
