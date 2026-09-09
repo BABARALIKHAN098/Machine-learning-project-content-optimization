@@ -1,0 +1,68 @@
+{
+  "age_tier": {
+    "category_policy": "frequency_then_value; anonymous category aliases; typed sentinels",
+    "membership_sha256": "bc14b72507ce6341f92a4e53cb66469b02dc259955a4f6492d1c9482759d5f82",
+    "missing_rows": 0,
+    "pooled_rows": 57,
+    "published_groups": 3,
+    "published_rows": 5800,
+    "suppressed_groups": 1,
+    "suppressed_rows": 57,
+    "total_rows": 5857
+  },
+  "content_type": {
+    "category_policy": "frequency_then_value; anonymous category aliases; typed sentinels",
+    "membership_sha256": "182e5c6f36e311d186249596522a992e85e2e1350b088b8ee4744620cde4257e",
+    "missing_rows": 0,
+    "pooled_rows": 31,
+    "published_groups": 1,
+    "published_rows": 5826,
+    "suppressed_groups": 1,
+    "suppressed_rows": 31,
+    "total_rows": 5857
+  },
+  "freshness_tier": {
+    "category_policy": "frequency_then_value; anonymous category aliases; typed sentinels",
+    "membership_sha256": "990455f99663887ab74f9c239f6bb99564883ccf4f87da7b09765108abae63d6",
+    "missing_rows": 0,
+    "pooled_rows": 15,
+    "published_groups": 2,
+    "published_rows": 5842,
+    "suppressed_groups": 1,
+    "suppressed_rows": 15,
+    "total_rows": 5857
+  },
+  "main_intent": {
+    "category_policy": "frequency_then_value; anonymous category aliases; typed sentinels",
+    "membership_sha256": "de067785bf61a323a6e11096774c17af3e9c53162ca24625328ada7c3922cd2b",
+    "missing_rows": 85,
+    "pooled_rows": 3,
+    "published_groups": 3,
+    "published_rows": 5769,
+    "suppressed_groups": 2,
+    "suppressed_rows": 88,
+    "total_rows": 5857
+  },
+  "numeric_missingness_bucket": {
+    "category_policy": "frequency_then_value; anonymous category aliases; typed sentinels",
+    "membership_sha256": "5b5c8ba9ff8888669986f5ab0f61bfff0fa1e72de1dcdafbcc779623930944d1",
+    "missing_rows": 0,
+    "pooled_rows": 0,
+    "published_groups": 3,
+    "published_rows": 5857,
+    "suppressed_groups": 0,
+    "suppressed_rows": 0,
+    "total_rows": 5857
+  },
+  "previous_impressions_bucket": {
+    "category_policy": "frequency_then_value; anonymous category aliases; typed sentinels",
+    "membership_sha256": "3fc0b7c22a966ac919b590b36eacfaf5567e1ebf1387f8217a396b9e0af01f3e",
+    "missing_rows": 0,
+    "pooled_rows": 0,
+    "published_groups": 4,
+    "published_rows": 5857,
+    "suppressed_groups": 0,
+    "suppressed_rows": 0,
+    "total_rows": 5857
+  }
+}

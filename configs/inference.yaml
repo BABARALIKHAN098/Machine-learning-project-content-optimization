@@ -1,0 +1,13 @@
+inference:
+  inference_contract_version: "2.0"
+  maximum_batch_rows: 30000
+  chunk_rows: 5000
+  include_probabilities: false
+  probability_tolerance: 0.000000001
+  thread_limit: 1
+  unknown_categories: ignore
+  extra_columns: reject
+  numeric_string_coercion: false
+  encoding: utf-8
+  delimiter: ","
+  missing_tokens: ["", "NA", "N/A", "null", "None", "?"]

@@ -1,0 +1,80 @@
+{
+  "evaluation": {
+    "artifact_schema_version": "1.0",
+    "client_sensitivity": "leave_one_client_out",
+    "comparison_tolerance": 0.001,
+    "dimensions": [
+      "content_type",
+      "main_intent",
+      "age_tier",
+      "freshness_tier",
+      "previous_impressions_bucket",
+      "numeric_missingness_bucket"
+    ],
+    "evaluation_contract_version": "1.0",
+    "families": [
+      "logistic_regression",
+      "random_forest"
+    ],
+    "maximum_categories_per_dimension": 12,
+    "metric_contract_version": "1.0",
+    "minimum_class_support": 20,
+    "minimum_down_support": 30,
+    "minimum_predicted_down_support": 30,
+    "minimum_subgroup_rows": 100,
+    "partition": "validation",
+    "plot_dpi": 120,
+    "prediction_n_jobs": 1,
+    "probability_metrics": false,
+    "resume": false,
+    "row_exports": false,
+    "subgroup_alert_macro_f1_gap": 0.05
+  },
+  "inherited_training_thresholds": {
+    "down_recall_guardrail": 0.5,
+    "minimum_macro_f1": 0.45
+  },
+  "minimum_macro_f1_improvement": 0.01,
+  "numeric_missingness_columns": [
+    "search_volume",
+    "competition",
+    "cpc",
+    "word_count",
+    "char_count",
+    "impressions_prev_30d",
+    "clicks_prev_30d",
+    "sessions_prev_30d",
+    "content_age_days",
+    "age_tier_order",
+    "days_since_last_update"
+  ],
+  "original_config_hashes": {
+    "baseline": "cb8d9920d11f27e130e6cbe8d9da3860fc9ac344c2298fd783091e613547b100",
+    "data": "af42b33e8000d02b8ec02a398ea6d7be2f493278b05604573c593a4bea22554b",
+    "preprocessing": "e5666bdd63e7b8a68268f3b421266f2a8dca3659f4868c9340e93a917f19a245",
+    "training": "61aed2673cbd83ecb068bceaaa950f67a9a8266dbe0f77b844be6f9c61bfa6b7"
+  },
+  "prediction_audit_convention": "_hash_value(fingerprint(list(predictions)), 'content-trend-tuning-v1:' + source_sha256)",
+  "references": {
+    "baseline_manifest_sha256": "386b7e5446edc35651e6cc38192fd9767ece80979266c80141fb1e2ffae0f9ea",
+    "feature_manifest_sha256": "29969cb10f3e8300c7d1132841bb2e9f8c30e881d45af8ce556df469cead9b4f",
+    "model_hashes": {
+      "logistic_regression.joblib": "3cd2bd5fe86612fdda9dfccad69805d8d781cc9bea3a610bbc5bf9002b6ccd7c",
+      "logistic_regression.json": "e6f733c80227fa5120e1af2a2870519a20fca004e4e9ee6660b4397cb7cf417d",
+      "random_forest.joblib": "d84a1b68d9d51c00610ab5bbbc49a4a7a38ae1a93a4fe6149922eddafe16f23b",
+      "random_forest.json": "4c7c7cabe368a32ec4efbf7381f8274e8da506c64e06b0b8fdbe94d1b983c2b3"
+    },
+    "report_hashes": {
+      "cv_results.csv": "36df1bd32da427b9dbb6e9e0dbf77b65f23585e90dda3968a96103aa061cd41e",
+      "fold_manifest.json": "e8f62cd62b9cc9780a1a641f43dd6ca63c72350e5888d32179cf47f2e5e6fe9c",
+      "resolved_config.json": "b106afaecf0aeb3eaa407c658905dd045992b2f1787c718aaaab3fa5b3d40bf3",
+      "selection.json": "2e97f3b685cdb392e79aafd93bec2a22a7628540473c9e8c3cd125214140b642",
+      "timings.json": "fabe46e1ab2df41182356bbf171f7b539bacfc4bc233bf33b72f2e196541ccd7",
+      "training_report.md": "ab403103a1c5238a5fc037162f4080230a17e6b04d401e2841e45fa100a4bed2",
+      "trial_metrics.json": "0ce5161b95ce17545eaf67d1eb19ba5e55531d15efb2686060122b819ff0e8e0",
+      "validation_metrics.json": "505f5d14de9ea581c9d6546161f78bc8376df00e24addee70deeb5d50c488094"
+    },
+    "selection_sha256": "2e97f3b685cdb392e79aafd93bec2a22a7628540473c9e8c3cd125214140b642",
+    "training_manifest_sha256": "39e8320c086e3597aa4619c54021031466c69417772fb05ac0cd22332da7a3c8"
+  }
+}

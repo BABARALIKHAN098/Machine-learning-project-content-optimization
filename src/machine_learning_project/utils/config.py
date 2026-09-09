@@ -182,6 +182,137 @@ def validate_split_config(config: dict[str, Any]) -> None:
         raise DataValidationError("; ".join(errors))
 
 
+def validate_packaging_config(config: dict[str, Any]) -> None:
+    fixed = {
+        "packaging_contract_version": "1.0",
+        "package_schema_version": "1.0",
+        "inference_contract_version": "2.0",
+        "overwrite": False,
+        "resume": False,
+        "remote_loading": False,
+    }
+    if not isinstance(config, dict) or set(config) != set(fixed) | {
+        "families",
+        "package_root",
+        "output_root",
+    }:
+        raise DataValidationError("Invalid packaging configuration fields")
+    for key, value in fixed.items():
+        if type(config[key]) is not type(value) or config[key] != value:
+            raise DataValidationError(f"Unsupported packaging.{key}")
+    families = config["families"]
+    if (
+        not isinstance(families, list)
+        or not families
+        or any(f not in ("logistic_regression", "random_forest") for f in families)
+        or len(set(families)) != len(families)
+    ):
+        raise DataValidationError("Packaging requires explicit unique frozen families")
+    for key in ("package_root", "output_root"):
+        value = config[key]
+        if (
+            not isinstance(value, str)
+            or not value.strip()
+            or "://" in value
+            or value.startswith(("//", "\\\\"))
+        ):
+            raise DataValidationError("Packaging requires local output paths")
+
+
+def validate_inference_config(config: dict[str, Any]) -> None:
+    fixed = {
+        "inference_contract_version": "2.0",
+        "include_probabilities": False,
+        "probability_tolerance": 1e-9,
+        "thread_limit": 1,
+        "unknown_categories": "ignore",
+        "extra_columns": "reject",
+        "numeric_string_coercion": False,
+        "encoding": "utf-8",
+        "delimiter": ",",
+        "missing_tokens": ["", "NA", "N/A", "null", "None", "?"],
+    }
+    if not isinstance(config, dict) or set(config) != set(fixed) | {
+        "maximum_batch_rows",
+        "chunk_rows",
+    }:
+        raise DataValidationError("Invalid inference configuration fields")
+    for key, value in fixed.items():
+        if type(config[key]) is not type(value) or config[key] != value:
+            raise DataValidationError(f"Unsupported inference.{key}")
+    if any(type(config[k]) is not int for k in ("maximum_batch_rows", "chunk_rows")) or not (
+        1 <= config["chunk_rows"] <= config["maximum_batch_rows"] <= 30000
+    ):
+        raise DataValidationError("Require 1 <= chunk_rows <= maximum_batch_rows <= 30000")
+
+
+def validate_evaluation_config(config: dict[str, Any], training: dict[str, Any]) -> None:
+    """Closed, validation-only diagnostic protocol, validated before model loading."""
+    fixed = {
+        "evaluation_contract_version": "1.0",
+        "artifact_schema_version": "1.0",
+        "metric_contract_version": "1.0",
+        "partition": "validation",
+        "families": ["logistic_regression", "random_forest"],
+        "client_sensitivity": "leave_one_client_out",
+        "prediction_n_jobs": 1,
+        "row_exports": False,
+        "probability_metrics": False,
+        "resume": False,
+    }
+    supports = (
+        "minimum_subgroup_rows",
+        "minimum_class_support",
+        "minimum_down_support",
+        "minimum_predicted_down_support",
+        "maximum_categories_per_dimension",
+        "plot_dpi",
+    )
+    rates = ("comparison_tolerance", "subgroup_alert_macro_f1_gap")
+    dimensions = {
+        "content_type",
+        "main_intent",
+        "age_tier",
+        "freshness_tier",
+        "previous_impressions_bucket",
+        "numeric_missingness_bucket",
+    }
+    if not isinstance(config, dict) or set(config) != (
+        set(fixed) | set(supports) | set(rates) | {"dimensions", "output_root"}
+    ):
+        raise DataValidationError("Evaluation requires exactly the protocol fields")
+    for key, value in fixed.items():
+        if type(config[key]) is not type(value) or config[key] != value:
+            raise DataValidationError(f"Unsupported evaluation.{key}")
+    for key in supports:
+        if type(config[key]) is not int or config[key] <= 0:
+            raise DataValidationError(f"evaluation.{key} must be a positive integer")
+    for key in rates:
+        if (
+            type(config[key]) not in (int, float)
+            or not math.isfinite(config[key])
+            or not (0 <= config[key] <= 1)
+        ):
+            raise DataValidationError(f"Invalid evaluation.{key}")
+    selected = config["dimensions"]
+    if (
+        not isinstance(selected, list)
+        or not selected
+        or any(not isinstance(item, str) or item not in dimensions for item in selected)
+        or len(set(selected)) != len(selected)
+    ):
+        raise DataValidationError("Unknown, duplicate or missing evaluation dimensions")
+    root = config["output_root"]
+    if not isinstance(root, str) or not root.strip() or root.startswith(("\\\\", "//")):
+        raise DataValidationError("Evaluation output_root must be a local path")
+    if training.get("primary_metric") != "macro_f1":
+        raise DataValidationError("Evaluation requires the inherited macro_f1 contract")
+    for key in ("minimum_macro_f1", "down_recall_guardrail"):
+        value = training.get(key)
+        if type(value) not in (int, float) or not math.isfinite(value) or not 0 <= value <= 1:
+            raise DataValidationError(f"Invalid training.{key}")
+
+
 def validate_tuning_config(config: dict[str, Any], training: dict[str, Any]) -> None:
     """Contract 1.0 is a predetermined search, not an adaptive parameter search."""
     import json

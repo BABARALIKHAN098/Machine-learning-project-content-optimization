@@ -1,0 +1,384 @@
+{
+  "confusion": {
+    "logistic_regression": {
+      "counts": [
+        [
+          2338,
+          389,
+          317,
+          0,
+          0
+        ],
+        [
+          722,
+          356,
+          187,
+          0,
+          0
+        ],
+        [
+          382,
+          212,
+          275,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          3,
+          407
+        ],
+        [
+          0,
+          0,
+          0,
+          6,
+          263
+        ]
+      ],
+      "labels": [
+        "down",
+        "stable",
+        "up",
+        "new",
+        "flat"
+      ],
+      "row_normalized": [
+        [
+          0.7680683311432326,
+          0.12779237844940866,
+          0.10413929040735874,
+          0.0,
+          0.0
+        ],
+        [
+          0.5707509881422925,
+          0.28142292490118576,
+          0.14782608695652175,
+          0.0,
+          0.0
+        ],
+        [
+          0.43958573072497126,
+          0.24395857307249713,
+          0.31645569620253167,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.007317073170731708,
+          0.9926829268292683
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.022304832713754646,
+          0.9776951672862454
+        ]
+      ],
+      "undefined_rows": []
+    },
+    "random_forest": {
+      "counts": [
+        [
+          2622,
+          261,
+          161,
+          0,
+          0
+        ],
+        [
+          986,
+          192,
+          87,
+          0,
+          0
+        ],
+        [
+          566,
+          139,
+          164,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          186,
+          224
+        ],
+        [
+          0,
+          0,
+          0,
+          127,
+          142
+        ]
+      ],
+      "labels": [
+        "down",
+        "stable",
+        "up",
+        "new",
+        "flat"
+      ],
+      "row_normalized": [
+        [
+          0.8613666228646518,
+          0.08574244415243101,
+          0.052890932982917215,
+          0.0,
+          0.0
+        ],
+        [
+          0.7794466403162056,
+          0.15177865612648223,
+          0.06877470355731226,
+          0.0,
+          0.0
+        ],
+        [
+          0.6513233601841196,
+          0.15995397008055237,
+          0.18872266973532797,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.45365853658536587,
+          0.5463414634146342
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.4721189591078067,
+          0.5278810408921933
+        ]
+      ],
+      "undefined_rows": []
+    }
+  },
+  "supported_down_recall": [
+    {
+      "dimension": "content_type",
+      "down_recall": 0.7672727272727272,
+      "family": "logistic_regression",
+      "group": "category_01",
+      "support_down": 3025
+    },
+    {
+      "dimension": "content_type",
+      "down_recall": 0.8638016528925619,
+      "family": "random_forest",
+      "group": "category_01",
+      "support_down": 3025
+    },
+    {
+      "dimension": "main_intent",
+      "down_recall": 0.7814423922603342,
+      "family": "logistic_regression",
+      "group": "category_01",
+      "support_down": 2274
+    },
+    {
+      "dimension": "main_intent",
+      "down_recall": 0.8843447669305189,
+      "family": "random_forest",
+      "group": "category_01",
+      "support_down": 2274
+    },
+    {
+      "dimension": "main_intent",
+      "down_recall": 0.737885462555066,
+      "family": "logistic_regression",
+      "group": "category_02",
+      "support_down": 454
+    },
+    {
+      "dimension": "main_intent",
+      "down_recall": 0.8370044052863436,
+      "family": "random_forest",
+      "group": "category_02",
+      "support_down": 454
+    },
+    {
+      "dimension": "main_intent",
+      "down_recall": 0.6796875,
+      "family": "logistic_regression",
+      "group": "category_03",
+      "support_down": 256
+    },
+    {
+      "dimension": "main_intent",
+      "down_recall": 0.73828125,
+      "family": "random_forest",
+      "group": "category_03",
+      "support_down": 256
+    },
+    {
+      "dimension": "age_tier",
+      "down_recall": 0.7805044308111793,
+      "family": "logistic_regression",
+      "group": "category_01",
+      "support_down": 1467
+    },
+    {
+      "dimension": "age_tier",
+      "down_recall": 0.8813905930470347,
+      "family": "random_forest",
+      "group": "category_01",
+      "support_down": 1467
+    },
+    {
+      "dimension": "age_tier",
+      "down_recall": 0.8651515151515151,
+      "family": "logistic_regression",
+      "group": "category_02",
+      "support_down": 1320
+    },
+    {
+      "dimension": "age_tier",
+      "down_recall": 0.9393939393939394,
+      "family": "random_forest",
+      "group": "category_02",
+      "support_down": 1320
+    },
+    {
+      "dimension": "age_tier",
+      "down_recall": 0.09821428571428571,
+      "family": "logistic_regression",
+      "group": "category_03",
+      "support_down": 224
+    },
+    {
+      "dimension": "age_tier",
+      "down_recall": 0.27232142857142855,
+      "family": "random_forest",
+      "group": "category_03",
+      "support_down": 224
+    },
+    {
+      "dimension": "freshness_tier",
+      "down_recall": 0.823799795709908,
+      "family": "logistic_regression",
+      "group": "category_01",
+      "support_down": 1958
+    },
+    {
+      "dimension": "freshness_tier",
+      "down_recall": 0.9152196118488254,
+      "family": "random_forest",
+      "group": "category_01",
+      "support_down": 1958
+    },
+    {
+      "dimension": "freshness_tier",
+      "down_recall": 0.6716279069767442,
+      "family": "logistic_regression",
+      "group": "category_02",
+      "support_down": 1075
+    },
+    {
+      "dimension": "freshness_tier",
+      "down_recall": 0.7637209302325582,
+      "family": "random_forest",
+      "group": "category_02",
+      "support_down": 1075
+    },
+    {
+      "dimension": "previous_impressions_bucket",
+      "down_recall": 0.5304054054054054,
+      "family": "logistic_regression",
+      "group": "(0,100]",
+      "support_down": 592
+    },
+    {
+      "dimension": "previous_impressions_bucket",
+      "down_recall": 0.6824324324324325,
+      "family": "random_forest",
+      "group": "(0,100]",
+      "support_down": 592
+    },
+    {
+      "dimension": "previous_impressions_bucket",
+      "down_recall": 0.8831814415907208,
+      "family": "logistic_regression",
+      "group": "(100,1000]",
+      "support_down": 1207
+    },
+    {
+      "dimension": "previous_impressions_bucket",
+      "down_recall": 0.9254349627174814,
+      "family": "random_forest",
+      "group": "(100,1000]",
+      "support_down": 1207
+    },
+    {
+      "dimension": "previous_impressions_bucket",
+      "down_recall": 0.7694779116465863,
+      "family": "logistic_regression",
+      "group": ">1000",
+      "support_down": 1245
+    },
+    {
+      "dimension": "previous_impressions_bucket",
+      "down_recall": 0.8843373493975903,
+      "family": "random_forest",
+      "group": ">1000",
+      "support_down": 1245
+    },
+    {
+      "dimension": "numeric_missingness_bucket",
+      "down_recall": 0.809792180345192,
+      "family": "logistic_regression",
+      "group": "0",
+      "support_down": 2839
+    },
+    {
+      "dimension": "numeric_missingness_bucket",
+      "down_recall": 0.9126452976400141,
+      "family": "random_forest",
+      "group": "0",
+      "support_down": 2839
+    },
+    {
+      "dimension": "numeric_missingness_bucket",
+      "down_recall": 0.09032258064516129,
+      "family": "logistic_regression",
+      "group": "1-2",
+      "support_down": 155
+    },
+    {
+      "dimension": "numeric_missingness_bucket",
+      "down_recall": 0.06451612903225806,
+      "family": "random_forest",
+      "group": "1-2",
+      "support_down": 155
+    },
+    {
+      "dimension": "numeric_missingness_bucket",
+      "down_recall": 0.5,
+      "family": "logistic_regression",
+      "group": ">=3",
+      "support_down": 50
+    },
+    {
+      "dimension": "numeric_missingness_bucket",
+      "down_recall": 0.42,
+      "family": "random_forest",
+      "group": ">=3",
+      "support_down": 50
+    }
+  ]
+}

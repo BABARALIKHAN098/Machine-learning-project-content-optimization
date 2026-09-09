@@ -1,0 +1,10 @@
+packaging:
+  packaging_contract_version: "1.0"
+  package_schema_version: "1.0"
+  inference_contract_version: "2.0"
+  families: [logistic_regression, random_forest]
+  package_root: artifacts/packages
+  output_root: reports/packaging
+  overwrite: false
+  resume: false
+  remote_loading: false

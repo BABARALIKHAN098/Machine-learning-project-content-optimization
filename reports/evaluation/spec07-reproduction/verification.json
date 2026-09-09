@@ -1,0 +1,59 @@
+{
+  "checks": [
+    {
+      "command": [
+        "E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "........................................................................ [ 36%]\n........................................................................ [ 72%]\n......................................................                   [100%]\n============================== warnings summary ===============================\ntests/unit/test_baselines.py: 2 warnings\ntests/unit/test_error_analysis.py: 12 warnings\ntests/unit/test_evaluation.py: 1 warning\n  E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Lib\\site-packages\\sklearn\\metrics\\_classification.py:614: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.\n    warnings.warn(\n\ntests/unit/test_error_analysis.py: 13 warnings\n  E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Lib\\site-packages\\sklearn\\metrics\\_classification.py:2939: UserWarning: y_pred contains classes not in y_true\n    warnings.warn(\"y_pred contains classes not in y_true\")\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n198 passed, 28 warnings in 238.46s (0:03:58)\n"
+    },
+    {
+      "command": [
+        "E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "pipelines",
+        "scripts",
+        "tests"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "All checks passed!\n"
+    }
+  ],
+  "checks_status": "passed",
+  "command": [
+    "E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Scripts\\python.exe",
+    "scripts/verify_evaluation.py"
+  ],
+  "counts": {
+    "fit_calls": 0,
+    "predict_calls": 4,
+    "probability_calls": 0
+  },
+  "exact_validation_batch_checked": true,
+  "fit_audit_scope": "Estimator/feature-transformer fits blocked; sklearn metric-local LabelEncoder bookkeeping excluded",
+  "independent_png_hashes_verified": true,
+  "manifest_hashes": {
+    "spec07-reference": "741783c11e69339bb7e4a88dde478bcfb62d174c5b2c4efd75953fb45a488ef5",
+    "spec07-reproduction": "044dc9a4c32cd4dc1e46b618c54f711319e23a05713098f75b5b8a4de503a23f"
+  },
+  "no_test_scoring": "All four prediction inputs equal verified canonical validation features; load_development performs full-source integrity access only",
+  "privacy_scan_passed": true,
+  "protected_inputs_unchanged": true,
+  "semantic_reproducibility": true,
+  "status": "passed",
+  "visual_review": {
+    "inspected_reference_figures": [
+      "figures/random_forest_rates.png",
+      "figures/supported_down_recall.png"
+    ],
+    "observations": "Labels are legible; confusion label order/rate scale and supported slice values agree with source data.",
+    "status": "passed"
+  }
+}

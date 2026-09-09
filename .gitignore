@@ -223,3 +223,10 @@ artifacts/models/*.joblib
 
 # Isolated SPEC-06 finalist bundles are local generated artifacts.
 artifacts/models/training/*/*.joblib
+
+# Local package build tools, runtime wheels, copied models and private operational responses.
+.packaging-work/
+artifacts/packages/*/model.joblib
+artifacts/packages/*/runtime/*.whl
+reports/packaging/*/build_runtime/
+reports/private-inference/

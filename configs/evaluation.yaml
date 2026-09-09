@@ -1,0 +1,21 @@
+evaluation:
+  evaluation_contract_version: "1.0"
+  artifact_schema_version: "1.0"
+  metric_contract_version: "1.0"
+  partition: validation
+  families: [logistic_regression, random_forest]
+  dimensions: [content_type, main_intent, age_tier, freshness_tier, previous_impressions_bucket, numeric_missingness_bucket]
+  minimum_subgroup_rows: 100
+  minimum_class_support: 20
+  minimum_down_support: 30
+  minimum_predicted_down_support: 30
+  comparison_tolerance: 0.001
+  subgroup_alert_macro_f1_gap: 0.05
+  client_sensitivity: leave_one_client_out
+  maximum_categories_per_dimension: 12
+  prediction_n_jobs: 1
+  output_root: reports/evaluation
+  plot_dpi: 120
+  row_exports: false
+  probability_metrics: false
+  resume: false

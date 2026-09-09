@@ -1,0 +1,773 @@
+{
+  "agreement": 4339,
+  "both_confusion_marginals_verified": true,
+  "correctness": {
+    "both": 2643,
+    "neither": 1959,
+    "only_forest": 663,
+    "only_logistic": 592
+  },
+  "delta_convention": "forest_minus_logistic",
+  "disagreement": 1518,
+  "down_recall_delta": 0.09329829172141924,
+  "joint_table": [
+    {
+      "count": 2233,
+      "forest_prediction": "down",
+      "logistic_prediction": "down",
+      "truth": "down"
+    },
+    {
+      "count": 56,
+      "forest_prediction": "stable",
+      "logistic_prediction": "down",
+      "truth": "down"
+    },
+    {
+      "count": 49,
+      "forest_prediction": "up",
+      "logistic_prediction": "down",
+      "truth": "down"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "new",
+      "logistic_prediction": "down",
+      "truth": "down"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "flat",
+      "logistic_prediction": "down",
+      "truth": "down"
+    },
+    {
+      "count": 192,
+      "forest_prediction": "down",
+      "logistic_prediction": "stable",
+      "truth": "down"
+    },
+    {
+      "count": 179,
+      "forest_prediction": "stable",
+      "logistic_prediction": "stable",
+      "truth": "down"
+    },
+    {
+      "count": 18,
+      "forest_prediction": "up",
+      "logistic_prediction": "stable",
+      "truth": "down"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "new",
+      "logistic_prediction": "stable",
+      "truth": "down"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "flat",
+      "logistic_prediction": "stable",
+      "truth": "down"
+    },
+    {
+      "count": 197,
+      "forest_prediction": "down",
+      "logistic_prediction": "up",
+      "truth": "down"
+    },
+    {
+      "count": 26,
+      "forest_prediction": "stable",
+      "logistic_prediction": "up",
+      "truth": "down"
+    },
+    {
+      "count": 94,
+      "forest_prediction": "up",
+      "logistic_prediction": "up",
+      "truth": "down"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "new",
+      "logistic_prediction": "up",
+      "truth": "down"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "flat",
+      "logistic_prediction": "up",
+      "truth": "down"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "down",
+      "logistic_prediction": "new",
+      "truth": "down"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "stable",
+      "logistic_prediction": "new",
+      "truth": "down"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "up",
+      "logistic_prediction": "new",
+      "truth": "down"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "new",
+      "logistic_prediction": "new",
+      "truth": "down"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "flat",
+      "logistic_prediction": "new",
+      "truth": "down"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "down",
+      "logistic_prediction": "flat",
+      "truth": "down"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "stable",
+      "logistic_prediction": "flat",
+      "truth": "down"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "up",
+      "logistic_prediction": "flat",
+      "truth": "down"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "new",
+      "logistic_prediction": "flat",
+      "truth": "down"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "flat",
+      "logistic_prediction": "flat",
+      "truth": "down"
+    },
+    {
+      "count": 685,
+      "forest_prediction": "down",
+      "logistic_prediction": "down",
+      "truth": "stable"
+    },
+    {
+      "count": 27,
+      "forest_prediction": "stable",
+      "logistic_prediction": "down",
+      "truth": "stable"
+    },
+    {
+      "count": 10,
+      "forest_prediction": "up",
+      "logistic_prediction": "down",
+      "truth": "stable"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "new",
+      "logistic_prediction": "down",
+      "truth": "stable"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "flat",
+      "logistic_prediction": "down",
+      "truth": "stable"
+    },
+    {
+      "count": 188,
+      "forest_prediction": "down",
+      "logistic_prediction": "stable",
+      "truth": "stable"
+    },
+    {
+      "count": 150,
+      "forest_prediction": "stable",
+      "logistic_prediction": "stable",
+      "truth": "stable"
+    },
+    {
+      "count": 18,
+      "forest_prediction": "up",
+      "logistic_prediction": "stable",
+      "truth": "stable"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "new",
+      "logistic_prediction": "stable",
+      "truth": "stable"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "flat",
+      "logistic_prediction": "stable",
+      "truth": "stable"
+    },
+    {
+      "count": 113,
+      "forest_prediction": "down",
+      "logistic_prediction": "up",
+      "truth": "stable"
+    },
+    {
+      "count": 15,
+      "forest_prediction": "stable",
+      "logistic_prediction": "up",
+      "truth": "stable"
+    },
+    {
+      "count": 59,
+      "forest_prediction": "up",
+      "logistic_prediction": "up",
+      "truth": "stable"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "new",
+      "logistic_prediction": "up",
+      "truth": "stable"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "flat",
+      "logistic_prediction": "up",
+      "truth": "stable"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "down",
+      "logistic_prediction": "new",
+      "truth": "stable"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "stable",
+      "logistic_prediction": "new",
+      "truth": "stable"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "up",
+      "logistic_prediction": "new",
+      "truth": "stable"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "new",
+      "logistic_prediction": "new",
+      "truth": "stable"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "flat",
+      "logistic_prediction": "new",
+      "truth": "stable"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "down",
+      "logistic_prediction": "flat",
+      "truth": "stable"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "stable",
+      "logistic_prediction": "flat",
+      "truth": "stable"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "up",
+      "logistic_prediction": "flat",
+      "truth": "stable"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "new",
+      "logistic_prediction": "flat",
+      "truth": "stable"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "flat",
+      "logistic_prediction": "flat",
+      "truth": "stable"
+    },
+    {
+      "count": 363,
+      "forest_prediction": "down",
+      "logistic_prediction": "down",
+      "truth": "up"
+    },
+    {
+      "count": 12,
+      "forest_prediction": "stable",
+      "logistic_prediction": "down",
+      "truth": "up"
+    },
+    {
+      "count": 7,
+      "forest_prediction": "up",
+      "logistic_prediction": "down",
+      "truth": "up"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "new",
+      "logistic_prediction": "down",
+      "truth": "up"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "flat",
+      "logistic_prediction": "down",
+      "truth": "up"
+    },
+    {
+      "count": 84,
+      "forest_prediction": "down",
+      "logistic_prediction": "stable",
+      "truth": "up"
+    },
+    {
+      "count": 89,
+      "forest_prediction": "stable",
+      "logistic_prediction": "stable",
+      "truth": "up"
+    },
+    {
+      "count": 39,
+      "forest_prediction": "up",
+      "logistic_prediction": "stable",
+      "truth": "up"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "new",
+      "logistic_prediction": "stable",
+      "truth": "up"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "flat",
+      "logistic_prediction": "stable",
+      "truth": "up"
+    },
+    {
+      "count": 119,
+      "forest_prediction": "down",
+      "logistic_prediction": "up",
+      "truth": "up"
+    },
+    {
+      "count": 38,
+      "forest_prediction": "stable",
+      "logistic_prediction": "up",
+      "truth": "up"
+    },
+    {
+      "count": 118,
+      "forest_prediction": "up",
+      "logistic_prediction": "up",
+      "truth": "up"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "new",
+      "logistic_prediction": "up",
+      "truth": "up"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "flat",
+      "logistic_prediction": "up",
+      "truth": "up"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "down",
+      "logistic_prediction": "new",
+      "truth": "up"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "stable",
+      "logistic_prediction": "new",
+      "truth": "up"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "up",
+      "logistic_prediction": "new",
+      "truth": "up"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "new",
+      "logistic_prediction": "new",
+      "truth": "up"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "flat",
+      "logistic_prediction": "new",
+      "truth": "up"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "down",
+      "logistic_prediction": "flat",
+      "truth": "up"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "stable",
+      "logistic_prediction": "flat",
+      "truth": "up"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "up",
+      "logistic_prediction": "flat",
+      "truth": "up"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "new",
+      "logistic_prediction": "flat",
+      "truth": "up"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "flat",
+      "logistic_prediction": "flat",
+      "truth": "up"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "down",
+      "logistic_prediction": "down",
+      "truth": "new"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "stable",
+      "logistic_prediction": "down",
+      "truth": "new"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "up",
+      "logistic_prediction": "down",
+      "truth": "new"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "new",
+      "logistic_prediction": "down",
+      "truth": "new"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "flat",
+      "logistic_prediction": "down",
+      "truth": "new"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "down",
+      "logistic_prediction": "stable",
+      "truth": "new"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "stable",
+      "logistic_prediction": "stable",
+      "truth": "new"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "up",
+      "logistic_prediction": "stable",
+      "truth": "new"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "new",
+      "logistic_prediction": "stable",
+      "truth": "new"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "flat",
+      "logistic_prediction": "stable",
+      "truth": "new"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "down",
+      "logistic_prediction": "up",
+      "truth": "new"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "stable",
+      "logistic_prediction": "up",
+      "truth": "new"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "up",
+      "logistic_prediction": "up",
+      "truth": "new"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "new",
+      "logistic_prediction": "up",
+      "truth": "new"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "flat",
+      "logistic_prediction": "up",
+      "truth": "new"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "down",
+      "logistic_prediction": "new",
+      "truth": "new"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "stable",
+      "logistic_prediction": "new",
+      "truth": "new"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "up",
+      "logistic_prediction": "new",
+      "truth": "new"
+    },
+    {
+      "count": 2,
+      "forest_prediction": "new",
+      "logistic_prediction": "new",
+      "truth": "new"
+    },
+    {
+      "count": 1,
+      "forest_prediction": "flat",
+      "logistic_prediction": "new",
+      "truth": "new"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "down",
+      "logistic_prediction": "flat",
+      "truth": "new"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "stable",
+      "logistic_prediction": "flat",
+      "truth": "new"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "up",
+      "logistic_prediction": "flat",
+      "truth": "new"
+    },
+    {
+      "count": 184,
+      "forest_prediction": "new",
+      "logistic_prediction": "flat",
+      "truth": "new"
+    },
+    {
+      "count": 223,
+      "forest_prediction": "flat",
+      "logistic_prediction": "flat",
+      "truth": "new"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "down",
+      "logistic_prediction": "down",
+      "truth": "flat"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "stable",
+      "logistic_prediction": "down",
+      "truth": "flat"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "up",
+      "logistic_prediction": "down",
+      "truth": "flat"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "new",
+      "logistic_prediction": "down",
+      "truth": "flat"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "flat",
+      "logistic_prediction": "down",
+      "truth": "flat"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "down",
+      "logistic_prediction": "stable",
+      "truth": "flat"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "stable",
+      "logistic_prediction": "stable",
+      "truth": "flat"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "up",
+      "logistic_prediction": "stable",
+      "truth": "flat"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "new",
+      "logistic_prediction": "stable",
+      "truth": "flat"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "flat",
+      "logistic_prediction": "stable",
+      "truth": "flat"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "down",
+      "logistic_prediction": "up",
+      "truth": "flat"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "stable",
+      "logistic_prediction": "up",
+      "truth": "flat"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "up",
+      "logistic_prediction": "up",
+      "truth": "flat"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "new",
+      "logistic_prediction": "up",
+      "truth": "flat"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "flat",
+      "logistic_prediction": "up",
+      "truth": "flat"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "down",
+      "logistic_prediction": "new",
+      "truth": "flat"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "stable",
+      "logistic_prediction": "new",
+      "truth": "flat"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "up",
+      "logistic_prediction": "new",
+      "truth": "flat"
+    },
+    {
+      "count": 4,
+      "forest_prediction": "new",
+      "logistic_prediction": "new",
+      "truth": "flat"
+    },
+    {
+      "count": 2,
+      "forest_prediction": "flat",
+      "logistic_prediction": "new",
+      "truth": "flat"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "down",
+      "logistic_prediction": "flat",
+      "truth": "flat"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "stable",
+      "logistic_prediction": "flat",
+      "truth": "flat"
+    },
+    {
+      "count": 0,
+      "forest_prediction": "up",
+      "logistic_prediction": "flat",
+      "truth": "flat"
+    },
+    {
+      "count": 123,
+      "forest_prediction": "new",
+      "logistic_prediction": "flat",
+      "truth": "flat"
+    },
+    {
+      "count": 140,
+      "forest_prediction": "flat",
+      "logistic_prediction": "flat",
+      "truth": "flat"
+    }
+  ],
+  "macro_f1_delta": 0.04030430821133757,
+  "row_count": 5857,
+  "true_down": {
+    "both": 2233,
+    "neither": 317,
+    "only_forest": 389,
+    "only_logistic": 105
+  }
+}

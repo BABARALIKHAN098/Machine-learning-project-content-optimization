@@ -1,0 +1,11 @@
+{
+  "analysis_seconds": 4.206978899994283,
+  "load_seconds": 2.795073900007992,
+  "predict_seconds": {
+    "logistic_regression": 0.27793719999317545,
+    "random_forest": 0.49333409999962896
+  },
+  "production_sla_certified": false,
+  "publication_seconds": 4.1414470999879995,
+  "total_seconds": 12.165808100005961
+}

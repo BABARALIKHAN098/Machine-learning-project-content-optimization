@@ -75,6 +75,7 @@ def subgroup_metrics(
     *,
     minimum_rows: int = 25,
 ) -> dict[str, Any]:
+    """Legacy exploratory helper; SPEC-07 uses error_analysis.analyze_subgroups."""
     scored = dataframe.copy()
     scored["__truth"] = list(truth)
     scored["__prediction"] = list(predictions)

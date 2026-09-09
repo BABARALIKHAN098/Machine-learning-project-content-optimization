@@ -1,12 +1,21 @@
 ﻿# Implementation Plan - Evaluation and Error Analysis
 
 **Source:** `specs/SPEC-07-evaluation-and-error-analysis.md`
-**Status:** Proposed; this request authorizes planning only
+**Status:** Implemented and verified for development on 2026-09-09
 **Prepared:** 2026-09-08
 **Owner:** Babar Ali Khan
 **Outcome:** Explain the frozen finalists' validation errors, compare supported subgroups, and record a reproducible model recommendation or explicit rejection for SPEC-08.
 
 ## 1. Specification status and objective
+
+Implementation authorization supersedes this document's original planning-only wording.
+The adopted normative contract is `specs/SPEC-07-evaluation-and-error-analysis.md`.
+Categorical slices use anonymous frequency-ordered aliases to prevent identifier-like values
+from entering reports. The verifier is `scripts/verify_evaluation.py`; completed runs are
+never overwritten. Verification: `reports/evaluation/spec07-reference/verification.json` and the matching reproduction run.
+Full suite: 198 passed; Ruff passed. Real replay: four predictions, zero estimator/feature-transformer
+fits, exact semantic reproduction, private aggregates and unchanged prerequisites. Both finalists
+fail the project macro-F1 target; `decision.json` records a null recommendation.
 
 SPEC-07 is a draft containing `TBD` scope, requirements, tests and decisions. This plan proposes a concrete evaluation contract grounded in SPEC-00 and implemented SPEC-03/04/05/06. Defaults below become normative only when adopted during authorized implementation. This planning request creates only this document; it does not score models, retrain, change specifications/configurations, regenerate artifacts or access the test partition.
 
@@ -392,20 +401,20 @@ The verifier should orchestrate these two runs or validate them after manual exe
 
 ## 17. Acceptance checklist and definition of done
 
-- [ ] SPEC-07 adopts concrete requirements/tests/defaults without normative placeholders.
-- [ ] Both frozen finalist inputs and baseline/config/selection provenance match current validation identity.
-- [ ] Replay reproduces saved metrics and scoped prediction fingerprints exactly.
-- [ ] Evaluation invokes no estimator/transformer fitting, baseline generation or test scoring.
-- [ ] Class/down/paired arithmetic and denominator edge cases are verified.
-- [ ] Predetermined slices are shared, support-aware and fully accounted for through pooling/suppression.
-- [ ] Client sensitivity is descriptive, uses no refitting and publishes no client leaderboard.
-- [ ] Metric eligibility, CV reference, recommendation/null, review flags and readiness are distinct.
-- [ ] Both failing the target is a supported complete result, with no silent fallback or retuning.
-- [ ] Reports/plots are aggregate-only, correctly labeled and consistent with source tables.
-- [ ] Isolated manifests bind safe payloads to full source/model/config/code/environment provenance.
-- [ ] Existing source/split/feature/baseline/training/model artifacts remain unchanged.
-- [ ] Focused/full tests, Ruff, two real replay runs and privacy/integrity checks pass with recorded evidence.
-- [ ] Legacy report display remains compatible and accurately states historical exposure.
-- [ ] SPEC-08 receives a frozen handoff and all limitations, even when no candidate qualifies.
+- [x] SPEC-07 adopts concrete requirements/tests/defaults without normative placeholders.
+- [x] Both frozen finalist inputs and baseline/config/selection provenance match current validation identity.
+- [x] Replay reproduces saved metrics and scoped prediction fingerprints exactly.
+- [x] Evaluation invokes no estimator/transformer fitting, baseline generation or test scoring.
+- [x] Class/down/paired arithmetic and denominator edge cases are verified.
+- [x] Predetermined slices are shared, support-aware and fully accounted for through pooling/suppression.
+- [x] Client sensitivity is descriptive, uses no refitting and publishes no client leaderboard.
+- [x] Metric eligibility, CV reference, recommendation/null, review flags and readiness are distinct.
+- [x] Both failing the target is a supported complete result, with no silent fallback or retuning.
+- [x] Reports/plots are aggregate-only, correctly labeled and consistent with source tables.
+- [x] Isolated manifests bind safe payloads to full source/model/config/code/environment provenance.
+- [x] Existing source/split/feature/baseline/training/model artifacts remain unchanged.
+- [x] Focused/full tests, Ruff, two real replay runs and privacy/integrity checks pass with recorded evidence.
+- [x] Legacy report display remains compatible and accurately states historical exposure.
+- [x] SPEC-08 receives a frozen handoff and all limitations, even when no candidate qualifies.
 
 Completion means reproducible diagnostic evidence and an honest, usable recommendation or rejection. It does not mean independent holdout success, resolved cutoff uncertainty, production readiness or deployment. This request creates the implementation plan only.

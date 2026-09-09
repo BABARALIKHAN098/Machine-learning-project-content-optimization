@@ -141,7 +141,7 @@ review_queue = model.rank_review_queue(rows)  # highest probability of decline f
 
 Predictions support human review only. They must not trigger automatic content changes. See `reports/MODEL_CARD.md` for intended use and limitations.
 
-## Current result
+## Historical holdout result
 
 The selected random forest achieved test macro F1 of 0.4215 and `down` recall of 0.6603 on a client-grouped holdout. Because macro F1 is below the provisional 0.45 threshold, the current model remains experimental.
 
@@ -188,3 +188,33 @@ Do not also run the same two searches manually before invoking this verifier. Us
 
 These scores reuse development evidence and frozen feature selection; they are not a new
 independent or nested generalization estimate. Historical cutoff uncertainty remains unresolved.
+
+## Frozen evaluation and error analysis (SPEC-07)
+
+`python scripts/evaluate_model.py --evaluation-config configs/evaluation.yaml --dry-run`
+verifies the frozen SPEC-06 reference, source/splits, feature choices, baseline and configuration
+without predictions or writes. Remove `--dry-run` and supply a fresh `--run-id` to replay both
+finalists once on validation and publish private aggregate error evidence under reports/evaluation.
+The default reference paths can be overridden with `--training-report-dir`, `--model-dir`,
+`--feature-manifest` and `--baseline-manifest`. Legacy `--metrics` display remains available.
+
+`python scripts/verify_evaluation.py` runs full tests and Ruff, then a dry run and two instrumented
+replays with zero fitting and four complete validation prediction calls. It writes verification.json
+beside each run's manifest. Use fresh `--first-run` and `--second-run` names on subsequent invocations;
+do not pre-create the same runs with the analysis CLI.
+
+Reports include class/down errors, paired disagreement counts, support-aware slices, descriptive
+client omission sensitivity, confusion plots and a hashed SPEC-08 decision. Category labels are
+anonymous frequency-ordered aliases; suppressed rows remain in coverage totals. No row examples,
+client leaderboard, outcome-derived slices, retraining or test scoring are performed.
+Eligibility, the frozen CV reference and review blockers remain separate. A null recommendation
+is a valid rejection outcome; production_ready is always false. Validation has been reused and
+historical test evaluation exists, so replay is not independent generalization evidence.
+
+
+Verified SPEC-07 evidence: [evaluation report](reports/evaluation/spec07-reference/evaluation_report.md),
+[decision / SPEC-08 handoff](reports/evaluation/spec07-reference/decision.json), and
+[verification](reports/evaluation/spec07-reference/verification.json). Full suite: 198 passed; Ruff passed.
+Both real replays exactly reproduce SPEC-06 with unchanged prerequisites. Validation macro F1 is
+0.389920 for logistic regression and 0.430224 for random forest, below the unchanged 0.45 target.
+Neither is recommended; random forest remains the research development reference.

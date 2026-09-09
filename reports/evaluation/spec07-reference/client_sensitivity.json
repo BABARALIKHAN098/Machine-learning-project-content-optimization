@@ -1,0 +1,47 @@
+{
+  "all_class_supported_scenarios": 7,
+  "assignment_sha256": "b20682fa7f8c8c7ed91ba40dfb599daf11a42bd5606afed65fab3e9131d86b7a",
+  "client_count": 7,
+  "down_recall": {
+    "logistic_regression": {
+      "maximum": 0.7991775188485264,
+      "minimum": 0.47774480712166173,
+      "supported_scenarios": 7
+    },
+    "random_forest": {
+      "maximum": 0.8894970920287376,
+      "minimum": 0.6231454005934718,
+      "supported_scenarios": 7
+    }
+  },
+  "macro_f1": {
+    "logistic_regression": {
+      "maximum": 0.41674459549884746,
+      "minimum": 0.35457816645589324,
+      "supported_scenarios": 7
+    },
+    "random_forest": {
+      "maximum": 0.43290209498216053,
+      "minimum": 0.407185270545258,
+      "supported_scenarios": 7
+    }
+  },
+  "method": "descriptive_leave_one_client_out_no_refit",
+  "ordering_reverses": true,
+  "paired_down_recall_gap": {
+    "maximum": 0.14540059347181006,
+    "minimum": 0.07444886158294184,
+    "supported_scenarios": 7
+  },
+  "paired_macro_f1_gap": {
+    "maximum": 0.05336445102237569,
+    "minimum": -0.009559324953589465,
+    "supported_scenarios": 7
+  },
+  "remaining_rows": {
+    "maximum": 5819,
+    "minimum": 2176,
+    "supported_scenarios": 7
+  },
+  "scenario_count": 7
+}
