@@ -1,0 +1,77 @@
+{
+  "code": {
+    "dirty": true,
+    "revision": "9c53f2e0deb3e9f862ba6b63e4692dc0582e998a",
+    "source_tree_sha256": "82a08b0c011d365135feb571246798b85b789ca4fd96390dc979e2d19fae6127"
+  },
+  "packages": {
+    "logistic_regression": {
+      "manifest_sha256": "9bd1ae7043ea49339bbc21f8311e9b1e296043b83db8f90c25e220a0741e658a",
+      "path": "E:\\Portfolio_maker\\mL learning project content optimization\\artifacts\\packages\\spec08-final-reference-logistic_regression",
+      "semantic_sha256": "23f61ddecab481657e4edbc961235524b32adfb79eabf59683232d1607e64a9b"
+    },
+    "random_forest": {
+      "manifest_sha256": "17d3d181eea90223de0f5ea59edd750d495b1efd32f0a8cafaae45c10d4279e6",
+      "path": "E:\\Portfolio_maker\\mL learning project content optimization\\artifacts\\packages\\spec08-final-reference-random_forest",
+      "semantic_sha256": "1914d2b1dd68ae2ef0a05cded6bf6f5630775728b68b4d93b73c25a922aa159c"
+    }
+  },
+  "packaging_contract_version": "1.0",
+  "protected_input_hashes": {
+    "E:\\Portfolio_maker\\mL learning project content optimization\\artifacts\\metadata\\split_assignments.csv": "16bcb64d829c94664e3b0c492277cc4c036776d68b5e0d6478504bad21952a0f",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\artifacts\\metadata\\split_manifest.json": "a656a6442dc9857f64b62f33cae1cc7fa953a1c0a6f3217b3f297e113fba32cf",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\artifacts\\models\\training\\spec06-reference\\logistic_regression.joblib": "3cd2bd5fe86612fdda9dfccad69805d8d781cc9bea3a610bbc5bf9002b6ccd7c",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\artifacts\\models\\training\\spec06-reference\\logistic_regression.json": "e6f733c80227fa5120e1af2a2870519a20fca004e4e9ee6660b4397cb7cf417d",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\artifacts\\models\\training\\spec06-reference\\random_forest.joblib": "d84a1b68d9d51c00610ab5bbbc49a4a7a38ae1a93a4fe6149922eddafe16f23b",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\artifacts\\models\\training\\spec06-reference\\random_forest.json": "4c7c7cabe368a32ec4efbf7381f8274e8da506c64e06b0b8fdbe94d1b983c2b3",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\data\\raw\\dataset.csv": "c43bdac4eccfa17fcd8a33974fe36f2c998c03a3ae3af8d80cf712abab5d6396",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\baselines\\baseline_manifest.json": "386b7e5446edc35651e6cc38192fd9767ece80979266c80141fb1e2ffae0f9ea",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\baselines\\baseline_metrics.json": "aa329fa2d044da7baa9496e9c5393fa20acc6d08d75b3c7da7b22d260f402990",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\baselines\\baseline_repeats.csv": "4c41a69cbd93d3cbd3d4dcd90140389613c23efec1f0677744f084e4c8a48746",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\baselines\\baseline_report.md": "42294d56a29d5e00825e438540926338bc5d2d199d128100bc129afd2491effc",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\baselines\\baseline_summary.json": "8f5f68feca04fc1a98827e19021d165cc1e5783e08070d5275012bedef23ee77",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\class_errors.csv": "e819ff295dc68c9e91afe3872746b5cdc8d710a839899e8bc4480e76444df1a5",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\client_sensitivity.json": "6d2ec0a84d8b36fa9082c6ebd8f7ac5fd2c71af22029ec6fb76739499d973c44",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\confusion_matrices.json": "bceaf42656d201c74689f41b585e28a91dc021822f66fcc63de252ce7ecdcb37",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\decision.json": "b52cbfe3f073263f1e1019d7cdd92cdc54cd59027dc50e9ca08ea84247587bfd",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\error_analysis.json": "ff27cf7ba6ae80d6c699ca4a99f2128a04f9153b816c0c823ce9b4425c12db51",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\evaluation_manifest.json": "741783c11e69339bb7e4a88dde478bcfb62d174c5b2c4efd75953fb45a488ef5",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\evaluation_metrics.json": "30bebfc67b9b133af192a25b2202b467ed0a26a91e7dc5865b3b162392d1d867",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\evaluation_report.md": "0129d14922cef0001c79c7b4e29040cba918489289e29bf8063a806468d1dfca",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\figures\\logistic_regression_counts.png": "ea29f2b62a3a405afb7a95f211c65d9cda031791408a0a11a7d7ce46a4d3a128",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\figures\\logistic_regression_rates.png": "69fd558502d487a66c57237181bc383bfdb0a9d82e6f684e80b1fa3a85b3ef6e",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\figures\\random_forest_counts.png": "eec37aed4d18ea5a79557bf94a0194452f2a521f289a00e69e62f2cdded8a38c",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\figures\\random_forest_rates.png": "4c277a199e6442fb98e8e77e64158a7ca9bc9c1f613b52db90fed8cfa0d3f73e",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\figures\\supported_down_recall.png": "51aab0669375563d90ddabfc9ecf13015732149b27b70a75437e1ad9bc5ef493",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\paired_comparison.json": "8afaf49f6bfabd3a9d2342f8eff4778d6d52b7656536a0b79cea6dbff6a7a8c0",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\plot_data.json": "3c8d982eb30879c5ae5d030fce9313c3acab3314112c71d6b0206a69bcf8adc7",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\resolved_config.json": "23a8e5cc7e404a59a7331e1f69e04e603a15256b3a1392aad566b16080c19f2a",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\subgroup_coverage.json": "3f0938db45aaef64f207adbc9cb092cf3803ad9b977e843454c2fcc598d895ae",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\subgroup_metrics.csv": "d08ebe6f1fc9f590afa96db0bccd7551021f914a824f1cd1ecc34fb4838f9798",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\timings.json": "35de22bf02dfa0f5e5d686231678873f1267f1f09e8069bd39f12810b38e21b4",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\features\\ablation_results.csv": "d572881abe2b9102b5ee35e8603dc7e16dd0e78889b037f92febb90c7f7fc418",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\features\\feature_catalog.csv": "ef4613ba153c780e4af98ed9594839398cf5be7d5a670fd8c5449061252e54f1",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\features\\feature_manifest.json": "29969cb10f3e8300c7d1132841bb2e9f8c30e881d45af8ce556df469cead9b4f",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\features\\selected_features.json": "16de2dc2bf00c9c2e65853cb463023f0cdc18613687b62302c89e2d2935a5cf5",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\features\\selection_report.md": "1a8996eee9c664f0b23d9229cb456f8c99d711de79ce3273118b7a4189d6bb24",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\features\\training_diagnostics.json": "c6d60c5ff98372e12ba43c00e06df0409f1769339087a07ff89bdbf118675e0a",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\training\\spec06-reference\\cv_results.csv": "36df1bd32da427b9dbb6e9e0dbf77b65f23585e90dda3968a96103aa061cd41e",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\training\\spec06-reference\\fold_manifest.json": "e8f62cd62b9cc9780a1a641f43dd6ca63c72350e5888d32179cf47f2e5e6fe9c",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\training\\spec06-reference\\resolved_config.json": "b106afaecf0aeb3eaa407c658905dd045992b2f1787c718aaaab3fa5b3d40bf3",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\training\\spec06-reference\\selection.json": "2e97f3b685cdb392e79aafd93bec2a22a7628540473c9e8c3cd125214140b642",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\training\\spec06-reference\\timings.json": "fabe46e1ab2df41182356bbf171f7b539bacfc4bc233bf33b72f2e196541ccd7",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\training\\spec06-reference\\training_manifest.json": "39e8320c086e3597aa4619c54021031466c69417772fb05ac0cd22332da7a3c8",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\training\\spec06-reference\\training_report.md": "ab403103a1c5238a5fc037162f4080230a17e6b04d401e2841e45fa100a4bed2",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\training\\spec06-reference\\trial_metrics.json": "0ce5161b95ce17545eaf67d1eb19ba5e55531d15efb2686060122b819ff0e8e0",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\training\\spec06-reference\\validation_metrics.json": "505f5d14de9ea581c9d6546161f78bc8376df00e24addee70deeb5d50c488094"
+  },
+  "purpose": "research",
+  "report_hashes": {
+    "package_inventory.json": "9696be26c3d5bd63436f875fa4c20473add58e76d0e01d89d1fd91feb5973d80",
+    "packaging_report.md": "7dd757ec5f6c71b303ed6ec84ba4658ec70232d3f3d7373ba904ac191401c4ca",
+    "resolved_config.json": "86c4d04ffbb59ccc424fcd76a71da6f68bfe99abdef3521f55bc47b9f986e43b"
+  },
+  "run_id": "spec08-final-reference",
+  "runtime_wheel_sha256": "86acd92ba6d5efe6a69288a15b184ac6f6e6a857190a6b2aed0fbfb04ebc070c",
+  "status": "complete"
+}

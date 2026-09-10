@@ -28,6 +28,8 @@ def run_packaged_batch(
         repository / p
         for p in (
             "data/raw",
+            "data/processed",
+            "data/splits",
             "reports/evaluation",
             "reports/training",
             "reports/features",
@@ -36,7 +38,7 @@ def run_packaged_batch(
             "artifacts",
         )
     ]
-    if any(output.is_relative_to(p) for p in protected):
+    if any(output.is_relative_to(p.resolve()) for p in protected):
         raise DataValidationError("Inference output overlaps protected artifacts")
     if output.exists():
         raise DataValidationError("Inference output already exists")

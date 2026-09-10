@@ -23,8 +23,11 @@ dev = [
   "ruff>=0.6",
 ]
 api = [
-  "fastapi>=0.115",
-  "uvicorn[standard]>=0.30",
+  "fastapi==0.115.12",
+  "uvicorn==0.34.2",
+]
+api-test = [
+  "httpx==0.28.1",
 ]
 
 [tool.setuptools.packages.find]

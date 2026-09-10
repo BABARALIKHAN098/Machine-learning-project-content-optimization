@@ -1,0 +1,101 @@
+{
+  "development_reference": "random_forest",
+  "execution_status": "complete",
+  "failed_requirements": {
+    "logistic_regression": [
+      "project_macro_f1_target_met"
+    ],
+    "random_forest": [
+      "project_macro_f1_target_met"
+    ]
+  },
+  "frozen_references": {
+    "baseline_manifest_sha256": "386b7e5446edc35651e6cc38192fd9767ece80979266c80141fb1e2ffae0f9ea",
+    "feature_manifest_sha256": "29969cb10f3e8300c7d1132841bb2e9f8c30e881d45af8ce556df469cead9b4f",
+    "model_hashes": {
+      "logistic_regression.joblib": "3cd2bd5fe86612fdda9dfccad69805d8d781cc9bea3a610bbc5bf9002b6ccd7c",
+      "logistic_regression.json": "e6f733c80227fa5120e1af2a2870519a20fca004e4e9ee6660b4397cb7cf417d",
+      "random_forest.joblib": "d84a1b68d9d51c00610ab5bbbc49a4a7a38ae1a93a4fe6149922eddafe16f23b",
+      "random_forest.json": "4c7c7cabe368a32ec4efbf7381f8274e8da506c64e06b0b8fdbe94d1b983c2b3"
+    },
+    "report_hashes": {
+      "cv_results.csv": "36df1bd32da427b9dbb6e9e0dbf77b65f23585e90dda3968a96103aa061cd41e",
+      "fold_manifest.json": "e8f62cd62b9cc9780a1a641f43dd6ca63c72350e5888d32179cf47f2e5e6fe9c",
+      "resolved_config.json": "b106afaecf0aeb3eaa407c658905dd045992b2f1787c718aaaab3fa5b3d40bf3",
+      "selection.json": "2e97f3b685cdb392e79aafd93bec2a22a7628540473c9e8c3cd125214140b642",
+      "timings.json": "fabe46e1ab2df41182356bbf171f7b539bacfc4bc233bf33b72f2e196541ccd7",
+      "training_report.md": "ab403103a1c5238a5fc037162f4080230a17e6b04d401e2841e45fa100a4bed2",
+      "trial_metrics.json": "0ce5161b95ce17545eaf67d1eb19ba5e55531d15efb2686060122b819ff0e8e0",
+      "validation_metrics.json": "505f5d14de9ea581c9d6546161f78bc8376df00e24addee70deeb5d50c488094"
+    },
+    "selection_sha256": "2e97f3b685cdb392e79aafd93bec2a22a7628540473c9e8c3cd125214140b642",
+    "training_manifest_sha256": "39e8320c086e3597aa4619c54021031466c69417772fb05ac0cd22332da7a3c8"
+  },
+  "limitations": [
+    "Validation informed earlier feature and SPEC-06 confirmation; replay is not independent evidence.",
+    "Historical test evaluation exists; this analysis scores validation only. Final-test policy is unresolved.",
+    "Historical metadata cutoff evidence remains unresolved.",
+    "Client sensitivity is descriptive; subgroup support is not a formal privacy or fairness guarantee.",
+    "Production runtime SLA and deployment readiness are not established."
+  ],
+  "metric_eligible_models": [],
+  "production_ready": false,
+  "recommendation_status": "no_candidate_meets_metric_requirements",
+  "recommended_model": null,
+  "review_flags": [
+    {
+      "reason": "unresolved_cutoff_evidence"
+    },
+    {
+      "reason": "unresolved_final_test_policy"
+    },
+    {
+      "reason": "production_runtime_not_certified"
+    },
+    {
+      "dimension": "age_tier",
+      "down_recall_alert": true,
+      "family": "logistic_regression",
+      "group": "category_03",
+      "macro_alert": false,
+      "row_count": 772
+    },
+    {
+      "dimension": "age_tier",
+      "down_recall_alert": true,
+      "family": "random_forest",
+      "group": "category_03",
+      "macro_alert": false,
+      "row_count": 772
+    },
+    {
+      "dimension": "numeric_missingness_bucket",
+      "down_recall_alert": true,
+      "family": "logistic_regression",
+      "group": "1-2",
+      "macro_alert": false,
+      "row_count": 463
+    },
+    {
+      "dimension": "numeric_missingness_bucket",
+      "down_recall_alert": true,
+      "family": "random_forest",
+      "group": "1-2",
+      "macro_alert": false,
+      "row_count": 463
+    },
+    {
+      "dimension": "numeric_missingness_bucket",
+      "down_recall_alert": true,
+      "family": "random_forest",
+      "group": ">=3",
+      "macro_alert": false,
+      "row_count": 129
+    },
+    {
+      "reason": "client_composition_reverses_model_order"
+    }
+  ],
+  "selection_evidence": "reused_validation",
+  "spec08_handoff": "Research artifacts and rejection evidence; no production pointer"
+}

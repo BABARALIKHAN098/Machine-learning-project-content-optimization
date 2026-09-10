@@ -1,0 +1,21 @@
+{
+  "chunk_rows": 5000,
+  "delimiter": ",",
+  "encoding": "utf-8",
+  "extra_columns": "reject",
+  "include_probabilities": false,
+  "inference_contract_version": "2.0",
+  "maximum_batch_rows": 30000,
+  "missing_tokens": [
+    "",
+    "NA",
+    "N/A",
+    "null",
+    "None",
+    "?"
+  ],
+  "numeric_string_coercion": false,
+  "probability_tolerance": 1e-09,
+  "thread_limit": 1,
+  "unknown_categories": "ignore"
+}

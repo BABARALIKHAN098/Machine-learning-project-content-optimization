@@ -1,0 +1,12 @@
+{
+  "logistic_regression": {
+    "manifest_sha256": "9bd1ae7043ea49339bbc21f8311e9b1e296043b83db8f90c25e220a0741e658a",
+    "path": "E:\\Portfolio_maker\\mL learning project content optimization\\artifacts\\packages\\spec08-final-reference-logistic_regression",
+    "semantic_sha256": "23f61ddecab481657e4edbc961235524b32adfb79eabf59683232d1607e64a9b"
+  },
+  "random_forest": {
+    "manifest_sha256": "17d3d181eea90223de0f5ea59edd750d495b1efd32f0a8cafaae45c10d4279e6",
+    "path": "E:\\Portfolio_maker\\mL learning project content optimization\\artifacts\\packages\\spec08-final-reference-random_forest",
+    "semantic_sha256": "1914d2b1dd68ae2ef0a05cded6bf6f5630775728b68b4d93b73c25a922aa159c"
+  }
+}

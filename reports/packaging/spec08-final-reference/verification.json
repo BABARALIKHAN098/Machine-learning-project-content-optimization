@@ -1,0 +1,202 @@
+{
+  "call_counts": {
+    "isolated_smoke_reference": {
+      "predict": 6,
+      "predict_proba": 6,
+      "rows": 68
+    },
+    "synthetic_30000": {
+      "predict": 24,
+      "predict_proba": 12,
+      "rows": 180000
+    },
+    "validation": {
+      "predict": 14,
+      "predict_proba": 10,
+      "rows": 93712
+    }
+  },
+  "checks": [
+    {
+      "command": [
+        "E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "........................................................................ [ 27%]\n........................................................................ [ 55%]\n........................................................................ [ 83%]\n...........................................                              [100%]\n============================== warnings summary ===============================\ntests/unit/test_baselines.py: 2 warnings\ntests/unit/test_error_analysis.py: 12 warnings\ntests/unit/test_evaluation.py: 1 warning\n  E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Lib\\site-packages\\sklearn\\metrics\\_classification.py:614: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.\n    warnings.warn(\n\ntests/unit/test_error_analysis.py: 13 warnings\n  E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Lib\\site-packages\\sklearn\\metrics\\_classification.py:2939: UserWarning: y_pred contains classes not in y_true\n    warnings.warn(\"y_pred contains classes not in y_true\")\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n259 passed, 28 warnings in 234.51s (0:03:54)\n"
+    },
+    {
+      "command": [
+        "E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "pipelines",
+        "scripts",
+        "tests"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "All checks passed!\n"
+    }
+  ],
+  "checks_status": "passed",
+  "command": [
+    "E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Scripts\\python.exe",
+    "scripts/verify_packaging.py",
+    "--run-prefix",
+    "spec08-final"
+  ],
+  "fit_calls": 0,
+  "full_source_access": "integrity_only",
+  "hardware": {
+    "logical_cpus": 4,
+    "machine": "AMD64",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 142 Stepping 9, GenuineIntel",
+    "verification_process_peak_working_set_bytes": 528338944,
+    "verification_process_rss_bytes": 425435136
+  },
+  "isolated": {
+    "logistic_regression": {
+      "counts": {
+        "fit": 0,
+        "predict": 3,
+        "predict_proba": 3
+      },
+      "dependency_policy": "Existing local dependency files reused; site/.pth/editable hooks disabled",
+      "install_command": [
+        "E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--no-deps",
+        "--no-compile",
+        "--target",
+        "E:\\Portfolio_maker\\mL learning project content optimization\\.packaging-work\\isolated-runtime-6veb42d7\\installed",
+        "E:\\Portfolio_maker\\mL learning project content optimization\\.packaging-work\\isolated-runtime-6veb42d7\\package\\runtime\\machine_learning_project-0.1.0-py3-none-any.whl"
+      ],
+      "installed_project_only": true,
+      "prediction_sha256": "1032b15ce69709dc3efad9d2f53f3179bee47d74d348ca2f353ffbea93aeb93c",
+      "run_command": [
+        "E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Scripts\\python.exe",
+        "-I",
+        "-S",
+        "E:\\Portfolio_maker\\mL learning project content optimization\\.packaging-work\\isolated-runtime-6veb42d7\\check.py",
+        "E:\\Portfolio_maker\\mL learning project content optimization\\.packaging-work\\isolated-runtime-6veb42d7\\settings.json"
+      ],
+      "status": "passed",
+      "upstream_access_blocked": true
+    },
+    "random_forest": {
+      "counts": {
+        "fit": 0,
+        "predict": 3,
+        "predict_proba": 3
+      },
+      "dependency_policy": "Existing local dependency files reused; site/.pth/editable hooks disabled",
+      "install_command": [
+        "E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--no-deps",
+        "--no-compile",
+        "--target",
+        "E:\\Portfolio_maker\\mL learning project content optimization\\.packaging-work\\isolated-runtime-fsk_ylmb\\installed",
+        "E:\\Portfolio_maker\\mL learning project content optimization\\.packaging-work\\isolated-runtime-fsk_ylmb\\package\\runtime\\machine_learning_project-0.1.0-py3-none-any.whl"
+      ],
+      "installed_project_only": true,
+      "prediction_sha256": "c20848ed23a95e53fe8c9558f31d204610630954010e92e4d45187d89122f0b6",
+      "run_command": [
+        "E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Scripts\\python.exe",
+        "-I",
+        "-S",
+        "E:\\Portfolio_maker\\mL learning project content optimization\\.packaging-work\\isolated-runtime-fsk_ylmb\\check.py",
+        "E:\\Portfolio_maker\\mL learning project content optimization\\.packaging-work\\isolated-runtime-fsk_ylmb\\settings.json"
+      ],
+      "status": "passed",
+      "upstream_access_blocked": true
+    }
+  },
+  "manifest_hashes": {
+    "spec08-final-reference": "7017420ada1db89435c48fae487de5bc725b6b9990a56a6061931a3252ecd0f7",
+    "spec08-final-reproduction": "2c3f77266bc9d0ffe1730546f0c21c8585ba84c060d9d116a12415b2aa91a4f4"
+  },
+  "no_test_scoring": true,
+  "parity": {
+    "logistic_regression": {
+      "exact_labels": true,
+      "model_bytes_unchanged": true,
+      "partition": "validation",
+      "prediction_sha256": "1884c73a4eefd19689170327832bfb93778cc12942eb4f8a6978888902e3ca28",
+      "probabilities_match_atol": 1e-09,
+      "row_count": 5857
+    },
+    "random_forest": {
+      "exact_labels": true,
+      "model_bytes_unchanged": true,
+      "partition": "validation",
+      "prediction_sha256": "a70d4315c65360689c8b531b0c8a7dc1c504bda05335817bd8a1f78768f6a8d6",
+      "probabilities_match_atol": 1e-09,
+      "row_count": 5857
+    }
+  },
+  "privacy_scan_passed": true,
+  "production_ready": false,
+  "protected_inputs_unchanged": true,
+  "purpose": "research",
+  "semantic_reproducibility": true,
+  "status": "passed",
+  "workload": {
+    "logistic_regression": {
+      "chunk_rows": 5000,
+      "cold_load_seconds": 0.09273509999911766,
+      "modes": {
+        "False": {
+          "prediction_including_validation_seconds": 3.711722699998063,
+          "rows": 30000,
+          "serialization_seconds": 0.06532670000160579,
+          "serialized_bytes": 7349939
+        },
+        "True": {
+          "prediction_including_validation_seconds": 5.891686399991158,
+          "rows": 30000,
+          "serialization_seconds": 0.32260600000154227,
+          "serialized_bytes": 12212668
+        }
+      },
+      "row_count": 30000,
+      "sla_certified": false,
+      "source": "invented_synthetic_rows_only",
+      "validation_seconds": 1.9687183000060031
+    },
+    "random_forest": {
+      "chunk_rows": 5000,
+      "cold_load_seconds": 0.46640150000166614,
+      "modes": {
+        "False": {
+          "prediction_including_validation_seconds": 5.897293899994111,
+          "rows": 30000,
+          "serialization_seconds": 0.2141225000086706,
+          "serialized_bytes": 7196457
+        },
+        "True": {
+          "prediction_including_validation_seconds": 6.2647639000060735,
+          "rows": 30000,
+          "serialization_seconds": 0.19355080000241287,
+          "serialized_bytes": 10887470
+        }
+      },
+      "row_count": 30000,
+      "sla_certified": false,
+      "source": "invented_synthetic_rows_only",
+      "validation_seconds": 2.24391239999386
+    }
+  }
+}

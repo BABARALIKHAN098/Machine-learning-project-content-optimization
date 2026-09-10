@@ -1,0 +1,66 @@
+{
+  "comparison_flags": {
+    "beats_both_baselines": true,
+    "down_recall_guardrail_met": true,
+    "interpretation": "Development comparison flags; not model promotion",
+    "macro_f1_deltas": {
+      "most_frequent": 0.29343019232201245,
+      "stratified_mean": 0.23318121055621863,
+      "stratified_reference": 0.22219973083258526
+    },
+    "material_improvement_met": true,
+    "minimum_macro_f1_improvement": 0.01,
+    "project_macro_f1_target_met": false
+  },
+  "development_reference": "random_forest",
+  "family": "random_forest",
+  "inference_contract_version": "2.0",
+  "metric_eligible": false,
+  "model_version": "spec06-spec06-reference-random_forest",
+  "package_id": "spec08-final-reference-random_forest",
+  "package_schema_version": "1.0",
+  "packaging_contract_version": "1.0",
+  "payload_hashes": {
+    "MODEL_CARD.md": "b5a2f247aa8aa7eed2dba64182466fe84367d2eb920be9d5af2b21abb4ab1db3",
+    "decision.json": "b52cbfe3f073263f1e1019d7cdd92cdc54cd59027dc50e9ca08ea84247587bfd",
+    "environment.json": "c4a5f496e8ef0ece75b1dc3baed511838f0a460d85d10836cc8e7a39fa807492",
+    "inference_config.json": "3657092739fd947f1dae6f02efde524a7e68ee944d805931a2da331b2240ef86",
+    "input_schema.json": "34c994f0994132cba37cf583bfc76a842a67c823cfceba39b045491fd6f35e98",
+    "model.joblib": "d84a1b68d9d51c00610ab5bbbc49a4a7a38ae1a93a4fe6149922eddafe16f23b",
+    "model_metadata.json": "4c7c7cabe368a32ec4efbf7381f8274e8da506c64e06b0b8fdbe94d1b983c2b3",
+    "output_schema.json": "0b224603acef07d80f1cd10de747ce6b9a0c20b854baa10bcad2c6312ff3f269",
+    "runtime/machine_learning_project-0.1.0-py3-none-any.whl": "86acd92ba6d5efe6a69288a15b184ac6f6e6a857190a6b2aed0fbfb04ebc070c",
+    "runtime/requirements.txt": "7ae2a390926c863f8ed68364395e3801964d6bf3a729077f1d8275e92cab3a8c"
+  },
+  "production_ready": false,
+  "purpose": "research",
+  "recommended_model": null,
+  "references": {
+    "baseline_manifest_sha256": "386b7e5446edc35651e6cc38192fd9767ece80979266c80141fb1e2ffae0f9ea",
+    "decision_sha256": "b52cbfe3f073263f1e1019d7cdd92cdc54cd59027dc50e9ca08ea84247587bfd",
+    "evaluation_manifest_sha256": "741783c11e69339bb7e4a88dde478bcfb62d174c5b2c4efd75953fb45a488ef5",
+    "feature_manifest_sha256": "29969cb10f3e8300c7d1132841bb2e9f8c30e881d45af8ce556df469cead9b4f",
+    "model_hashes": {
+      "logistic_regression.joblib": "3cd2bd5fe86612fdda9dfccad69805d8d781cc9bea3a610bbc5bf9002b6ccd7c",
+      "logistic_regression.json": "e6f733c80227fa5120e1af2a2870519a20fca004e4e9ee6660b4397cb7cf417d",
+      "random_forest.joblib": "d84a1b68d9d51c00610ab5bbbc49a4a7a38ae1a93a4fe6149922eddafe16f23b",
+      "random_forest.json": "4c7c7cabe368a32ec4efbf7381f8274e8da506c64e06b0b8fdbe94d1b983c2b3"
+    },
+    "report_hashes": {
+      "cv_results.csv": "36df1bd32da427b9dbb6e9e0dbf77b65f23585e90dda3968a96103aa061cd41e",
+      "fold_manifest.json": "e8f62cd62b9cc9780a1a641f43dd6ca63c72350e5888d32179cf47f2e5e6fe9c",
+      "resolved_config.json": "b106afaecf0aeb3eaa407c658905dd045992b2f1787c718aaaab3fa5b3d40bf3",
+      "selection.json": "2e97f3b685cdb392e79aafd93bec2a22a7628540473c9e8c3cd125214140b642",
+      "timings.json": "fabe46e1ab2df41182356bbf171f7b539bacfc4bc233bf33b72f2e196541ccd7",
+      "training_report.md": "ab403103a1c5238a5fc037162f4080230a17e6b04d401e2841e45fa100a4bed2",
+      "trial_metrics.json": "0ce5161b95ce17545eaf67d1eb19ba5e55531d15efb2686060122b819ff0e8e0",
+      "validation_metrics.json": "505f5d14de9ea581c9d6546161f78bc8376df00e24addee70deeb5d50c488094"
+    },
+    "selection_sha256": "2e97f3b685cdb392e79aafd93bec2a22a7628540473c9e8c3cd125214140b642",
+    "training_manifest_sha256": "39e8320c086e3597aa4619c54021031466c69417772fb05ac0cd22332da7a3c8"
+  },
+  "research_only": true,
+  "semantic_sha256": "1914d2b1dd68ae2ef0a05cded6bf6f5630775728b68b4d93b73c25a922aa159c",
+  "status": "complete",
+  "wheel": "runtime/machine_learning_project-0.1.0-py3-none-any.whl"
+}

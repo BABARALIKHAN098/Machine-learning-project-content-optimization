@@ -1,0 +1,73 @@
+{
+  "categorical_columns": [
+    "competition_level",
+    "content_type",
+    "main_intent",
+    "model_used",
+    "age_tier",
+    "freshness_tier",
+    "word_count_tier",
+    "char_count_tier"
+  ],
+  "extra_columns": "reject",
+  "features": [
+    "search_volume",
+    "competition",
+    "cpc",
+    "word_count",
+    "char_count",
+    "impressions_prev_30d",
+    "clicks_prev_30d",
+    "sessions_prev_30d",
+    "content_age_days",
+    "age_tier_order",
+    "days_since_last_update",
+    "competition_level",
+    "content_type",
+    "main_intent",
+    "model_used",
+    "age_tier",
+    "freshness_tier",
+    "word_count_tier",
+    "char_count_tier"
+  ],
+  "id_column": "content_id",
+  "id_policy": "unique_nonempty_strings_no_surrounding_whitespace",
+  "inference_contract_version": "2.0",
+  "labels": [
+    "down",
+    "stable",
+    "up",
+    "new",
+    "flat"
+  ],
+  "missing_cells": "fitted_imputation",
+  "missing_columns": "reject",
+  "non_negative_columns": [
+    "search_volume",
+    "competition",
+    "cpc",
+    "word_count",
+    "char_count",
+    "impressions_prev_30d",
+    "clicks_prev_30d",
+    "sessions_prev_30d",
+    "content_age_days",
+    "age_tier_order",
+    "days_since_last_update"
+  ],
+  "numeric_columns": [
+    "search_volume",
+    "competition",
+    "cpc",
+    "word_count",
+    "char_count",
+    "impressions_prev_30d",
+    "clicks_prev_30d",
+    "sessions_prev_30d",
+    "content_age_days",
+    "age_tier_order",
+    "days_since_last_update"
+  ],
+  "unknown_categories": "ignore"
+}

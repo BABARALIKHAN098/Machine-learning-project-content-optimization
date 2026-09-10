@@ -217,6 +217,7 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 .pytest-tmp/
+.pytest-spec08/
 
 # Generated model artifacts exceed normal Git hosting limits.
 artifacts/models/*.joblib

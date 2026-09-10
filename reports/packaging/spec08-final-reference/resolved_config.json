@@ -1,0 +1,43 @@
+{
+  "code": {
+    "dirty": true,
+    "revision": "9c53f2e0deb3e9f862ba6b63e4692dc0582e998a",
+    "source_tree_sha256": "82a08b0c011d365135feb571246798b85b789ca4fd96390dc979e2d19fae6127"
+  },
+  "inference": {
+    "chunk_rows": 5000,
+    "delimiter": ",",
+    "encoding": "utf-8",
+    "extra_columns": "reject",
+    "include_probabilities": false,
+    "inference_contract_version": "2.0",
+    "maximum_batch_rows": 30000,
+    "missing_tokens": [
+      "",
+      "NA",
+      "N/A",
+      "null",
+      "None",
+      "?"
+    ],
+    "numeric_string_coercion": false,
+    "probability_tolerance": 1e-09,
+    "thread_limit": 1,
+    "unknown_categories": "ignore"
+  },
+  "packaging": {
+    "families": [
+      "logistic_regression",
+      "random_forest"
+    ],
+    "inference_contract_version": "2.0",
+    "output_root": "reports/packaging",
+    "overwrite": false,
+    "package_root": "artifacts/packages",
+    "package_schema_version": "1.0",
+    "packaging_contract_version": "1.0",
+    "remote_loading": false,
+    "resume": false
+  },
+  "purpose": "research"
+}

@@ -97,6 +97,20 @@ def preflight(
             raise DataValidationError("Packaging destination overlaps frozen artifacts")
         if any(dest == p or p.is_relative_to(dest) for p in protected):
             raise DataValidationError("Packaging destination overlaps protected input")
+        repository = Path(__file__).resolve().parents[1]
+        protected_directories = [
+            repository / p
+            for p in (
+                "data",
+                "reports/features",
+                "reports/baselines",
+                "reports/evaluation",
+                "reports/training",
+                "artifacts/models",
+            )
+        ]
+        if any(dest.is_relative_to(p.resolve()) for p in protected_directories):
+            raise DataValidationError("Packaging destination is inside a protected input directory")
     resolved = read_json(reports / "resolved_config.json")
     selection = read_json(reports / "selection.json")
     scores = read_json(evaluation / "evaluation_metrics.json")["finalists"]

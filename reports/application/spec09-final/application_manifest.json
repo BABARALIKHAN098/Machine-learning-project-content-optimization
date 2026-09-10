@@ -1,0 +1,10 @@
+{
+  "api_contract_version": "1.0",
+  "payload_hashes": {
+    "verification.json": "59ab84e80915dddc8b5eceec38a098baafedbc34062214a09ef01a9bb6cdc3e5",
+    "verification_report.md": "4658b2a9133a6f4a82ae787d51bd6f888d53f98644c25e8b5f591bfe15ace4cc"
+  },
+  "purpose": "research",
+  "run_id": "spec09-final",
+  "status": "complete"
+}

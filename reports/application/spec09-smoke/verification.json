@@ -1,0 +1,478 @@
+{
+  "api_contract_version": "1.0",
+  "api_dependencies": {
+    "anyio": "4.15.1",
+    "fastapi": "0.115.12",
+    "httpx": "0.28.1",
+    "pydantic": "2.13.5",
+    "starlette": "0.46.2",
+    "uvicorn": "0.34.2"
+  },
+  "checks": [],
+  "checks_status": "skipped",
+  "code_hashes": {
+    "E:\\Portfolio_maker\\mL learning project content optimization\\scripts\\verify_api.py": "363ef9b44e2718d527b04a54e6a197f77a357245596a91be447d61f8b6e5ed62",
+    "app\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "app\\config.py": "c81164085d7cf90fc8e6b83b4fba0e4968ab012730b00bacd2bedce9c2697a8e",
+    "app\\errors.py": "d256ebef8cd9ce62e2a78c0742deee1066800048731edfd3e1c75709d82ab17c",
+    "app\\main.py": "9aad1685b0a2136f20ad2de8cf7158166a639dd487b0d3900868f6d9d21a6ef5",
+    "app\\middleware.py": "1aacdac4949804f696f7de7b79f9bb1053af4ba55ba02a24f1f5e348bd14a4c9",
+    "app\\routes.py": "e18f73bb933949d508a0ce56c1b55d28bbf144b8f0c22ca447a5a7ff4a083c65",
+    "app\\schemas.py": "89ffd4cfd0e4b264570b85e5cc2a5eba18e6e83a259676794d62b9437f304c78",
+    "app\\service.py": "11727b1b884b24964f97462a4b02ccc8b39c0ea08c78f36896b30793bab1ea3c",
+    "app\\static\\docs.html": "aeafa7fe0179fd4c23d94cb0045030951bd327236b5ef80ddca925d41fd50172",
+    "app\\static\\docs.js": "229388145dd233306b3bfabd716bfce119fb0990cdd45aa342be73b591939f85",
+    "configs\\api.yaml": "77db5a68d15d1ccda90f8392193b315a7cfd1ae04429672586834a5a2850ec41",
+    "pyproject.toml": "0489432fff2c96cfed686d5b72e40a2fbdf81198e67da1abf7b20e9543e23e5c"
+  },
+  "command": [
+    "E:\\Portfolio_maker\\mL learning project content optimization\\.venv\\Scripts\\python.exe",
+    "scripts/verify_api.py",
+    "--run-id",
+    "spec09-smoke",
+    "--skip-checks"
+  ],
+  "families": {
+    "logistic_regression": {
+      "aggregate_events": [
+        {
+          "duration_seconds": 0.00104,
+          "request_id": "ec741926e65b449b886178718177779f",
+          "route": "/ready",
+          "status": 200
+        },
+        {
+          "duration_seconds": 0.000672,
+          "request_id": "505e00aa47fd45c5998126c2768c5a1a",
+          "route": "/health",
+          "status": 200
+        },
+        {
+          "duration_seconds": 0.001272,
+          "request_id": "cd4fdb97aa6447fe801a70bcfd99da6d",
+          "route": "/docs",
+          "status": 200
+        },
+        {
+          "duration_seconds": 0.000408,
+          "error_code": "unauthorized",
+          "request_id": "5398aaeb4c8b4f748583f0fc4cc43096",
+          "route": "/v1/model",
+          "status": 401
+        },
+        {
+          "duration_seconds": 0.000807,
+          "request_id": "ea1bd9d229834daba3c8648c21012d66",
+          "route": "/v1/model",
+          "status": 200
+        },
+        {
+          "duration_seconds": 0.007182,
+          "request_id": "d315426d20dd49e4a4cb7b03066f6d46",
+          "route": "/v1/schema",
+          "status": 200
+        },
+        {
+          "duration_seconds": 0.264092,
+          "include_probabilities": false,
+          "prediction_seconds": 0.24515709999832325,
+          "request_id": "5fbf5d4c08eb4421b3b7e00463eb4cac",
+          "route": "/v1/predictions",
+          "row_count": 17,
+          "serialization_seconds": 0.0011928000021725893,
+          "status": 200,
+          "validation_seconds": 0.007766299997456372
+        },
+        {
+          "duration_seconds": 0.254678,
+          "include_probabilities": true,
+          "prediction_seconds": 0.23414040000352543,
+          "request_id": "47dfca8086cc4260b141a260fe94e7d9",
+          "route": "/v1/predictions",
+          "row_count": 17,
+          "serialization_seconds": 0.004939699996612035,
+          "status": 200,
+          "validation_seconds": 0.013722599993343465
+        },
+        {
+          "duration_seconds": 23.158441,
+          "include_probabilities": false,
+          "prediction_seconds": 8.439544099994237,
+          "request_id": "9ee5896de1f34b55b0569fd0b224d276",
+          "route": "/v1/predictions",
+          "row_count": 30000,
+          "serialization_seconds": 2.9744820000050822,
+          "status": 200,
+          "validation_seconds": 11.344011300010607
+        },
+        {
+          "duration_seconds": 16.988486,
+          "include_probabilities": true,
+          "prediction_seconds": 6.321570999993128,
+          "request_id": "6c92ba244fad436889f593ca1c773713",
+          "route": "/v1/predictions",
+          "row_count": 30000,
+          "serialization_seconds": 5.546406100009335,
+          "status": 200,
+          "validation_seconds": 4.93930260000343
+        },
+        {
+          "duration_seconds": 0.004853,
+          "request_id": "e32dacd97c6e481198daa04966dbe148",
+          "route": "/v1/predictions",
+          "status": 422
+        },
+        {
+          "duration_seconds": 0.00107,
+          "request_id": "bbc264139d6e4be8910aa32e2b97313a",
+          "route": "/ready",
+          "status": 200
+        }
+      ],
+      "direct_call_counts": {
+        "direct_synthetic": {
+          "predict": 4,
+          "predict_proba": 2,
+          "rows": 90051
+        }
+      },
+      "observations": [
+        {
+          "exact_labels_ids_order": true,
+          "http_seconds": 0.27249540000048,
+          "include_probabilities": false,
+          "probability_atol": 1e-09,
+          "request_bytes": 10392,
+          "response_bytes": 4630,
+          "response_sha256": "225a485056954bdabfe90a3e81b61714df4078df42b98ee18e718c187b991b4f",
+          "rows": 17
+        },
+        {
+          "exact_labels_ids_order": true,
+          "http_seconds": 0.26473409999744035,
+          "include_probabilities": true,
+          "probability_atol": 1e-09,
+          "request_bytes": 10391,
+          "response_bytes": 7395,
+          "response_sha256": "58e6ce2ada6ee8786296270a651f933c9320d9e6f9b12e9a03ad04d7dc5d9791",
+          "rows": 17
+        },
+        {
+          "exact_labels_ids_order": true,
+          "http_seconds": 23.254708600012236,
+          "include_probabilities": false,
+          "probability_atol": 1e-09,
+          "request_bytes": 18551587,
+          "response_bytes": 7349939,
+          "response_sha256": "b623455be504d3317c0c38eeb71a4d5c8cc1706a9e06b9588104f84c19e946fe",
+          "rows": 30000
+        },
+        {
+          "exact_labels_ids_order": true,
+          "http_seconds": 17.12813240000105,
+          "include_probabilities": true,
+          "probability_atol": 1e-09,
+          "request_bytes": 18551586,
+          "response_bytes": 12212668,
+          "response_sha256": "35eea64bf57a848e18ccf7f24f877401b61c4e768d3bc62e3245e4a4de9ef2b6",
+          "rows": 30000
+        }
+      ],
+      "package_manifest_sha256": "9bd1ae7043ea49339bbc21f8311e9b1e296043b83db8f90c25e220a0741e658a",
+      "privacy_scan_passed": true,
+      "server": {
+        "counts": {
+          "http_synthetic": {
+            "predict": 14,
+            "predict_proba": 7,
+            "rows": 90051
+          }
+        },
+        "fit_calls": 0,
+        "peak_working_set_bytes": 308953088,
+        "rss_bytes": 227201024,
+        "status": "passed"
+      },
+      "startup_seconds": 7.3943912999966415
+    },
+    "random_forest": {
+      "aggregate_events": [
+        {
+          "duration_seconds": 0.001476,
+          "request_id": "c86b1f9abf4641ad8716e95c11e8fc4b",
+          "route": "/ready",
+          "status": 200
+        },
+        {
+          "duration_seconds": 0.000714,
+          "request_id": "85fbd4f81b784d0d98873a1261fc59e0",
+          "route": "/health",
+          "status": 200
+        },
+        {
+          "duration_seconds": 0.001014,
+          "request_id": "e07b99b82bc2458a9772de9caabd287d",
+          "route": "/docs",
+          "status": 200
+        },
+        {
+          "duration_seconds": 0.000634,
+          "error_code": "unauthorized",
+          "request_id": "9d7f4b50906f408ea88a719b5f8b60ab",
+          "route": "/v1/model",
+          "status": 401
+        },
+        {
+          "duration_seconds": 0.000719,
+          "request_id": "b3b80b9493e241168577c0a2eaaa25b7",
+          "route": "/v1/model",
+          "status": 200
+        },
+        {
+          "duration_seconds": 0.00923,
+          "request_id": "01d9340bac9448c38607752a78a89e80",
+          "route": "/v1/schema",
+          "status": 200
+        },
+        {
+          "duration_seconds": 0.289056,
+          "include_probabilities": false,
+          "prediction_seconds": 0.27206269999442156,
+          "request_id": "08bc9236fa19422c9245cdfcdf7f21d3",
+          "route": "/v1/predictions",
+          "row_count": 17,
+          "serialization_seconds": 0.0007526999979745597,
+          "status": 200,
+          "validation_seconds": 0.0073708999989321455
+        },
+        {
+          "duration_seconds": 0.223447,
+          "include_probabilities": true,
+          "prediction_seconds": 0.2119440999958897,
+          "request_id": "4fe1b1a2dd0f4ef19b711e94517760a8",
+          "route": "/v1/predictions",
+          "row_count": 17,
+          "serialization_seconds": 0.0025412000104552135,
+          "status": 200,
+          "validation_seconds": 0.00763839999854099
+        },
+        {
+          "duration_seconds": 8.74034,
+          "include_probabilities": false,
+          "prediction_seconds": 3.5622501999896485,
+          "request_id": "683644e1637b4e4db1266be7bde4c497",
+          "route": "/v1/predictions",
+          "row_count": 30000,
+          "serialization_seconds": 0.96370740000566,
+          "status": 200,
+          "validation_seconds": 3.9573526000021957
+        },
+        {
+          "duration_seconds": 13.61446,
+          "include_probabilities": true,
+          "prediction_seconds": 4.8846977000066545,
+          "request_id": "c23ea924c0394fc6bd6b64ffb2875888",
+          "route": "/v1/predictions",
+          "row_count": 30000,
+          "serialization_seconds": 4.21354589999828,
+          "status": 200,
+          "validation_seconds": 4.317975500001921
+        },
+        {
+          "duration_seconds": 0.003379,
+          "request_id": "de46c30e036a4e659dc8c6e0451c1398",
+          "route": "/v1/predictions",
+          "status": 422
+        },
+        {
+          "duration_seconds": 0.001203,
+          "request_id": "c456453a9f14475391227ddbd115767a",
+          "route": "/ready",
+          "status": 200
+        }
+      ],
+      "direct_call_counts": {
+        "direct_synthetic": {
+          "predict": 4,
+          "predict_proba": 2,
+          "rows": 90051
+        }
+      },
+      "observations": [
+        {
+          "exact_labels_ids_order": true,
+          "http_seconds": 0.29596040000615176,
+          "include_probabilities": false,
+          "probability_atol": 1e-09,
+          "request_bytes": 10392,
+          "response_bytes": 4516,
+          "response_sha256": "9e980c01ba6a6c70a870f0ba291d59f76d90804037f493c372497811bdb8ad9b",
+          "rows": 17
+        },
+        {
+          "exact_labels_ids_order": true,
+          "http_seconds": 0.23242719999689143,
+          "include_probabilities": true,
+          "probability_atol": 1e-09,
+          "request_bytes": 10391,
+          "response_bytes": 6615,
+          "response_sha256": "c20848ed23a95e53fe8c9558f31d204610630954010e92e4d45187d89122f0b6",
+          "rows": 17
+        },
+        {
+          "exact_labels_ids_order": true,
+          "http_seconds": 8.821365600000718,
+          "include_probabilities": false,
+          "probability_atol": 1e-09,
+          "request_bytes": 18551587,
+          "response_bytes": 7196457,
+          "response_sha256": "586c06fdd9974de6d28349b2e104de2faa197325e0671f0e4438c0532abf4419",
+          "rows": 30000
+        },
+        {
+          "exact_labels_ids_order": true,
+          "http_seconds": 13.737956800003303,
+          "include_probabilities": true,
+          "probability_atol": 1e-09,
+          "request_bytes": 18551586,
+          "response_bytes": 10887470,
+          "response_sha256": "e317c0e1a4316084c4a3473e6694960d11d762c78fd3a810e83dbef0cc5622ed",
+          "rows": 30000
+        }
+      ],
+      "package_manifest_sha256": "17d3d181eea90223de0f5ea59edd750d495b1efd32f0a8cafaae45c10d4279e6",
+      "privacy_scan_passed": true,
+      "server": {
+        "counts": {
+          "http_synthetic": {
+            "predict": 14,
+            "predict_proba": 7,
+            "rows": 90051
+          }
+        },
+        "fit_calls": 0,
+        "peak_working_set_bytes": 375140352,
+        "rss_bytes": 292618240,
+        "status": "passed"
+      },
+      "startup_seconds": 12.45840390000376
+    }
+  },
+  "fit_calls": 0,
+  "inference_contract_version": "2.0",
+  "logical_cpus": 4,
+  "no_test_scoring": true,
+  "package_schema_version": "1.0",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "production_ready": false,
+  "protected_input_hashes": {
+    "E:\\Portfolio_maker\\mL learning project content optimization\\artifacts\\metadata\\split_assignments.csv": "16bcb64d829c94664e3b0c492277cc4c036776d68b5e0d6478504bad21952a0f",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\artifacts\\metadata\\split_manifest.json": "a656a6442dc9857f64b62f33cae1cc7fa953a1c0a6f3217b3f297e113fba32cf",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\artifacts\\models\\training\\spec06-reference\\logistic_regression.joblib": "3cd2bd5fe86612fdda9dfccad69805d8d781cc9bea3a610bbc5bf9002b6ccd7c",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\artifacts\\models\\training\\spec06-reference\\logistic_regression.json": "e6f733c80227fa5120e1af2a2870519a20fca004e4e9ee6660b4397cb7cf417d",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\artifacts\\models\\training\\spec06-reference\\random_forest.joblib": "d84a1b68d9d51c00610ab5bbbc49a4a7a38ae1a93a4fe6149922eddafe16f23b",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\artifacts\\models\\training\\spec06-reference\\random_forest.json": "4c7c7cabe368a32ec4efbf7381f8274e8da506c64e06b0b8fdbe94d1b983c2b3",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\data\\raw\\dataset.csv": "c43bdac4eccfa17fcd8a33974fe36f2c998c03a3ae3af8d80cf712abab5d6396",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\baselines\\baseline_manifest.json": "386b7e5446edc35651e6cc38192fd9767ece80979266c80141fb1e2ffae0f9ea",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\baselines\\baseline_metrics.json": "aa329fa2d044da7baa9496e9c5393fa20acc6d08d75b3c7da7b22d260f402990",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\baselines\\baseline_repeats.csv": "4c41a69cbd93d3cbd3d4dcd90140389613c23efec1f0677744f084e4c8a48746",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\baselines\\baseline_report.md": "42294d56a29d5e00825e438540926338bc5d2d199d128100bc129afd2491effc",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\baselines\\baseline_summary.json": "8f5f68feca04fc1a98827e19021d165cc1e5783e08070d5275012bedef23ee77",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\class_errors.csv": "e819ff295dc68c9e91afe3872746b5cdc8d710a839899e8bc4480e76444df1a5",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\client_sensitivity.json": "6d2ec0a84d8b36fa9082c6ebd8f7ac5fd2c71af22029ec6fb76739499d973c44",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\confusion_matrices.json": "bceaf42656d201c74689f41b585e28a91dc021822f66fcc63de252ce7ecdcb37",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\decision.json": "b52cbfe3f073263f1e1019d7cdd92cdc54cd59027dc50e9ca08ea84247587bfd",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\error_analysis.json": "ff27cf7ba6ae80d6c699ca4a99f2128a04f9153b816c0c823ce9b4425c12db51",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\evaluation_manifest.json": "741783c11e69339bb7e4a88dde478bcfb62d174c5b2c4efd75953fb45a488ef5",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\evaluation_metrics.json": "30bebfc67b9b133af192a25b2202b467ed0a26a91e7dc5865b3b162392d1d867",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\evaluation_report.md": "0129d14922cef0001c79c7b4e29040cba918489289e29bf8063a806468d1dfca",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\figures\\logistic_regression_counts.png": "ea29f2b62a3a405afb7a95f211c65d9cda031791408a0a11a7d7ce46a4d3a128",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\figures\\logistic_regression_rates.png": "69fd558502d487a66c57237181bc383bfdb0a9d82e6f684e80b1fa3a85b3ef6e",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\figures\\random_forest_counts.png": "eec37aed4d18ea5a79557bf94a0194452f2a521f289a00e69e62f2cdded8a38c",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\figures\\random_forest_rates.png": "4c277a199e6442fb98e8e77e64158a7ca9bc9c1f613b52db90fed8cfa0d3f73e",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\figures\\supported_down_recall.png": "51aab0669375563d90ddabfc9ecf13015732149b27b70a75437e1ad9bc5ef493",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\paired_comparison.json": "8afaf49f6bfabd3a9d2342f8eff4778d6d52b7656536a0b79cea6dbff6a7a8c0",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\plot_data.json": "3c8d982eb30879c5ae5d030fce9313c3acab3314112c71d6b0206a69bcf8adc7",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\resolved_config.json": "23a8e5cc7e404a59a7331e1f69e04e603a15256b3a1392aad566b16080c19f2a",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\subgroup_coverage.json": "3f0938db45aaef64f207adbc9cb092cf3803ad9b977e843454c2fcc598d895ae",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\subgroup_metrics.csv": "d08ebe6f1fc9f590afa96db0bccd7551021f914a824f1cd1ecc34fb4838f9798",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\evaluation\\spec07-reference\\timings.json": "35de22bf02dfa0f5e5d686231678873f1267f1f09e8069bd39f12810b38e21b4",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\features\\ablation_results.csv": "d572881abe2b9102b5ee35e8603dc7e16dd0e78889b037f92febb90c7f7fc418",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\features\\feature_catalog.csv": "ef4613ba153c780e4af98ed9594839398cf5be7d5a670fd8c5449061252e54f1",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\features\\feature_manifest.json": "29969cb10f3e8300c7d1132841bb2e9f8c30e881d45af8ce556df469cead9b4f",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\features\\selected_features.json": "16de2dc2bf00c9c2e65853cb463023f0cdc18613687b62302c89e2d2935a5cf5",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\features\\selection_report.md": "1a8996eee9c664f0b23d9229cb456f8c99d711de79ce3273118b7a4189d6bb24",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\features\\training_diagnostics.json": "c6d60c5ff98372e12ba43c00e06df0409f1769339087a07ff89bdbf118675e0a",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\training\\spec06-reference\\cv_results.csv": "36df1bd32da427b9dbb6e9e0dbf77b65f23585e90dda3968a96103aa061cd41e",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\training\\spec06-reference\\fold_manifest.json": "e8f62cd62b9cc9780a1a641f43dd6ca63c72350e5888d32179cf47f2e5e6fe9c",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\training\\spec06-reference\\resolved_config.json": "b106afaecf0aeb3eaa407c658905dd045992b2f1787c718aaaab3fa5b3d40bf3",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\training\\spec06-reference\\selection.json": "2e97f3b685cdb392e79aafd93bec2a22a7628540473c9e8c3cd125214140b642",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\training\\spec06-reference\\timings.json": "fabe46e1ab2df41182356bbf171f7b539bacfc4bc233bf33b72f2e196541ccd7",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\training\\spec06-reference\\training_manifest.json": "39e8320c086e3597aa4619c54021031466c69417772fb05ac0cd22332da7a3c8",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\training\\spec06-reference\\training_report.md": "ab403103a1c5238a5fc037162f4080230a17e6b04d401e2841e45fa100a4bed2",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\training\\spec06-reference\\trial_metrics.json": "0ce5161b95ce17545eaf67d1eb19ba5e55531d15efb2686060122b819ff0e8e0",
+    "E:\\Portfolio_maker\\mL learning project content optimization\\reports\\training\\spec06-reference\\validation_metrics.json": "505f5d14de9ea581c9d6546161f78bc8376df00e24addee70deeb5d50c488094",
+    "artifacts\\packages\\spec08-final-reference-logistic_regression\\MODEL_CARD.md": "e9d91797d8831457c8ba862432f0d7c0488b28fc4fa3eb9087d45ed131ab17c6",
+    "artifacts\\packages\\spec08-final-reference-logistic_regression\\decision.json": "b52cbfe3f073263f1e1019d7cdd92cdc54cd59027dc50e9ca08ea84247587bfd",
+    "artifacts\\packages\\spec08-final-reference-logistic_regression\\environment.json": "c4a5f496e8ef0ece75b1dc3baed511838f0a460d85d10836cc8e7a39fa807492",
+    "artifacts\\packages\\spec08-final-reference-logistic_regression\\inference_config.json": "3657092739fd947f1dae6f02efde524a7e68ee944d805931a2da331b2240ef86",
+    "artifacts\\packages\\spec08-final-reference-logistic_regression\\input_schema.json": "34c994f0994132cba37cf583bfc76a842a67c823cfceba39b045491fd6f35e98",
+    "artifacts\\packages\\spec08-final-reference-logistic_regression\\model.joblib": "3cd2bd5fe86612fdda9dfccad69805d8d781cc9bea3a610bbc5bf9002b6ccd7c",
+    "artifacts\\packages\\spec08-final-reference-logistic_regression\\model_metadata.json": "e6f733c80227fa5120e1af2a2870519a20fca004e4e9ee6660b4397cb7cf417d",
+    "artifacts\\packages\\spec08-final-reference-logistic_regression\\output_schema.json": "0b224603acef07d80f1cd10de747ce6b9a0c20b854baa10bcad2c6312ff3f269",
+    "artifacts\\packages\\spec08-final-reference-logistic_regression\\package_manifest.json": "9bd1ae7043ea49339bbc21f8311e9b1e296043b83db8f90c25e220a0741e658a",
+    "artifacts\\packages\\spec08-final-reference-logistic_regression\\runtime\\machine_learning_project-0.1.0-py3-none-any.whl": "86acd92ba6d5efe6a69288a15b184ac6f6e6a857190a6b2aed0fbfb04ebc070c",
+    "artifacts\\packages\\spec08-final-reference-logistic_regression\\runtime\\requirements.txt": "7ae2a390926c863f8ed68364395e3801964d6bf3a729077f1d8275e92cab3a8c",
+    "artifacts\\packages\\spec08-final-reference-random_forest\\MODEL_CARD.md": "b5a2f247aa8aa7eed2dba64182466fe84367d2eb920be9d5af2b21abb4ab1db3",
+    "artifacts\\packages\\spec08-final-reference-random_forest\\decision.json": "b52cbfe3f073263f1e1019d7cdd92cdc54cd59027dc50e9ca08ea84247587bfd",
+    "artifacts\\packages\\spec08-final-reference-random_forest\\environment.json": "c4a5f496e8ef0ece75b1dc3baed511838f0a460d85d10836cc8e7a39fa807492",
+    "artifacts\\packages\\spec08-final-reference-random_forest\\inference_config.json": "3657092739fd947f1dae6f02efde524a7e68ee944d805931a2da331b2240ef86",
+    "artifacts\\packages\\spec08-final-reference-random_forest\\input_schema.json": "34c994f0994132cba37cf583bfc76a842a67c823cfceba39b045491fd6f35e98",
+    "artifacts\\packages\\spec08-final-reference-random_forest\\model.joblib": "d84a1b68d9d51c00610ab5bbbc49a4a7a38ae1a93a4fe6149922eddafe16f23b",
+    "artifacts\\packages\\spec08-final-reference-random_forest\\model_metadata.json": "4c7c7cabe368a32ec4efbf7381f8274e8da506c64e06b0b8fdbe94d1b983c2b3",
+    "artifacts\\packages\\spec08-final-reference-random_forest\\output_schema.json": "0b224603acef07d80f1cd10de747ce6b9a0c20b854baa10bcad2c6312ff3f269",
+    "artifacts\\packages\\spec08-final-reference-random_forest\\package_manifest.json": "17d3d181eea90223de0f5ea59edd750d495b1efd32f0a8cafaae45c10d4279e6",
+    "artifacts\\packages\\spec08-final-reference-random_forest\\runtime\\machine_learning_project-0.1.0-py3-none-any.whl": "86acd92ba6d5efe6a69288a15b184ac6f6e6a857190a6b2aed0fbfb04ebc070c",
+    "artifacts\\packages\\spec08-final-reference-random_forest\\runtime\\requirements.txt": "7ae2a390926c863f8ed68364395e3801964d6bf3a729077f1d8275e92cab3a8c",
+    "artifacts\\packages\\spec08-final-reproduction-logistic_regression\\MODEL_CARD.md": "e9d91797d8831457c8ba862432f0d7c0488b28fc4fa3eb9087d45ed131ab17c6",
+    "artifacts\\packages\\spec08-final-reproduction-logistic_regression\\decision.json": "b52cbfe3f073263f1e1019d7cdd92cdc54cd59027dc50e9ca08ea84247587bfd",
+    "artifacts\\packages\\spec08-final-reproduction-logistic_regression\\environment.json": "c4a5f496e8ef0ece75b1dc3baed511838f0a460d85d10836cc8e7a39fa807492",
+    "artifacts\\packages\\spec08-final-reproduction-logistic_regression\\inference_config.json": "3657092739fd947f1dae6f02efde524a7e68ee944d805931a2da331b2240ef86",
+    "artifacts\\packages\\spec08-final-reproduction-logistic_regression\\input_schema.json": "34c994f0994132cba37cf583bfc76a842a67c823cfceba39b045491fd6f35e98",
+    "artifacts\\packages\\spec08-final-reproduction-logistic_regression\\model.joblib": "3cd2bd5fe86612fdda9dfccad69805d8d781cc9bea3a610bbc5bf9002b6ccd7c",
+    "artifacts\\packages\\spec08-final-reproduction-logistic_regression\\model_metadata.json": "e6f733c80227fa5120e1af2a2870519a20fca004e4e9ee6660b4397cb7cf417d",
+    "artifacts\\packages\\spec08-final-reproduction-logistic_regression\\output_schema.json": "0b224603acef07d80f1cd10de747ce6b9a0c20b854baa10bcad2c6312ff3f269",
+    "artifacts\\packages\\spec08-final-reproduction-logistic_regression\\package_manifest.json": "d685b3fad5fb1a2f7db02d341bfce19f78fe01a86f65467ffdf0c28f3ad8a9c3",
+    "artifacts\\packages\\spec08-final-reproduction-logistic_regression\\runtime\\machine_learning_project-0.1.0-py3-none-any.whl": "86acd92ba6d5efe6a69288a15b184ac6f6e6a857190a6b2aed0fbfb04ebc070c",
+    "artifacts\\packages\\spec08-final-reproduction-logistic_regression\\runtime\\requirements.txt": "7ae2a390926c863f8ed68364395e3801964d6bf3a729077f1d8275e92cab3a8c",
+    "artifacts\\packages\\spec08-final-reproduction-random_forest\\MODEL_CARD.md": "b5a2f247aa8aa7eed2dba64182466fe84367d2eb920be9d5af2b21abb4ab1db3",
+    "artifacts\\packages\\spec08-final-reproduction-random_forest\\decision.json": "b52cbfe3f073263f1e1019d7cdd92cdc54cd59027dc50e9ca08ea84247587bfd",
+    "artifacts\\packages\\spec08-final-reproduction-random_forest\\environment.json": "c4a5f496e8ef0ece75b1dc3baed511838f0a460d85d10836cc8e7a39fa807492",
+    "artifacts\\packages\\spec08-final-reproduction-random_forest\\inference_config.json": "3657092739fd947f1dae6f02efde524a7e68ee944d805931a2da331b2240ef86",
+    "artifacts\\packages\\spec08-final-reproduction-random_forest\\input_schema.json": "34c994f0994132cba37cf583bfc76a842a67c823cfceba39b045491fd6f35e98",
+    "artifacts\\packages\\spec08-final-reproduction-random_forest\\model.joblib": "d84a1b68d9d51c00610ab5bbbc49a4a7a38ae1a93a4fe6149922eddafe16f23b",
+    "artifacts\\packages\\spec08-final-reproduction-random_forest\\model_metadata.json": "4c7c7cabe368a32ec4efbf7381f8274e8da506c64e06b0b8fdbe94d1b983c2b3",
+    "artifacts\\packages\\spec08-final-reproduction-random_forest\\output_schema.json": "0b224603acef07d80f1cd10de747ce6b9a0c20b854baa10bcad2c6312ff3f269",
+    "artifacts\\packages\\spec08-final-reproduction-random_forest\\package_manifest.json": "1c4f0101769ea72eab599dc11085b22a2634c7d1086c69676ffe95f2161de320",
+    "artifacts\\packages\\spec08-final-reproduction-random_forest\\runtime\\machine_learning_project-0.1.0-py3-none-any.whl": "86acd92ba6d5efe6a69288a15b184ac6f6e6a857190a6b2aed0fbfb04ebc070c",
+    "artifacts\\packages\\spec08-final-reproduction-random_forest\\runtime\\requirements.txt": "7ae2a390926c863f8ed68364395e3801964d6bf3a729077f1d8275e92cab3a8c",
+    "reports\\packaging\\SPEC-09-handoff.md": "5f34b533dcc3f7489fb5f690da9656d441421518ed025efcd4616c7935041ac9",
+    "reports\\packaging\\spec08-final-reference\\package_inventory.json": "9696be26c3d5bd63436f875fa4c20473add58e76d0e01d89d1fd91feb5973d80",
+    "reports\\packaging\\spec08-final-reference\\packaging_manifest.json": "7017420ada1db89435c48fae487de5bc725b6b9990a56a6061931a3252ecd0f7",
+    "reports\\packaging\\spec08-final-reference\\packaging_report.md": "7dd757ec5f6c71b303ed6ec84ba4658ec70232d3f3d7373ba904ac191401c4ca",
+    "reports\\packaging\\spec08-final-reference\\resolved_config.json": "86c4d04ffbb59ccc424fcd76a71da6f68bfe99abdef3521f55bc47b9f986e43b",
+    "reports\\packaging\\spec08-final-reference\\verification.json": "c41467712bbff1a4702f4d0130afd3f37da12531059465121e4d17ddb592cc3f",
+    "reports\\packaging\\spec08-final-reproduction\\package_inventory.json": "d1182b2a0ca905347a8fad7b12e6f532ed562469994d5d282867fe6b02ea2aa7",
+    "reports\\packaging\\spec08-final-reproduction\\packaging_manifest.json": "2c3f77266bc9d0ffe1730546f0c21c8585ba84c060d9d116a12415b2aa91a4f4",
+    "reports\\packaging\\spec08-final-reproduction\\packaging_report.md": "7dd757ec5f6c71b303ed6ec84ba4658ec70232d3f3d7373ba904ac191401c4ca",
+    "reports\\packaging\\spec08-final-reproduction\\resolved_config.json": "86c4d04ffbb59ccc424fcd76a71da6f68bfe99abdef3521f55bc47b9f986e43b",
+    "reports\\packaging\\spec08-final-reproduction\\verification.json": "c41467712bbff1a4702f4d0130afd3f37da12531059465121e4d17ddb592cc3f"
+  },
+  "protected_inputs_unchanged": true,
+  "purpose": "research",
+  "python": "3.12.0",
+  "recommended_model": null,
+  "sla_certified": false,
+  "status": "passed",
+  "synthetic_only": true
+}

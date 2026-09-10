@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content Trend Research API</title>
+<style>body{max-width:900px;margin:40px auto;padding:0 24px;font:16px/1.6 system-ui;color:#172331;background:#f5f7fa}h1{line-height:1.2}section{background:white;padding:24px;margin:20px 0;border:1px solid #ccd5df;border-radius:12px}label{display:block;font-weight:600;margin-top:12px}input,textarea{box-sizing:border-box;width:100%;padding:12px;font:14px monospace;border:1px solid #8795a5;border-radius:6px}textarea{height:320px}button{padding:12px 18px;background:#174b75;color:white;border:0;border-radius:6px;margin:12px 8px 0 0;cursor:pointer}button:disabled{opacity:.5}pre{white-space:pre-wrap;overflow-wrap:anywhere}a{color:#174b75}</style></head>
+<body><h1>Content Trend Research API</h1>
+<p>Review content trends using a verified research model. Human review is required; predictions must not trigger automatic content changes.</p>
+<section><h2>Research status</h2><p>Neither current model is recommended for production. Probabilities, when requested, are uncalibrated scores and do not establish a causal need for a refresh.</p><p><a href="/openapi.json">OpenAPI contract</a> · <a href="/health">Liveness</a> · <a href="/ready">Readiness</a></p></section>
+<section><h2>Try a request</h2><p>Enter the local server token and load an invented example. The token and response stay in this page's memory and are not saved.</p>
+<label for="token">Bearer token</label><input id="token" type="password" autocomplete="off" spellcheck="false">
+<button id="load">Authorize and load example</button><pre id="model" aria-live="polite"></pre>
+<label for="payload">JSON request</label><textarea id="payload" spellcheck="false" aria-describedby="help"></textarea>
+<p id="help">Every feature key is required. Use JSON null for missing cells. Preserve unique string content IDs. Label-only output is the default; set include_probabilities to true for scores.</p>
+<button id="send">Predict</button><button id="clear">Clear private fields</button>
+<h3>Response</h3><pre id="result" role="status" aria-live="polite">No request sent.</pre></section>
+<script src="/docs.js"></script></body></html>

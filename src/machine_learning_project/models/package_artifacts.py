@@ -7,6 +7,7 @@ import platform
 import re
 import tempfile
 import zipfile
+from email.parser import Parser
 from pathlib import Path, PurePosixPath
 
 from ..data.ingestion import sha256_file
@@ -14,6 +15,7 @@ from ..features.registry import fingerprint
 from ..inference.contracts import OUTPUT_SCHEMA, input_schema, validate_schema
 from ..utils.config import validate_inference_config
 from ..utils.exceptions import DataValidationError
+from .evaluation_decision import FLAGS
 
 DEPENDENCIES = (
     "numpy",
@@ -153,13 +155,14 @@ def verify_wheel(path, environment):
             }
             if fingerprint(hashes) != environment["project_source_sha256"]:
                 raise DataValidationError("Project wheel source does not match supported runtime")
-            metadata = archive.read(
-                f"machine_learning_project-{environment['project_version']}.dist-info/METADATA"
-            ).decode()
-            if (
-                f"Version: {environment['project_version']}\n" not in metadata
-                or "Name: machine-learning-project\n" not in metadata
-            ):
+            metadata = Parser().parsestr(
+                archive.read(
+                    f"machine_learning_project-{environment['project_version']}.dist-info/METADATA"
+                ).decode()
+            )
+            if metadata.get_all("Version") != [environment["project_version"]] or metadata.get_all(
+                "Name"
+            ) != ["machine-learning-project"]:
                 raise DataValidationError("Project wheel distribution mismatch")
     except (OSError, zipfile.BadZipFile, KeyError, UnicodeError):
         raise DataValidationError("Invalid project wheel") from None
@@ -260,6 +263,9 @@ def load_package_manifest(package_dir, expected_manifest_sha256=None):
         raise DataValidationError("Unsupported output contract")
     decision, metadata = read_json(root / "decision.json"), read_json(root / "model_metadata.json")
     family = manifest.get("family")
+    references = manifest.get("references", {})
+    frozen = decision.get("frozen_references", {})
+    flags = manifest.get("comparison_flags", {})
     if (
         family not in ("logistic_regression", "random_forest")
         or family != metadata.get("selected_model")
@@ -272,6 +278,12 @@ def load_package_manifest(package_dir, expected_manifest_sha256=None):
         or manifest.get("references", {}).get("decision_sha256") != hashes["decision.json"]
         or decision.get("frozen_references", {}).get("model_hashes", {}).get(f"{family}.joblib")
         != hashes["model.joblib"]
+        or any(references.get(k) != v for k, v in frozen.items())
+        or frozen.get("model_hashes", {}).get(f"{family}.json") != hashes["model_metadata.json"]
+        or any(type(flags.get(k)) is not bool for k in FLAGS)
+        or [k for k in FLAGS if not flags[k]] != decision.get("failed_requirements", {}).get(family)
+        or metadata.get("feature_manifest_sha256") != references.get("feature_manifest_sha256")
+        or metadata.get("baseline_manifest_sha256") != references.get("baseline_manifest_sha256")
     ):
         raise DataValidationError("Package decision/model references disagree")
     return manifest
@@ -300,9 +312,13 @@ def publish_private_json(path, value):
 def load_packaging_run(report_dir):
     root = local_path(report_dir)
     manifest = read_json(safe_path(root, "packaging_manifest.json"))
-    if (manifest.get("status") != "complete" or manifest.get("packaging_contract_version") != "1.0"
-        or manifest.get("purpose") != "research" or set(manifest.get("report_hashes", {})) !=
-        {"resolved_config.json", "package_inventory.json", "packaging_report.md"}):
+    if (
+        manifest.get("status") != "complete"
+        or manifest.get("packaging_contract_version") != "1.0"
+        or manifest.get("purpose") != "research"
+        or set(manifest.get("report_hashes", {}))
+        != {"resolved_config.json", "package_inventory.json", "packaging_report.md"}
+    ):
         raise DataValidationError("Incomplete packaging run")
     for name, digest in manifest["report_hashes"].items():
         if sha256_file(safe_path(root, name)) != digest:

@@ -1,0 +1,16 @@
+{
+  "inference_contract_version": "2.0",
+  "order": "input_position",
+  "probability_columns": "canonical_labels_mapped_from_estimator_classes",
+  "probability_interpretation": "Uncalibrated model scores; no causal refresh benefit established",
+  "production_ready": false,
+  "purpose": "research",
+  "record_fields": [
+    "content_id",
+    "predicted_trend",
+    "probability_down",
+    "probabilities",
+    "model_version",
+    "warning"
+  ]
+}

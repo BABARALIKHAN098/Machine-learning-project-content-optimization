@@ -218,3 +218,62 @@ Verified SPEC-07 evidence: [evaluation report](reports/evaluation/spec07-referen
 Both real replays exactly reproduce SPEC-06 with unchanged prerequisites. Validation macro F1 is
 0.389920 for logistic regression and 0.430224 for random forest, below the unchanged 0.45 target.
 Neither is recommended; random forest remains the research development reference.
+
+## Research model packaging and local inference (SPEC-08)
+
+SPEC-08 packages the two frozen finalists without refitting. The current SPEC-07
+recommendation remains null and neither model is production-ready. See the
+[adopted contract](specs/SPEC-08-model-packaging-and-inference.md) and
+[SPEC-09 handoff](reports/packaging/SPEC-09-handoff.md).
+
+From an activated environment in Bash (or use `.venv/Scripts/python.exe` explicitly):
+
+```bash
+python scripts/package_model.py --purpose research --run-id my-research-run --dry-run
+python scripts/package_model.py --purpose research --run-id my-research-run
+python scripts/predict_batch.py --package-dir artifacts/packages/my-research-run-random_forest --purpose research --input-path data/examples/synthetic_inference.csv --output-path reports/private-inference/example.json
+```
+
+Choose a fresh run ID and output filename; completed artifacts are never overwritten.
+Both families are packaged by default. Add `--include-probabilities` to batch inference
+only when uncalibrated model scores are needed. `--chunk-rows` controls bounded prediction
+chunks; the whole request must contain at most 30,000 rows. JSON envelopes preserve
+request order, IDs, original model version, package identity and manifest hash.
+
+```python
+from machine_learning_project.inference.contracts import read_request_csv
+from machine_learning_project.inference.packaged_predictor import PackagedPredictor
+
+predictor = PackagedPredictor.load(
+    "artifacts/packages/my-research-run-random_forest", purpose="research"
+)
+frame = read_request_csv(
+    "data/examples/synthetic_inference.csv", predictor.schema, predictor.config
+)
+result = predictor.predict(frame)  # No probability calls in the default mode.
+```
+
+Only trusted local packages are supported. A package contains the unchanged model,
+schemas, decision, model card, exact environment requirements and a project wheel.
+Compatibility requires the exact Python/OS/architecture, dependency versions and
+project source digest in `environment.json`. For an already provisioned compatible
+runtime, install the bundled wheel with `python -m pip install --no-index --no-deps
+<package>/runtime/machine_learning_project-0.1.0-py3-none-any.whl`. Provision exact
+dependencies from a local wheelhouse using `python -m pip install --no-index
+--find-links <wheelhouse> -r <package>/runtime/requirements.txt`. The project wheel
+does not contain those dependencies. No dependency downloads happen during packaging.
+
+The verifier installs the project wheel offline, disables site/editable hooks, reuses
+existing dependency files and denies reads from upstream data/reports/model paths.
+This verifies standalone project imports on this environment; it does not certify a
+fresh machine dependency installation. Package hashes check integrity; a separately
+trusted `expected_manifest_sha256` can pin the package manifest.
+
+```bash
+python scripts/verify_packaging.py --run-prefix my-verification
+```
+
+The verifier runs tests and lint, builds twice with one frozen wheel, checks validation-only
+parity, audits fitting/inference calls and measures a synthetic 30,000-row workload.
+Private response files are ignored by Git. The supplied example uses invented IDs
+and feature values. Existing `Predictor` and `run_batch_inference` remain legacy APIs.

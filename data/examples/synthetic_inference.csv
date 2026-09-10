@@ -1,0 +1,6 @@
+content_id,search_volume,competition,cpc,word_count,char_count,impressions_prev_30d,clicks_prev_30d,sessions_prev_30d,content_age_days,age_tier_order,days_since_last_update,competition_level,content_type,main_intent,model_used,age_tier,freshness_tier,word_count_tier,char_count_tier
+synthetic-000000,,,,,,,,,,,,,,,,,,,
+synthetic-000001,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__
+synthetic-000002,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__
+synthetic-000003,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__
+synthetic-000004,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__,__SYNTHETIC_UNKNOWN__

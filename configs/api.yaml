@@ -1,0 +1,15 @@
+api:
+  api_contract_version: "1.0"
+  purpose: research
+  package_dir: null
+  expected_manifest_sha256: null
+  host: 127.0.0.1
+  port: 8000
+  maximum_request_bytes: 33554432
+  maximum_response_bytes: 67108864
+  maximum_batch_rows: 30000
+  chunk_rows: 5000
+  maximum_content_id_bytes: 256
+  maximum_category_bytes: 1024
+  maximum_active_predictions: 1
+  body_timeout_seconds: 30

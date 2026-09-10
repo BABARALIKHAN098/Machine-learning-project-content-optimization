@@ -1,14 +1,14 @@
 # Implementation Plan - Model Packaging and Inference
 
 **Source:** `specs/SPEC-08-model-packaging-and-inference.md`
-**Status:** Proposed; this request authorizes this planning document only
+**Status:** Complete for research packaging; verified 2026-09-10
 **Prepared:** 2026-09-09
 **Owner:** Babar Ali Khan
 **Outcome:** Package the frozen development finalists reproducibly and define validated, deterministic local inference without implying model acceptance or production readiness.
 
 ## 1. Objective and specification status
 
-SPEC-08 currently contains placeholder scope, requirements, tests and decisions. This plan proposes concrete defaults based on the implemented repository and the SPEC-07 handoff. These defaults become normative when adopted during a separately authorized implementation. Creating this plan does not modify specifications, package models, score data, change inference code, or publish artifacts.
+The user authorized completion on 2026-09-10. SPEC-08 now adopts the requirements and defaults in this plan. The original current-state table below records the planning baseline; the completion evidence at the end records the implemented result.
 
 Deliver two related capabilities:
 
@@ -80,7 +80,7 @@ Reject `purpose=production`, a requested `recommended` alias when the recommenda
 
 Packaging both families creates two named packages and a packaging-run manifest. It does not create a `latest`, `best`, `production` or automatically selected serving pointer. Consumer code chooses a concrete package ID/path.
 
-## 5. Proposed requirements and traceability
+## 5. Adopted requirements and traceability
 
 | Requirement | Behavior | Tests |
 | --- | --- | --- |
@@ -102,7 +102,7 @@ Packaging both families creates two named packages and a packaging-run manifest.
 
 Add `configs/packaging.yaml` and `configs/inference.yaml`, with closed top-level mappings. Reject unknown fields, unsupported versions, duplicate family entries, nonfinite values and booleans masquerading as integer limits.
 
-| Setting | Proposed default / policy |
+| Setting | Adopted default / policy |
 | --- | --- |
 | `packaging_contract_version`, `package_schema_version` | `1.0` |
 | `inference_contract_version` | `2.0`; explicit new interface, preserving legacy record behavior |
@@ -206,7 +206,7 @@ Stage the full private response and publish it atomically only after every chunk
 
 Operational output may echo IDs supplied by the authorized caller, as allowed by SPEC-00. This does not authorize placing source validation IDs or downloadable examples in package cards, verification reports, public logs or version control. Synthetic examples use invented IDs. CLI stdout contains aggregate completion/error information and local output paths only; no row dumps. Access control, retention and remote delivery for an application remain SPEC-09/10 concerns.
 
-## 11. Proposed files and APIs
+## 11. Delivered files and APIs
 
 | File | Responsibility |
 | --- | --- |
@@ -343,7 +343,7 @@ The no-fit audit should target fitted estimator/feature-transformer operations. 
 
 ## 15. Planned commands
 
-These files and flags are deliverables. The commands are illustrative until implementation adopts and provides them.
+These files and flags are implemented. Use fresh run IDs; the completed verification references are recorded below.
 
 ```powershell
 # Read-only verification and intended research package inventory.
@@ -388,22 +388,35 @@ The verifier must record actual commands, return codes, package/manifest hashes,
 
 ## 17. Acceptance checklist and definition of done
 
-- [ ] SPEC-08 adopts concrete scope, requirements, tests and defaults without normative placeholders.
-- [ ] Current null recommendation and research-only packaging policy are explicit and enforced.
-- [ ] Packaging consumes verified evaluation/training references and unchanged finalist bytes.
-- [ ] Dry run performs zero fitting, predictions and writes.
-- [ ] Packages have complete, safe, versioned manifests and standalone inference contracts.
-- [ ] Runtime compatibility is checked before trusted model loading; integrity failures reject packages.
-- [ ] Project runtime assets and supported isolated installation are verified or any external blocker is explicitly recorded.
-- [ ] Strict input/ID/numeric/categorical/resource policies and output validation are covered by tests.
-- [ ] Label-only mode makes no probability calls; optional probabilities map correctly and remain explicitly uncalibrated.
-- [ ] Full/chunked prediction and stable review ranking behave deterministically without model/transformer fitting.
-- [ ] Private batch outputs publish atomically; logs/reports/packages contain no source-row examples or private identifiers.
-- [ ] Legacy bundle loading, prediction record serialization and existing tests remain compatible.
-- [ ] Two builds reproduce semantic package contents and exact source prediction parity on verified validation only.
-- [ ] The synthetic 30,000-row workload has measured evidence without an invented SLA.
-- [ ] All protected source/split/feature/baseline/training/evaluation/model inputs remain unchanged.
-- [ ] Focused/full tests, Ruff, privacy/integrity checks and verification evidence are recorded with actual outcomes.
-- [ ] SPEC-09 receives concrete package references, input/output contracts, usage and unresolved readiness limitations.
+- [x] SPEC-08 adopts concrete scope, requirements, tests and defaults without normative placeholders.
+- [x] Current null recommendation and research-only packaging policy are explicit and enforced.
+- [x] Packaging consumes verified evaluation/training references and unchanged finalist bytes.
+- [x] Dry run performs zero fitting, predictions and writes.
+- [x] Packages have complete, safe, versioned manifests and standalone inference contracts.
+- [x] Runtime compatibility is checked before trusted model loading; integrity failures reject packages.
+- [x] Project runtime assets and supported isolated installation are verified or any external blocker is explicitly recorded.
+- [x] Strict input/ID/numeric/categorical/resource policies and output validation are covered by tests.
+- [x] Label-only mode makes no probability calls; optional probabilities map correctly and remain explicitly uncalibrated.
+- [x] Full/chunked prediction and stable review ranking behave deterministically without model/transformer fitting.
+- [x] Private batch outputs publish atomically; logs/reports/packages contain no source-row examples or private identifiers.
+- [x] Legacy bundle loading, prediction record serialization and existing tests remain compatible.
+- [x] Two builds reproduce semantic package contents and exact source prediction parity on verified validation only.
+- [x] The synthetic 30,000-row workload has measured evidence without an invented SLA.
+- [x] All protected source/split/feature/baseline/training/evaluation/model inputs remain unchanged.
+- [x] Focused/full tests, Ruff, privacy/integrity checks and verification evidence are recorded with actual outcomes.
+- [x] SPEC-09 receives concrete package references, input/output contracts, usage and unresolved readiness limitations.
 
-Completion means reproducible research packaging and a dependable local inference contract. It does not mean that either current finalist qualifies for production, that historical holdout exposure has been resolved, or that deployment is authorized. This request creates only this implementation plan.
+Completion means reproducible research packaging and a dependable local inference contract. It does not mean that either current finalist qualifies for production, that historical holdout exposure has been resolved, or that deployment is authorized.
+
+
+## 18. Completion audit - 2026-09-10
+
+The initial implementation covered most phase 1-4 mechanics but lacked an adopted specification, real verification artifacts, packaging integration coverage, examples and the SPEC-09 handoff. All six phases are now complete for the declared research scope.
+
+Completed gaps: Windows-compatible wheel metadata parsing; stronger decision/model/provenance relationships; protected destination checks; synthetic two-build, batch CLI and interruption integration tests; Ruff cleanup; adopted specification; invented request CSV; usage and environment documentation.
+
+Final command: `.venv/Scripts/python.exe scripts/verify_packaging.py --run-prefix spec08-final` (exit 0). Its full suite includes the focused contract/unit/integration tests: **259 passed**; Ruff passed. Both real builds reproduce semantic contents and unchanged model bytes. Both finalists exactly match labels on **5,857 validation rows** with probability parity at absolute 1e-9. Zero fits, no test scoring, privacy scan passed and protected inputs unchanged. Both 30,000-row synthetic workloads and isolated installed-project checks passed.
+
+Evidence: [reference verification](../../reports/packaging/spec08-final-reference/verification.json), [reference run](../../reports/packaging/spec08-final-reference/packaging_manifest.json), [reproduction run](../../reports/packaging/spec08-final-reproduction/packaging_manifest.json), and [SPEC-09 handoff](../../reports/packaging/SPEC-09-handoff.md).
+
+Implementation decisions: JSON-only private batch output; explicit research purpose required for Python loading; chunk override is a predict/batch argument; package-owned inference configuration remains authoritative. Isolated runtime verification installs the local project wheel and reuses local dependency files with site/editable hooks disabled and upstream reads denied. A clean dependency installation or cross-platform support is not certified. The declaration of complete applies to research engineering, not model acceptance or production readiness. Earlier current-state/proposed-phase descriptions above are historical planning context.

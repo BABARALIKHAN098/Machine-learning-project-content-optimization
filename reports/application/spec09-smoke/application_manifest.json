@@ -1,0 +1,10 @@
+{
+  "api_contract_version": "1.0",
+  "payload_hashes": {
+    "verification.json": "e0cc99eaec6c7edfe71c5ccbc0517911976639ee51fc6302f84c5ed1176279c0",
+    "verification_report.md": "4658b2a9133a6f4a82ae787d51bd6f888d53f98644c25e8b5f591bfe15ace4cc"
+  },
+  "purpose": "research",
+  "run_id": "spec09-smoke",
+  "status": "complete"
+}
