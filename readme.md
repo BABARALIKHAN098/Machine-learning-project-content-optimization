@@ -277,3 +277,70 @@ The verifier runs tests and lint, builds twice with one frozen wheel, checks val
 parity, audits fitting/inference calls and measures a synthetic 30,000-row workload.
 Private response files are ignored by Git. The supplied example uses invented IDs
 and feature values. Existing `Predictor` and `run_batch_inference` remain legacy APIs.
+
+## Content Trend frontend
+
+The HTML/CSS and vanilla JavaScript workspace is served at `/` by the local research API.
+It supports schema-driven single-content input, strict JSON batches, optional model scores,
+validation, searchable/paginated results, and explicit full-response JSON downloads.
+The technical console remains at `/docs`. No frontend build step or Node runtime is needed
+to use the application.
+
+Start the API from a provisioned compatible environment with a complete local model package.
+The following PowerShell example generates a token in the current terminal and uses the
+verified reference random-forest package and manifest pin. Enter the same token in the
+workspace's masked connection field; never commit it or put it in a URL.
+
+```powershell
+$env:CONTENT_TREND_API_TOKEN = & .venv/Scripts/python.exe -c "import secrets; print(secrets.token_urlsafe(32))"
+.venv/Scripts/python.exe scripts/serve_api.py --purpose research --package-dir artifacts/packages/spec08-final-reference-random_forest --expected-manifest-sha256 17d3d181eea90223de0f5ea59edd750d495b1efd32f0a8cafaae45c10d4279e6 --port 8000
+```
+
+Open **http://127.0.0.1:8000/**. To transfer the token on Windows, run
+`Set-Clipboard -Value $env:CONTENT_TREND_API_TOKEN` in the same terminal before launching
+the server, paste it into the workspace, and clear the clipboard afterward. The token is
+kept in page memory only and is cleared by **Clear session** or a page reload.
+
+Use the API's own origin: a separate Live Server port, `file://`, or an externally hosted
+frontend is incompatible with the current host/origin policy. Package selection and token
+configuration remain server-side operator tasks; the UI cannot switch models.
+
+1. Connect, then choose **Single content** or **JSON batch**. **Load synthetic example**
+   loads invented inputs from the running model's schema.
+2. Supply a content ID and feature values. Every feature key is required. Select **Missing**
+   to send JSON `null`; numeric zero and empty category strings remain real values.
+   Unknown categories are accepted. IDs must be unique and have no surrounding whitespace.
+3. For batches, import/paste the API request envelope with `purpose: "research"`,
+   `records`, and an optional boolean `include_probabilities`. CSV is not supported.
+   Duplicate JSON keys, extra/missing fields, invalid types, and active row/byte limits
+   are checked before submission.
+4. Validate and run. **Include model scores** is off by default. Scores are uncalibrated
+   and non-causal; they do not estimate the benefit of editing content.
+5. Review labels, filter or search IDs, and open record details. **Download results JSON**
+   saves the complete original response, even when a filter is active.
+
+No tokens, inputs, or predictions are written to browser storage. Downloads happen only
+when requested. Clearing a session stops the browser waiting; a submitted server prediction
+may continue. A busy service requires an explicit retry. A prediction/output failure can
+make readiness fail even while the health endpoint succeeds, requiring an operator restart.
+
+Frontend verification, using Node 22+ for development tests only:
+
+```text
+node --test tests/frontend/contracts.test.mjs
+python -m pytest tests/contract/test_frontend_routes.py tests/contract/test_api_contract.py
+python -m ruff check app tests scripts
+```
+
+The complete browser runner is `node tests/frontend/browser.mjs`. It requires an installed
+Playwright module, installed Chrome, the compatible Python environment, both complete
+reference packages, and free local port 8127. Set `PLAYWRIGHT_MODULE` to an existing
+Playwright module directory if it is not resolvable by Node; set `FRONTEND_TEST_PYTHON`
+to override `.venv/Scripts/python.exe`. It starts and stops its own local servers, uses
+ephemeral tokens and invented data, checks both model families including 30,000-row batches,
+and saves screenshots and aggregate evidence in ignored `.frontend-work/`.
+Use `node tests/frontend/browser.mjs --ui-only` for the smaller keyboard, error-focus,
+null/zero serialization, contrast, reduced-motion, and zoom verification run.
+
+See the [implementation plan](plan/frontend-html-css/implementation-plan.md) and
+[implementation handoff](plan/frontend-html-css/implementation-handoff.md).

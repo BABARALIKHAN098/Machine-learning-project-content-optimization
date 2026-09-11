@@ -231,3 +231,6 @@ artifacts/packages/*/model.joblib
 artifacts/packages/*/runtime/*.whl
 reports/packaging/*/build_runtime/
 reports/private-inference/
+
+# Local frontend browser screenshots and verification scratch space.
+.frontend-work/

@@ -14,6 +14,13 @@ from .schemas import request_schema, synthetic_document
 router = APIRouter()
 
 
+@router.get("/", include_in_schema=False)
+async def frontend():
+    return HTMLResponse(
+        (Path(__file__).parent / "static/frontend/index.html").read_text(encoding="utf-8")
+    )
+
+
 @router.get("/health")
 async def health():
     return {"status": "healthy"}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A local research workspace for exploring content trend predictions.">
+  <title>Content Trend · Research workspace</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="module" src="/assets/js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to workspace</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#main" aria-label="Content Trend home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Content Trend<span class="brand-subtitle">RESEARCH WORKSPACE</span></span></a>
+      <nav aria-label="Main navigation"><a class="nav-active" href="#analyze">Analyze</a><a href="#results">Results</a><a href="#model-details">Model details</a><a href="/docs">API docs <span aria-hidden="true">↗</span></a></nav>
+      <span id="connection-status" class="status-pill"><span class="status-dot" aria-hidden="true"></span><span id="connection-label">Disconnected</span></span>
+    </div>
+  </header>
+  <main id="main" tabindex="-1" class="container">
+    <noscript><p class="notice">JavaScript is required to connect, validate inputs, and run predictions. Enable it and reload this page.</p></noscript>
+    <div class="page-heading"><div><p class="eyebrow">CONTENT INTELLIGENCE / LOCAL RESEARCH</p><h1>A clearer view of your content.</h1><p class="intro">Explore content trends with your research model. Bring the metrics. Review the signals.</p></div><div class="session-actions"><button id="clear-session" class="button button-quiet" type="button">Clear session <span aria-hidden="true">↺</span></button><small>Clears token, inputs, and results</small></div></div>
+    <div class="research-notice"><span class="notice-icon" aria-hidden="true">i</span><p><strong>Research use only.</strong> Human review required; do not automate content changes.</p><span class="small-tag">EXPERIMENTAL</span></div>
+    <section class="connection-card" aria-labelledby="connection-title">
+      <div class="connection-intro"><span class="step-number">01</span><div><h2 id="connection-title">Connect your model</h2><p id="connection-description">Use the token from your running local API. It stays in this tab.</p></div></div>
+      <form id="connect-form" autocomplete="off"><label class="sr-only" for="token">API access token</label><div class="token-wrap"><input id="token" type="password" placeholder="Enter API access token" autocomplete="off" spellcheck="false" required aria-describedby="connection-description"><button id="reveal-token" type="button" aria-pressed="false">Show</button></div><button class="button button-primary" id="connect" type="submit">Connect <span aria-hidden="true">→</span></button></form>
+      <div id="connected-summary" hidden><span id="connected-model"></span><button id="reconnect" class="button button-secondary" type="button">Reconnect</button></div>
+    </section>
+    <p id="live-status" class="live-status" role="status" aria-live="polite">Connect to load the model’s input fields and limits.</p>
+    <section id="error-summary" class="error-summary" role="alert" tabindex="-1" hidden><h2 id="error-title">Check your inputs</h2><p id="error-message"></p><ul id="error-list"></ul></section>
+    <div class="workspace-grid">
+      <section class="panel analyze-panel" id="analyze" aria-labelledby="analyze-title">
+        <div class="panel-heading"><div><p class="eyebrow">INPUT WORKSPACE</p><h2 id="analyze-title">Analyze content trends</h2><p>Start with one content item or bring a batch.</p></div><span class="step-number">02</span></div>
+        <fieldset id="input-controls" disabled>
+          <legend class="sr-only">Content prediction inputs</legend>
+          <div class="input-toolbar"><fieldset class="mode-switch"><legend class="sr-only">Input mode</legend><label><input type="radio" name="input-mode" value="single" checked><span>Single content</span></label><label><input type="radio" name="input-mode" value="batch"><span>JSON batch</span></label></fieldset><button id="load-example" class="text-button" type="button">Load synthetic example <span aria-hidden="true">↗</span></button></div>
+          <div id="single-panel"><div id="schema-fields"><div class="waiting-state"><span class="waiting-icon" aria-hidden="true">≡</span><h3>Your workspace is ready.</h3><p>Connect a model to load its input fields.<br>Nothing is submitted until you run a prediction.</p><div class="placeholder-lines" aria-hidden="true"><span></span><span></span><span></span></div></div></div></div>
+          <div id="batch-panel" hidden><div class="batch-drop"><span class="eyebrow">BRING YOUR RECORDS</span><h3>Import a JSON request</h3><p>Use the research request envelope. Files stay in this tab until you submit.</p><label class="file-label" for="batch-file">Choose JSON file</label><input id="batch-file" type="file" accept=".json,application/json"><small id="file-status">No file selected · JSON only</small></div><label class="field-label" for="batch-text">Or paste a JSON request</label><textarea id="batch-text" rows="9" spellcheck="false" placeholder='{"purpose":"research","records":[…]}' aria-describedby="batch-help"></textarea><p id="batch-help" class="helper">Include every required field. Use JSON null for missing values; extra columns are rejected.</p><div id="batch-preview" hidden><div class="section-line"><h3>Batch preview</h3><span id="preview-count" class="helper"></span></div><div class="table-scroll" role="region" aria-label="Batch preview" tabindex="0"><table><caption class="sr-only">Imported input records</caption><thead id="preview-head"></thead><tbody id="preview-body"></tbody></table></div><div class="pagination"><button id="preview-prev" type="button" class="button button-secondary">Previous</button><span id="preview-page"></span><button id="preview-next" type="button" class="button button-secondary">Next</button></div></div></div>
+          <div class="prediction-options"><label class="checkbox-label"><input id="include-scores" type="checkbox"><span><strong>Include model scores</strong><small>Uncalibrated scores, not an estimate of the benefit of editing content.</small></span></label><span class="optional-tag">OPTIONAL</span></div>
+          <div class="submit-bar"><p id="input-summary">No validated input yet</p><div class="button-row"><button id="validate" class="button button-secondary" type="button">Validate inputs</button><button id="predict" class="button button-primary" type="button">Run prediction <span aria-hidden="true">→</span></button></div></div>
+        </fieldset>
+      </section>
+      <aside class="sidebar">
+        <section class="panel model-panel" id="model-details" aria-labelledby="model-title"><div class="section-line"><span class="eyebrow">MODEL CONTEXT</span><span class="model-icon" aria-hidden="true">⌘</span></div><h2 id="model-title">Your research model</h2><p id="model-empty">Connect to see the active package, version, and operating limits.</p><dl id="model-facts"></dl><details id="model-technical" hidden><summary>Package details</summary><dl id="model-provenance"></dl></details><ul id="model-limitations"></ul><div class="local-footnote"><span class="status-dot" aria-hidden="true"></span>Runs on your local API</div></section>
+        <section class="panel guide-panel"><p class="eyebrow">A LITTLE CONTEXT</p><h2>Five signals. Your judgment.</h2><p>Each item receives one trend label. Use it as a starting point for your review.</p><div class="trend-legend"><span class="badge down">↓ Down</span><span class="badge stable">→ Stable</span><span class="badge up">↑ Up</span><span class="badge new">✧ New</span><span class="badge flat">− Flat</span></div><div class="guide-divider"></div><h3>Missing a metric?</h3><p>Select <strong>Missing</strong> beside the field. The model uses its fitted imputation. Empty category text is still a value.</p></section>
+        <div class="privacy-note"><span aria-hidden="true">◇</span><p><strong>A temporary workspace</strong><br>No saved sessions or automatic downloads. Refreshing clears your work.</p></div>
+      </aside>
+    </div>
+    <section id="results" class="panel results-panel" aria-labelledby="results-title"><div class="panel-heading"><div><p class="eyebrow">PREDICTION OUTPUT</p><h2 id="results-title" tabindex="-1">Results, ready for your review.</h2><p id="result-context">Your predictions will appear here after a successful run.</p></div><button id="download" class="button button-secondary" type="button" disabled>Download results JSON <span aria-hidden="true">↓</span></button></div><div id="results-empty" class="results-empty"><span aria-hidden="true">↗</span><div><h3>Every insight starts with an input.</h3><p>Connect your model, add content metrics, and run your first prediction.</p></div></div><div id="results-content" hidden><div id="result-counts" class="result-counts"></div><div class="results-toolbar"><div><label for="result-search">Find content</label><input id="result-search" type="search" placeholder="Search content ID…"></div><div><label for="result-filter">Trend</label><select id="result-filter"><option value="">All trends</option></select></div><div><label for="page-size">Rows per page</label><select id="page-size"><option>25</option><option selected>50</option><option>100</option></select></div><button id="clear-filters" class="text-button" type="button">Clear filters</button></div><div class="table-scroll" role="region" aria-label="Prediction results" tabindex="0"><table><caption class="sr-only">Prediction results in original input order</caption><thead><tr><th scope="col">#</th><th scope="col">Content ID</th><th scope="col">Trend</th><th scope="col">Down score</th><th scope="col">Model version</th><th scope="col">Review</th></tr></thead><tbody id="result-rows"></tbody></table></div><p id="no-matches" class="results-empty" hidden>No matching results. Clear the filters to see the complete run.</p><div class="pagination"><span id="result-page"></span><div class="button-row"><button id="result-prev" class="button button-secondary" type="button">Previous</button><button id="result-next" class="button button-secondary" type="button">Next</button></div></div></div></section>
+    <footer class="site-footer"><span>Content Trend <span class="footer-dot">·</span> Research workspace</span><span>Local inference. Human decisions.</span></footer>
+  </main>
+</body>
+</html>

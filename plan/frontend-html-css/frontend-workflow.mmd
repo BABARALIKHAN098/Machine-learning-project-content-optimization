@@ -1,0 +1,19 @@
+flowchart LR
+openApp(["Open research workspace"]) --> connect["Enter local API token"]
+connect --> inspect["Check readiness and load model and schema"]
+inspect --> available{"Ready and authorized?"}
+available -->|"No"| reconnect["Show connection error and reconnect"]
+available -->|"Yes"| prepare["Enter content or import JSON batch"]
+prepare --> validate{"Schema and size valid?"}
+validate -->|"No"| correct["Show row and field issues"]
+correct --> prepare
+validate -->|"Yes"| submit["Submit research prediction"]
+submit --> outcome{"API response"}
+outcome -->|"200"| review["Review five trend labels and optional scores"]
+outcome -->|"429"| busy["Show busy state and manual retry"]
+outcome -->|"401 or 503"| reconnect
+outcome -->|"Other error"| failure["Show safe error and request ID"]
+review --> exportData["Download results JSON on request"]
+review --> clearSession(["Clear session"])
+classDef primary fill:#DBEAFE,stroke:#2563EB
+class inspect,prepare,submit,review primary

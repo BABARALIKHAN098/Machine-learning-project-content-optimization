@@ -1,11 +1,13 @@
 """Local research API. Importing this module never loads a model."""
 
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.exceptions import RequestValidationError
 from fastapi.openapi.utils import get_openapi
 from starlette.exceptions import HTTPException
+from starlette.staticfiles import StaticFiles
 
 from machine_learning_project.inference.packaged_predictor import PackagedPredictor
 
@@ -70,6 +72,11 @@ def create_app(settings=None, predictor_loader=None):
         debug=False,
     )
     application.include_router(router)
+    application.mount(
+        "/assets",
+        StaticFiles(directory=Path(__file__).parent / "static/frontend"),
+        name="frontend-assets",
+    )
     application.add_middleware(TransportMiddleware)
 
     @application.exception_handler(APIError)

@@ -9,6 +9,19 @@ import uuid
 from .errors import APIError, error_response
 
 ROUTES = {
+    "/",
+    "/assets/css/tokens.css",
+    "/assets/css/main.css",
+    "/assets/js/main.js",
+    "/assets/js/api.js",
+    "/assets/js/state.js",
+    "/assets/js/schema-form.js",
+    "/assets/js/strict-json.js",
+    "/assets/js/validation.js",
+    "/assets/js/batch-input.js",
+    "/assets/js/results.js",
+    "/assets/js/download.js",
+    "/assets/favicon.svg",
     "/health",
     "/ready",
     "/docs",
